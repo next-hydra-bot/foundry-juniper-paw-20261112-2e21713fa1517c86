@@ -14,7 +14,7 @@ export const decodeCommerceCategoryId = (
   // oxlint-disable-next-line anti-slop/no-unknown-parameters -- This is the custom-field JSON boundary; decodeUnknownOption validates the CMS value before any field access.
   value: unknown
 ): Option.Option<CategoryId | undefined> => {
-  if (value === null || value === undefined) {
+  if (value === null || value === undefined || value === "") {
     return Option.some(undefined);
   }
 

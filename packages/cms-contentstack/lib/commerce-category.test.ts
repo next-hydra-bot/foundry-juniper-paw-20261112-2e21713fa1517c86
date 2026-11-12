@@ -11,7 +11,7 @@ describe(decodeCommerceCategoryId, () => {
     expect(Option.getOrUndefined(result)).toBeUndefined();
   });
 
-  it("decodes a selected domain Category ID", () => {
+  it("decodes a legacy custom field", () => {
     const result = decodeCommerceCategoryId({
       data: [{ id: "category-1", providerField: "ignored" }],
     });
@@ -22,7 +22,8 @@ describe(decodeCommerceCategoryId, () => {
   it("decodes the native text field written by the importer", () => {
     expect(Option.getOrUndefined(decodeCommerceCategoryId("gid://shopify/Collection/123")))
       .toBe("gid://shopify/Collection/123");
-    expect(Option.isNone(decodeCommerceCategoryId(""))).toBeTruthy();
+    expect(Option.isSome(decodeCommerceCategoryId(""))).toBeTruthy();
+    expect(Option.getOrUndefined(decodeCommerceCategoryId(""))).toBeUndefined();
   });
 
   it("rejects malformed CMS Category data", () => {

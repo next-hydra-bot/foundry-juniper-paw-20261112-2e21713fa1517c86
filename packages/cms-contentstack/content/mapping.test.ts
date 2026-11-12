@@ -102,7 +102,9 @@ describe("Localized modular-block contract", () => {
 
 
 it("emits stable Contentstack JSON RTE document and block UIDs", () => {
-  const body = [{ type: "paragraph" as const, children: [{ text: "Care" }] }];
+  const body: Parameters<typeof richTextContentstack>[0] = [
+    { type: "paragraph", children: [{ text: "Care" }] },
+  ];
   const result = richTextContentstack(body);
   expect(result).toEqual(richTextContentstack(body));
   expect(result.uid).toMatch(/^[a-f0-9]{16}$/);

@@ -79,8 +79,7 @@
           ],
           "type": "doc"
         },
-        "heading": "Featured equipment",
-        "product_category": null
+        "heading": "Featured equipment"
       }
     },
     "localizedBlocks": {
@@ -100,8 +99,7 @@
             ],
             "type": "doc"
           },
-          "heading": "Équipement en vedette",
-          "product_category": null
+          "heading": "Équipement en vedette"
         }
       }
     }
