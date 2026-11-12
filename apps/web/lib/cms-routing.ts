@@ -14,6 +14,8 @@ export function resolveCmsPagePath(
   const requestedPath = typeof url === "string" ? url : url?.join("/");
 
   return requestedPath && !NEXT_DYNAMIC_ROUTE_PLACEHOLDER.test(requestedPath)
-    ? requestedPath
+    ? requestedPath.startsWith("/")
+      ? requestedPath
+      : `/${requestedPath}`
     : toCmsHomepagePath(homepageSlug);
 }
