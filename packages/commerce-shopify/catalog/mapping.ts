@@ -110,7 +110,7 @@ export const variantOptions = (
       });
 
 const bundledPaths = new Set(
-  Object.values(bundledCatalogFiles).map(fileURLToPath)
+  Object.values(bundledCatalogFiles).map((url) => fileURLToPath(url))
 );
 
 export const shopifyCatalogReaders = (
