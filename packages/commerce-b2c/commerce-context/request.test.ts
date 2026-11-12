@@ -4,10 +4,12 @@ import type {
   NextCookieSetOptions,
 } from "@repo/actions/next-request";
 import { CartId } from "@repo/commerce-core/domain/cart";
+import { CurrencyCode } from "@repo/commerce-core/domain/money";
 import {
   ANONYMOUS_CART_COOKIE_NAME,
   decodeAnonymousCartCookie,
 } from "@repo/commerce-core/lib/cart/utils/anonymous-cart-cookies";
+import { CommerceLocale, StoreKey } from "@repo/commerce-core/store";
 import { Effect } from "effect";
 
 import { makeB2CPurchasingRequest } from "./request";
@@ -56,10 +58,24 @@ it.effect(
   () =>
     Effect.gen(function* () {
       const jar = cookies();
+      const otherStore = StoreKey.make("other-market");
+      const storefront = {
+        locale: CommerceLocale.make("en-US"),
+        currency: CurrencyCode.make("USD"),
+      };
+      const storeConfiguration = [
+        {
+          ...storefront,
+          storeKey: StoreKey.make("default-market"),
+          isDefault: true,
+        },
+        { ...storefront, storeKey: otherStore, isDefault: false },
+      ];
       const request = yield* makeB2CPurchasingRequest(
         "en-US",
         jar.store,
-        undefined
+        undefined,
+        { storeConfiguration }
       );
       yield* request.currentCartCookie.set(CartId.make("guest-cart"));
       const encoded = jar.values.get(ANONYMOUS_CART_COOKIE_NAME);
@@ -70,16 +86,18 @@ it.effect(
       const next = yield* makeB2CPurchasingRequest(
         "en-US",
         jar.store,
-        undefined
+        undefined,
+        { storeConfiguration }
       );
       expect(next.context).toMatchObject({
         _tag: "AnonymousCommerceContextRequest",
         anonymousCartId: "guest-cart",
       });
       const otherMarket = yield* makeB2CPurchasingRequest(
-        "de-DE",
+        "en-US",
         jar.store,
-        undefined
+        undefined,
+        { selectedStoreKey: otherStore, storeConfiguration }
       );
       expect(otherMarket.context).not.toHaveProperty("anonymousCartId");
     })
