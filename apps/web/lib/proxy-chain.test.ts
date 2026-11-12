@@ -8,6 +8,11 @@ import { NextFetchEvent } from "next/dist/server/web/spec-extension/fetch-event"
 import { NextRequest, NextResponse } from "next/server";
 import { describe, expect, it, vi } from "vitest";
 
+vi.mock(
+  "@repo/site-config/localization",
+  () => import("@repo/site-config/test-localization")
+);
+
 const origin = "https://web.example.test";
 const csp = "frame-ancestors 'self' https://cms.example.test";
 

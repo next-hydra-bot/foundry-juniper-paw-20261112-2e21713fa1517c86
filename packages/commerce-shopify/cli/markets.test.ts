@@ -341,11 +341,11 @@ describe("Shopify Market provisioning", () => {
   );
 
   it.effect(
-    "reuses the native domestic Market, updates exact matches, and converges on reruns",
+    "reuses explicitly configured Markets, updates exact matches, and converges on reruns",
     () =>
       Effect.gen(function* () {
         const target = fixture([
-          market("united-states", ["US"], "USD"),
+          market("us", ["US"], "USD"),
           market("united-kingdom", ["GB"], "USD", "DRAFT"),
         ]);
         const first = yield* provision(target, false);
@@ -425,7 +425,7 @@ describe("Shopify Market provisioning", () => {
     () =>
       Effect.gen(function* () {
         const target = fixture([
-          market("united-states", ["US"], "USD"),
+          market("us", ["US"], "USD"),
           market("other", ["US"], "CAD"),
         ]);
         const error = yield* provision(target, false, ["default-store"]).pipe(

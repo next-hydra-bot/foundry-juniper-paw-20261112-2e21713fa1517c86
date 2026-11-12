@@ -901,6 +901,9 @@ importers:
       '@repo/payments':
         specifier: workspace:*
         version: link:../payments
+      '@repo/site-config':
+        specifier: workspace:*
+        version: link:../site-config
       migrate-sdk:
         specifier: 0.17.1
         version: 0.17.1(patch_hash=ae427ded81e81252672c2240fc4636a55c2da8fabfb240692211c3337093c4ff)(@effect/platform-node@4.0.6)(effect@4.0.6)
