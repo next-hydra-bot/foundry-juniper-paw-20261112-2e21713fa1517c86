@@ -1,0 +1,384 @@
+{
+  "defaultLocale": "en-US",
+  "categories": [
+    {
+      "key": "equipment-earthmoving",
+      "title": "Earthmoving",
+      "description": "Equipment for earthmoving and site preparation.",
+      "translations": {
+        "fr-FR": {
+          "title": "Terrassement",
+          "description": "Équipement de terrassement et de préparation des chantiers."
+        },
+        "en-CA": {
+          "description": "Equipment for earthmoving and site preparation.",
+          "title": "Earthmoving"
+        },
+        "fr-CA": {
+          "title": "Terrassement",
+          "description": "Équipement de terrassement et de préparation des chantiers."
+        }
+      }
+    },
+    {
+      "key": "equipment-lifting",
+      "title": "Lifting and handling",
+      "description": "Lifting and warehouse handling equipment.",
+      "translations": {
+        "fr-FR": {
+          "title": "Levage et manutention",
+          "description": "Équipement de levage et de manutention pour entrepôts."
+        },
+        "en-CA": {
+          "description": "Lifting and warehouse handling equipment.",
+          "title": "Lifting and handling"
+        },
+        "fr-CA": {
+          "title": "Levage et manutention",
+          "description": "Équipement de levage et de manutention pour entrepôts."
+        }
+      }
+    },
+    {
+      "key": "equipment-attachments",
+      "title": "Attachments",
+      "description": "Replacement attachments and accessories.",
+      "translations": {
+        "fr-FR": {
+          "title": "Accessoires",
+          "description": "Accessoires et pièces de remplacement."
+        },
+        "en-CA": {
+          "description": "Replacement attachments and accessories.",
+          "title": "Attachments"
+        },
+        "fr-CA": {
+          "title": "Accessoires",
+          "description": "Accessoires et pièces de remplacement."
+        }
+      }
+    }
+  ],
+  "products": [
+    {
+      "key": "equipment-compact-excavator",
+      "title": "Compact excavator",
+      "description": "Tracked equipment for compact construction sites. Select the model before adding it to your cart.",
+      "productType": "heavy-earthmoving-and-construction-equipment",
+      "variants": [
+        {
+          "sku": "EXC-180",
+          "quantity": 4,
+          "attributes": {
+            "capacity": 1.8,
+            "iso45001": true,
+            "mobility": {
+              "key": "tracked",
+              "label": "Tracked"
+            },
+            "model": 180
+          },
+          "optionValues": {
+            "model": "180"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 2400000,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/equipment-compact-excavator-180-generated-0d1bf154d3aa.png?v=1793394767",
+              "altText": "Compact excavator model 180 with open canopy, three-quarter view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        },
+        {
+          "sku": "EXC-250",
+          "quantity": 2,
+          "attributes": {
+            "capacity": 2.5,
+            "iso45001": true,
+            "mobility": {
+              "key": "tracked",
+              "label": "Tracked"
+            },
+            "model": 250
+          },
+          "optionValues": {
+            "model": "250"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 3200000,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/equipment-compact-excavator-250-generated-322f3f7a988d.png?v=1793394772",
+              "altText": "Compact excavator model 250 with enclosed cab, three-quarter view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "key": "180",
+              "label": "180"
+            },
+            {
+              "key": "250",
+              "label": "250"
+            }
+          ]
+        }
+      ],
+      "relatedProductKeys": ["equipment-replacement-attachment"],
+      "categoryKeys": ["equipment-earthmoving"],
+      "translations": {
+        "fr-FR": {
+          "title": "Mini-pelle",
+          "description": "Une pelle compacte pour les travaux de terrassement dans les espaces réduits."
+        },
+        "en-CA": {
+          "description": "Tracked equipment for compact construction sites. Select the model before adding it to your cart.",
+          "title": "Compact excavator"
+        },
+        "fr-CA": {
+          "title": "Mini-pelle",
+          "description": "Une pelle compacte pour les travaux de terrassement dans les espaces réduits."
+        }
+      }
+    },
+    {
+      "key": "equipment-mobile-lift",
+      "title": "Mobile lift",
+      "description": "Wheeled lifting equipment available in two colors. The blue variant is temporarily out of stock.",
+      "productType": "heavy-lifting-and-specialized-equipment",
+      "variants": [
+        {
+          "sku": "LIFT-RED",
+          "quantity": 6,
+          "attributes": {
+            "capacity": 300,
+            "iso45001": true,
+            "mobility": {
+              "key": "wheeled",
+              "label": "Wheeled"
+            },
+            "color": {
+              "key": "RED",
+              "label": "Red"
+            }
+          },
+          "optionValues": {
+            "color": "RED"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 460000,
+              "currencyCode": "USD"
+            },
+            "discounted": {
+              "centAmount": 420000,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/equipment-mobile-lift-red-generated-de6c08fea820.png?v=1793394778",
+              "altText": "Red mobile scissor lift in its lowered position",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        },
+        {
+          "sku": "LIFT-BLUE",
+          "quantity": 0,
+          "attributes": {
+            "capacity": 300,
+            "iso45001": true,
+            "mobility": {
+              "key": "wheeled",
+              "label": "Wheeled"
+            },
+            "color": {
+              "key": "BLUE",
+              "label": "Blue"
+            }
+          },
+          "optionValues": {
+            "color": "BLUE"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 420000,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/equipment-mobile-lift-blue-generated-b6e9648b5c65.png?v=1793394781",
+              "altText": "Blue mobile scissor lift in its lowered position",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "color",
+          "label": "Color",
+          "values": [
+            {
+              "key": "RED",
+              "label": "Red"
+            },
+            {
+              "key": "BLUE",
+              "label": "Blue"
+            }
+          ]
+        }
+      ],
+      "relatedProductKeys": [],
+      "categoryKeys": ["equipment-lifting"],
+      "translations": {
+        "fr-FR": {
+          "title": "Grue mobile",
+          "description": "Un équipement de levage mobile pour les chantiers et les entrepôts."
+        },
+        "en-CA": {
+          "description": "Wheeled lifting equipment available in two colors. The blue variant is temporarily out of stock.",
+          "title": "Mobile lift"
+        },
+        "fr-CA": {
+          "title": "Grue mobile",
+          "description": "Un équipement de levage mobile pour les chantiers et les entrepôts."
+        }
+      }
+    },
+    {
+      "key": "equipment-pallet-truck",
+      "title": "Pallet truck",
+      "description": "A compact pallet truck for warehouse and loading operations.",
+      "productType": "heavy-earthmoving-and-construction-equipment",
+      "variants": [
+        {
+          "sku": "PALLET-2000",
+          "quantity": 12,
+          "attributes": {
+            "capacity": 2000,
+            "mobility": {
+              "key": "wheeled",
+              "label": "Wheeled"
+            },
+            "model": 2000
+          },
+          "optionValues": {
+            "model": "2000"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 45000,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/equipment-pallet-truck-generated-6a94303e3c4d.png?v=1793394784",
+              "altText": "Orange manual hydraulic pallet truck, three-quarter view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "model",
+          "label": "Model",
+          "values": [
+            {
+              "key": "2000",
+              "label": "2000"
+            }
+          ]
+        }
+      ],
+      "relatedProductKeys": [],
+      "categoryKeys": ["equipment-lifting"],
+      "translations": {
+        "fr-FR": {
+          "title": "Transpalette",
+          "description": "Un transpalette robuste pour déplacer les palettes dans un entrepôt."
+        },
+        "en-CA": {
+          "description": "A compact pallet truck for warehouse and loading operations.",
+          "title": "Pallet truck"
+        },
+        "fr-CA": {
+          "title": "Transpalette",
+          "description": "Un transpalette robuste pour déplacer les palettes dans un entrepôt."
+        }
+      }
+    },
+    {
+      "key": "equipment-replacement-attachment",
+      "title": "Replacement attachment",
+      "description": "A replacement attachment compatible with the compact excavator.",
+      "productType": "generic-product",
+      "variants": [
+        {
+          "sku": "ATTACH-STD",
+          "quantity": 20,
+          "attributes": {},
+          "optionValues": {},
+          "price": {
+            "regular": {
+              "centAmount": 18000,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/equipment-replacement-attachment-generated-5fbef90a2db6.png?v=1793394787",
+              "altText": "Steel replacement excavator digging bucket with mounting lugs and teeth",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        }
+      ],
+      "options": [],
+      "relatedProductKeys": [],
+      "categoryKeys": ["equipment-attachments"],
+      "translations": {
+        "fr-FR": {
+          "title": "Accessoire de remplacement",
+          "description": "Un accessoire de remplacement pour votre équipement de chantier."
+        },
+        "en-CA": {
+          "description": "A replacement attachment compatible with the compact excavator.",
+          "title": "Replacement attachment"
+        },
+        "fr-CA": {
+          "title": "Accessoire de remplacement",
+          "description": "Un accessoire de remplacement pour votre équipement de chantier."
+        }
+      }
+    }
+  ]
+}

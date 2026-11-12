@@ -1,0 +1,52 @@
+{
+  "bltnexthydrahome01": {
+    "components": [
+      {
+        "hero_section": {
+          "cta": [
+            {
+              "external_url": "/products",
+              "label": "Voir l’équipement"
+            }
+          ],
+          "description": {
+            "attrs": {},
+            "children": [
+              {
+                "attrs": {},
+                "children": [
+                  {
+                    "text": "Découvrez de l’équipement durable pour la construction, l’agriculture et la manutention."
+                  }
+                ],
+                "type": "p",
+                "uid": "c90ee225fe724768"
+              }
+            ],
+            "type": "doc",
+            "uid": "0979e91a3bb148bb"
+          },
+          "image_alt": "",
+          "tagline": "Catalogue d’équipement B2B",
+          "title": "De la machinerie lourde pour tous vos travaux"
+        }
+      }
+    ],
+    "display_title": "",
+    "hide_display_title": true,
+    "locale": "fr-ca",
+    "publish_details": [
+      {
+        "environment": "bltnexthydradev01",
+        "locale": "fr-ca"
+      },
+      {
+        "environment": "bltnexthydraprd01",
+        "locale": "fr-ca"
+      }
+    ],
+    "title": "Accueil",
+    "uid": "bltnexthydrahome01",
+    "url": "/"
+  }
+}

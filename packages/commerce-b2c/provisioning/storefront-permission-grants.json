@@ -1,0 +1,8 @@
+[
+  {
+    "key": "outdoor-shopper-account",
+    "authUserKey": "outdoor-shopper",
+    "scope": { "type": "customer", "key": "outdoor-shopper" },
+    "permissions": ["customer.profile.update", "customer.addresses.manage"]
+  }
+]

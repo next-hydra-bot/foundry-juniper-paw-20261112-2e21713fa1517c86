@@ -1,0 +1,23 @@
+[
+  {
+    "key": "welcome",
+    "locale": "en-US",
+    "enabled": true,
+    "message": "Welcome to Juniper & Paw.",
+    "link": { "label": "Explore Juniper & Paw", "url": "/" }
+  },
+  {
+    "key": "welcome",
+    "locale": "en-CA",
+    "enabled": true,
+    "message": "Welcome to Juniper & Paw.",
+    "link": { "label": "Explore Juniper & Paw", "url": "/en-CA" }
+  },
+  {
+    "key": "welcome",
+    "locale": "fr-CA",
+    "enabled": true,
+    "message": "Bienvenue chez Juniper & Paw.",
+    "link": { "label": "Découvrir Juniper & Paw", "url": "/fr-CA" }
+  }
+]

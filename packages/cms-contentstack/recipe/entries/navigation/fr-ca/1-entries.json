@@ -1,0 +1,52 @@
+{
+  "bltnexthydranav001": {
+    "brand_name": "TitanMach",
+    "footer_description": "Découvrez de l’équipement, des guides pratiques et du soutien pour votre prochain projet.",
+    "footer_links": [
+      {
+        "children": [],
+        "external_url": "/",
+        "label": "Accueil"
+      }
+    ],
+    "locale": "fr-ca",
+    "main_navigation": {
+      "items": [
+        {
+          "children": [],
+          "internal_content": [
+            {
+              "_content_type_uid": "landing_page",
+              "uid": "bltnexthydrahome01"
+            }
+          ],
+          "label": "Accueil"
+        },
+        {
+          "children": [
+            {
+              "description": "Parcourez le catalogue complet de machinerie lourde.",
+              "external_url": "/products",
+              "icon": "Truck",
+              "label": "Tout l’équipement"
+            }
+          ],
+          "external_url": "/products",
+          "label": "Équipement"
+        }
+      ]
+    },
+    "publish_details": [
+      {
+        "environment": "bltnexthydradev01",
+        "locale": "fr-ca"
+      },
+      {
+        "environment": "bltnexthydraprd01",
+        "locale": "fr-ca"
+      }
+    ],
+    "title": "Navigation principale",
+    "uid": "bltnexthydranav001"
+  }
+}

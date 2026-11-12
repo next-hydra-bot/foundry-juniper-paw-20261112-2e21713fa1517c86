@@ -1,0 +1,26 @@
+{
+  "classes": [
+    {
+      "key": "standard",
+      "name": "Standard goods"
+    }
+  ],
+  "products": [
+    {
+      "productKey": "outdoor-trail-jacket",
+      "taxClassKey": "standard"
+    },
+    {
+      "productKey": "outdoor-hiking-shirt",
+      "taxClassKey": "standard"
+    },
+    {
+      "productKey": "outdoor-daypack",
+      "taxClassKey": "standard"
+    },
+    {
+      "productKey": "outdoor-insulated-bottle",
+      "taxClassKey": "standard"
+    }
+  ]
+}

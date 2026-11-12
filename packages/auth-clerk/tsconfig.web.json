@@ -1,0 +1,39 @@
+{
+  "extends": "@repo/typescript-config/effect-nextjs.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["../../apps/web/*"],
+      "@repo/auth": ["./"],
+      "@repo/auth/*": ["./*"],
+      "@repo/cms": ["../../apps/web/node_modules/@repo/cms"],
+      "@repo/cms/*": ["../../apps/web/node_modules/@repo/cms/*"],
+      "@repo/commerce-core/bindings": [
+        "../../apps/web/lib/commerce-runtime.ts"
+      ],
+      "@repo/commerce-provider": [
+        "../../apps/web/node_modules/@repo/commerce-provider"
+      ],
+      "@repo/commerce-provider/*": [
+        "../../apps/web/node_modules/@repo/commerce-provider/*"
+      ],
+      "@repo/*": ["../*"],
+      "@repo/commerce-b2b/bindings": ["../../apps/web/lib/commerce-runtime.ts"],
+      "@repo/commerce-checkout/bindings": [
+        "../../apps/web/lib/commerce-runtime.ts"
+      ]
+    }
+  },
+  "include": [
+    "../../apps/web/next-env.d.ts",
+    "../../apps/web/next.config.ts",
+    "../../apps/web/**/*.ts",
+    "../../apps/web/**/*.tsx",
+    "registry/apps/web/**/*.tsx"
+  ],
+  "exclude": [
+    "../../apps/web/.next",
+    "../../apps/web/app/api/auth",
+    "../../apps/web/node_modules",
+    "**/*.template.*"
+  ]
+}

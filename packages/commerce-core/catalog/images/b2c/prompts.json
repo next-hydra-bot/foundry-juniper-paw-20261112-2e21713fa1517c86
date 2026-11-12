@@ -1,0 +1,29 @@
+{
+  "generator": "Built-in image generation",
+  "assets": [
+    {
+      "file": "trail-jacket-red.png",
+      "prompt": "Use case: product-mockup. Asset type: square ecommerce catalog product photograph. Photorealistic studio photography for an unbranded outdoor equipment collection. Seamless very pale warm gray background, soft diffused daylight from upper left, subtle realistic contact shadow, centered complete product with comfortable whitespace, crisp true-to-life materials, consistent clean editorial catalog style. One product only. No people, no hands, no logos, no lettering, no text, no watermark, no collage, no props. Square 1024 by 1024 composition.\nSubject: A lightweight red recycled-polyester hooded trail shell jacket, front view on an invisible mannequin, zipped to the upper chest, simple practical construction with two zippered hand pockets, matte woven shell, elastic cuffs, hem and hood fully visible. Saturated brick red fabric and dark charcoal hardware."
+    },
+    {
+      "file": "trail-jacket-blue.png",
+      "prompt": "Use case: product-mockup. Asset type: square ecommerce catalog product photograph. Photorealistic studio photography for an unbranded outdoor equipment collection. Seamless very pale warm gray background, soft diffused daylight from upper left, subtle realistic contact shadow, centered complete product with comfortable whitespace, crisp true-to-life materials, consistent clean editorial catalog style. One product only. No people, no hands, no logos, no lettering, no text, no watermark, no collage, no props. Square 1024 by 1024 composition.\nSubject: A lightweight blue recycled-polyester hooded trail shell jacket, front view on an invisible mannequin, zipped to the upper chest, simple practical construction with two zippered hand pockets, matte woven shell, elastic cuffs, hem and hood fully visible. Deep cobalt blue fabric and dark charcoal hardware."
+    },
+    {
+      "file": "hiking-shirt.png",
+      "prompt": "Use case: product-mockup. Asset type: square ecommerce catalog product photograph. Photorealistic studio photography for an unbranded outdoor equipment collection. Seamless very pale warm gray background, soft diffused daylight from upper left, subtle realistic contact shadow, centered complete product with comfortable whitespace, crisp true-to-life materials, consistent clean editorial catalog style. One product only. No people, no hands, no logos, no lettering, no text, no watermark, no collage, no props. Square 1024 by 1024 composition.\nSubject: A breathable organic cotton short-sleeved crew-neck hiking T-shirt in muted sage green, natural front-facing invisible mannequin presentation, simple functional design, refined cotton knit texture, believable seams and soft folds, both sleeves and hem fully visible."
+    },
+    {
+      "file": "daypack-black.png",
+      "prompt": "Use case: product-mockup. Asset type: square ecommerce catalog product photograph. Photorealistic studio photography for an unbranded outdoor equipment collection. Seamless very pale warm gray background, soft diffused daylight from upper left, subtle realistic contact shadow, centered complete product with comfortable whitespace, crisp true-to-life materials, consistent clean editorial catalog style. One product only. No people, no hands, no logos, no lettering, no text, no watermark, no collage, no props. Square 1024 by 1024 composition.\nSubject: A compact 20-liter black recycled-nylon hiking daypack, front three-quarter view showing the front and right side, zippered main compartment, smaller zipped front pocket, subtle mesh side water-bottle pocket, adjustable padded shoulder straps and small top grab loop. Realistic technical woven nylon texture, matte black fabric, dark charcoal webbing, modest practical silhouette."
+    },
+    {
+      "file": "daypack-green.png",
+      "prompt": "Use case: product-mockup. Asset type: square ecommerce catalog product photograph. Photorealistic studio photography for an unbranded outdoor equipment collection. Seamless very pale warm gray background, soft diffused daylight from upper left, subtle realistic contact shadow, centered complete product with comfortable whitespace, crisp true-to-life materials, consistent clean editorial catalog style. One product only. No people, no hands, no logos, no lettering, no text, no watermark, no collage, no props. Square 1024 by 1024 composition.\nSubject: A compact 20-liter forest-green recycled-nylon hiking daypack, front three-quarter view showing the front and right side, zippered main compartment, smaller zipped front pocket, subtle mesh side water-bottle pocket, adjustable padded shoulder straps and small top grab loop. Realistic technical woven nylon texture, matte deep forest green fabric, dark charcoal webbing, modest practical silhouette."
+    },
+    {
+      "file": "insulated-bottle.png",
+      "prompt": "Use case: product-mockup. Asset type: square ecommerce catalog product photograph. Photorealistic studio photography for an unbranded outdoor equipment collection. Seamless very pale warm gray background, soft diffused daylight from upper left, subtle realistic contact shadow, centered complete product with comfortable whitespace, crisp true-to-life materials, consistent clean editorial catalog style. One product only. No people, no hands, no logos, no lettering, no text, no watermark, no collage, no props. Square 1024 by 1024 composition.\nSubject: A reusable 750 ml insulated stainless steel water bottle standing upright, refined simple cylindrical brushed stainless steel body, rounded shoulders, a closed black screw-top cap with a small practical carry loop, realistic brushed metal grain and gentle reflections. Entire bottle and cap in frame."
+    }
+  ]
+}

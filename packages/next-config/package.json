@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@next/bundle-analyzer": "catalog:",
+    "@prisma/nextjs-monorepo-workaround-plugin": "^6.8.2",
+    "@t3-oss/env-core": "^0.13.4",
+    "@t3-oss/env-nextjs": "catalog:",
+    "zod": "^3.25.28"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "next": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "name": "@repo/next-config",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "test": "NODE_ENV=test vitest run",
+    "typecheck": "pnpm --workspace-root exec tsc --noEmit --project packages/next-config/tsconfig.json"
+  }
+}

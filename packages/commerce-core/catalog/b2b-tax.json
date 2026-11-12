@@ -1,0 +1,26 @@
+{
+  "classes": [
+    {
+      "key": "standard",
+      "name": "Standard goods"
+    }
+  ],
+  "products": [
+    {
+      "productKey": "equipment-compact-excavator",
+      "taxClassKey": "standard"
+    },
+    {
+      "productKey": "equipment-mobile-lift",
+      "taxClassKey": "standard"
+    },
+    {
+      "productKey": "equipment-pallet-truck",
+      "taxClassKey": "standard"
+    },
+    {
+      "productKey": "equipment-replacement-attachment",
+      "taxClassKey": "standard"
+    }
+  ]
+}

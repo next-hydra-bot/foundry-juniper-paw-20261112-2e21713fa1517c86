@@ -1,0 +1,17 @@
+{
+  "extends": "@repo/typescript-config/nextjs.json",
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"],
+      "@repo/auth": [
+        "../auth-clerk"
+      ],
+      "@repo/auth/*": [
+        "../auth-clerk/*"
+      ],
+      "@repo/*": ["../*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
+}

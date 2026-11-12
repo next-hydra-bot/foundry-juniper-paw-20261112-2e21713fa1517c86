@@ -1,0 +1,73 @@
+{
+  "dependencies": {
+    "@repo/site-config": "workspace:*",
+    "@contentstack/cli": "2.0.0",
+    "@contentstack/delivery-sdk": "^4.7.1",
+    "@contentstack/json-rte-serializer": "^3.0.4",
+    "@contentstack/live-preview-utils": "^3.2.3",
+    "@contentstack/management": "1.30.4",
+    "@contentstack/marketplace-sdk": "^1.5.4",
+    "@contentstack/utils": "~1.9.1",
+    "@gql.tada/cli-utils": "^1.6.3",
+    "@repo/cli-core": "workspace:*",
+    "@repo/design-system": "workspace:*",
+    "@repo/i18n": "workspace:*",
+    "@t3-oss/env-nextjs": "catalog:",
+    "@urql/core": "^5.1.2",
+    "dotenv": "^17.0.0",
+    "effect": "catalog:",
+    "gql.tada": "^1.8.10",
+    "html-react-parser": "^5.2.7",
+    "lodash.memoize": "^4.1.2",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "urql": "^4.2.2",
+    "zod": "^3.25.28",
+    "@repo/cms-core": "workspace:*",
+    "migrate-sdk": "0.17.1",
+    "@repo/commerce-core": "workspace:*"
+  },
+  "devDependencies": {
+    "@effect/platform-node": "catalog:",
+    "@effect/vitest": "catalog:",
+    "@repo/typescript-config": "workspace:*",
+    "@types/lodash.memoize": "^4.1.9",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "next": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "name": "@repo/cms-contentstack",
+  "peerDependencies": {
+    "effect": "catalog:"
+  },
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./cli": "./cli/index.ts",
+    "./components/global-region": "./components/global-region.tsx",
+    "./components/live-preview": "./components/live-preview.tsx",
+    "./components/page": "./components/page.tsx",
+    "./components/pages/landing-page": "./components/pages/landing-page.tsx",
+    "./content-search-app": "./cli/content-search-app/index.ts",
+    "./keys": "./keys.ts",
+    "./layout": "./layout.tsx",
+    "./lib/navigation": "./lib/navigation/index.tsx",
+    "./next-config": "./next-config.ts",
+    "./proxy": "./proxy.ts",
+    "./search": "./search.ts",
+    "./security": "./security.ts",
+    "./routes/disable-draft": "./routes/disable-draft.ts",
+    "./routes/draft": "./routes/draft.ts",
+    "./typescript-config.json": "./typescript-config.json"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "generate": "node scripts/gql-sync.ts",
+    "test": "NODE_ENV=test vitest run",
+    "typecheck": "pnpm --workspace-root exec tsc --noEmit --project packages/cms-contentstack/tsconfig.json"
+  }
+}

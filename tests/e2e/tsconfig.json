@@ -1,0 +1,25 @@
+{
+  "extends": "@repo/typescript-config/effect.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "paths": {
+      "@repo/*": [
+        "../../packages/*"
+      ],
+      "@repo/cms": [
+        "../../packages/cms-contentstack"
+      ],
+      "@repo/cms/*": [
+        "../../packages/cms-contentstack/*"
+      ],
+      "@repo/auth": [
+        "../../packages/auth-clerk"
+      ],
+      "@repo/auth/*": [
+        "../../packages/auth-clerk/*"
+      ]
+    }
+  },
+  "include": ["**/*.ts"],
+  "exclude": [".features-gen", "node_modules"]
+}

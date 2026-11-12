@@ -1,0 +1,79 @@
+{
+  "uid": "article",
+  "title": "Article",
+  "schema": [
+    {
+      "uid": "title",
+      "display_name": "Title",
+      "data_type": "text",
+      "mandatory": true,
+      "multiple": false,
+      "non_localizable": false,
+      "field_metadata": {}
+    },
+    {
+      "uid": "url",
+      "display_name": "URL",
+      "data_type": "text",
+      "mandatory": true,
+      "multiple": false,
+      "non_localizable": false,
+      "field_metadata": {}
+    },
+    {
+      "uid": "summary",
+      "display_name": "Summary",
+      "data_type": "text",
+      "mandatory": true,
+      "multiple": false,
+      "non_localizable": false,
+      "field_metadata": {}
+    },
+    {
+      "uid": "body",
+      "display_name": "Body",
+      "data_type": "json",
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": false,
+      "field_metadata": {
+        "allow_json_rte": true,
+        "rich_text_type": "advanced"
+      }
+    },
+    {
+      "uid": "image",
+      "display_name": "Image",
+      "data_type": "file",
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": false,
+      "field_metadata": {}
+    },
+    {
+      "uid": "image_alt",
+      "display_name": "Image alt text",
+      "data_type": "text",
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": false,
+      "field_metadata": {}
+    },
+    {
+      "uid": "source_key",
+      "display_name": "Source key",
+      "data_type": "text",
+      "mandatory": false,
+      "multiple": false,
+      "non_localizable": true,
+      "unique": true,
+      "field_metadata": {}
+    }
+  ],
+  "options": {
+    "is_page": true,
+    "singleton": false,
+    "title": "title",
+    "url_pattern": "/resources/:title"
+  }
+}

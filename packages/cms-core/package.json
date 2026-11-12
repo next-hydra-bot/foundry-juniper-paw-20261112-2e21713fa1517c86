@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+    "@repo/site-config": "workspace:*",
+    "@repo/cli-core": "workspace:*",
+    "effect": "catalog:",
+    "migrate-sdk": "0.17.1"
+  },
+  "devDependencies": {
+    "@effect/platform-node": "catalog:",
+    "@repo/testing": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "name": "@repo/cms-core",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./model.ts",
+    "./profile": "./profile.ts",
+    "./default-content": "./default-content.ts",
+    "./cli": "./cli.ts",
+    "./migrations": "./migrations.ts",
+    "./commerce": "./commerce.ts"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test vitest run",
+    "typecheck": "pnpm --workspace-root exec tsc --noEmit --project packages/cms-core/tsconfig.json"
+  }
+}

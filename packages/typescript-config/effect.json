@@ -1,0 +1,24 @@
+{
+  "$schema": "../../node_modules/@effect/tsgo/schema.json",
+  "display": "Effect",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@effect/language-service",
+        "diagnostics": false,
+        "includeSuggestionsInTsc": false
+      }
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "allowJs": true,
+    "jsx": "preserve",
+    "noEmit": true,
+    "paths": {
+      "@/*": ["./*"],
+      "@repo/*": ["../../packages/*"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

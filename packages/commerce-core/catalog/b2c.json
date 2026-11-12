@@ -1,0 +1,561 @@
+{
+  "defaultLocale": "en-US",
+  "categories": [
+    {
+      "key": "outdoor-clothing",
+      "title": "Clothing",
+      "description": "Clothing for the trail and everyday adventures.",
+      "translations": {
+        "fr-FR": {
+          "title": "Vêtements",
+          "description": "Vêtements pour les sentiers et les aventures du quotidien."
+        },
+        "en-CA": {
+          "description": "Clothing for the trail and everyday adventures.",
+          "title": "Clothing"
+        },
+        "fr-CA": {
+          "title": "Vêtements",
+          "description": "Vêtements pour les sentiers et les aventures du quotidien."
+        }
+      }
+    },
+    {
+      "key": "outdoor-packs",
+      "title": "Backpacks",
+      "description": "Packs for day hikes and short trips.",
+      "translations": {
+        "fr-FR": {
+          "title": "Sacs à dos",
+          "description": "Sacs pour les randonnées à la journée et les courts séjours."
+        },
+        "en-CA": {
+          "description": "Packs for day hikes and short trips.",
+          "title": "Backpacks"
+        },
+        "fr-CA": {
+          "title": "Sacs à dos",
+          "description": "Sacs pour les randonnées à la journée et les courts séjours."
+        }
+      }
+    },
+    {
+      "key": "outdoor-drinkware",
+      "title": "Drinkware",
+      "description": "Reusable bottles for your next adventure.",
+      "translations": {
+        "fr-FR": {
+          "title": "Gourdes",
+          "description": "Gourdes réutilisables pour vos prochaines aventures."
+        },
+        "en-CA": {
+          "description": "Reusable bottles for your next adventure.",
+          "title": "Drinkware"
+        },
+        "fr-CA": {
+          "title": "Gourdes",
+          "description": "Gourdes réutilisables pour vos prochaines aventures."
+        }
+      }
+    }
+  ],
+  "products": [
+    {
+      "key": "outdoor-trail-jacket",
+      "title": "Trail jacket",
+      "description": "A lightweight shell for cool trails. Choose your size and color.",
+      "productType": "outdoor-product",
+      "variants": [
+        {
+          "sku": "JACKET-M-RED",
+          "quantity": 15,
+          "attributes": {
+            "material": "Recycled polyester",
+            "weightGrams": 380,
+            "care": "Machine wash cold; line dry",
+            "size": {
+              "key": "M",
+              "label": "M"
+            },
+            "color": {
+              "key": "RED",
+              "label": "Red"
+            }
+          },
+          "optionValues": {
+            "size": "M",
+            "color": "RED"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 11000,
+              "currencyCode": "USD"
+            },
+            "discounted": {
+              "centAmount": 8900,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-trail-jacket-red-generated-816c575ca6a2.png?v=1793393335",
+              "altText": "Red hooded trail jacket, front view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        },
+        {
+          "sku": "JACKET-L-RED",
+          "quantity": 8,
+          "attributes": {
+            "material": "Recycled polyester",
+            "weightGrams": 380,
+            "care": "Machine wash cold; line dry",
+            "size": {
+              "key": "L",
+              "label": "L"
+            },
+            "color": {
+              "key": "RED",
+              "label": "Red"
+            }
+          },
+          "optionValues": {
+            "size": "L",
+            "color": "RED"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 11000,
+              "currencyCode": "USD"
+            },
+            "discounted": {
+              "centAmount": 8900,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-trail-jacket-red-generated-816c575ca6a2.png?v=1793393335",
+              "altText": "Red hooded trail jacket, front view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        },
+        {
+          "sku": "JACKET-M-BLUE",
+          "quantity": 0,
+          "attributes": {
+            "material": "Recycled polyester",
+            "weightGrams": 380,
+            "care": "Machine wash cold; line dry",
+            "size": {
+              "key": "M",
+              "label": "M"
+            },
+            "color": {
+              "key": "BLUE",
+              "label": "Blue"
+            }
+          },
+          "optionValues": {
+            "size": "M",
+            "color": "BLUE"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 11000,
+              "currencyCode": "USD"
+            },
+            "discounted": {
+              "centAmount": 8900,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-trail-jacket-blue-generated-2c149908f28f.png?v=1793393339",
+              "altText": "Blue hooded trail jacket, front view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        },
+        {
+          "sku": "JACKET-L-BLUE",
+          "quantity": 9,
+          "attributes": {
+            "material": "Recycled polyester",
+            "weightGrams": 380,
+            "care": "Machine wash cold; line dry",
+            "size": {
+              "key": "L",
+              "label": "L"
+            },
+            "color": {
+              "key": "BLUE",
+              "label": "Blue"
+            }
+          },
+          "optionValues": {
+            "size": "L",
+            "color": "BLUE"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 11000,
+              "currencyCode": "USD"
+            },
+            "discounted": {
+              "centAmount": 8900,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-trail-jacket-blue-generated-2c149908f28f.png?v=1793393339",
+              "altText": "Blue hooded trail jacket, front view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "size",
+          "label": "Size",
+          "values": [
+            {
+              "key": "M",
+              "label": "M"
+            },
+            {
+              "key": "L",
+              "label": "L"
+            }
+          ]
+        },
+        {
+          "key": "color",
+          "label": "Color",
+          "values": [
+            {
+              "key": "RED",
+              "label": "Red"
+            },
+            {
+              "key": "BLUE",
+              "label": "Blue"
+            }
+          ]
+        }
+      ],
+      "relatedProductKeys": ["outdoor-hiking-shirt"],
+      "categoryKeys": ["outdoor-clothing"],
+      "translations": {
+        "fr-FR": {
+          "title": "Veste de randonnée",
+          "description": "Une veste légère pour les journées fraîches sur les sentiers."
+        },
+        "en-CA": {
+          "description": "A lightweight shell for cool trails. Choose your size and color.",
+          "title": "Trail jacket"
+        },
+        "fr-CA": {
+          "title": "Veste de randonnée",
+          "description": "Une veste légère pour les journées fraîches sur les sentiers."
+        }
+      }
+    },
+    {
+      "key": "outdoor-hiking-shirt",
+      "title": "Hiking shirt",
+      "description": "A breathable everyday hiking shirt.",
+      "productType": "outdoor-product",
+      "variants": [
+        {
+          "sku": "SHIRT-S",
+          "quantity": 20,
+          "attributes": {
+            "material": "Organic cotton",
+            "weightGrams": 180,
+            "care": "Machine wash cold",
+            "size": {
+              "key": "S",
+              "label": "S"
+            }
+          },
+          "optionValues": {
+            "size": "S"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 2900,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-hiking-shirt-generated-787026d8d407.png?v=1793393345",
+              "altText": "Sage green organic cotton hiking shirt, front view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        },
+        {
+          "sku": "SHIRT-M",
+          "quantity": 25,
+          "attributes": {
+            "material": "Organic cotton",
+            "weightGrams": 180,
+            "care": "Machine wash cold",
+            "size": {
+              "key": "M",
+              "label": "M"
+            }
+          },
+          "optionValues": {
+            "size": "M"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 2900,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-hiking-shirt-generated-787026d8d407.png?v=1793393345",
+              "altText": "Sage green organic cotton hiking shirt, front view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        },
+        {
+          "sku": "SHIRT-L",
+          "quantity": 15,
+          "attributes": {
+            "material": "Organic cotton",
+            "weightGrams": 180,
+            "care": "Machine wash cold",
+            "size": {
+              "key": "L",
+              "label": "L"
+            }
+          },
+          "optionValues": {
+            "size": "L"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 2900,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-hiking-shirt-generated-787026d8d407.png?v=1793393345",
+              "altText": "Sage green organic cotton hiking shirt, front view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "size",
+          "label": "Size",
+          "values": [
+            {
+              "key": "S",
+              "label": "S"
+            },
+            {
+              "key": "M",
+              "label": "M"
+            },
+            {
+              "key": "L",
+              "label": "L"
+            }
+          ]
+        }
+      ],
+      "relatedProductKeys": [],
+      "categoryKeys": ["outdoor-clothing"],
+      "translations": {
+        "fr-FR": {
+          "title": "Chemise de randonnée",
+          "description": "Une chemise respirante pour vos randonnées quotidiennes."
+        },
+        "en-CA": {
+          "description": "A breathable everyday hiking shirt.",
+          "title": "Hiking shirt"
+        },
+        "fr-CA": {
+          "title": "Chemise de randonnée",
+          "description": "Une chemise respirante pour vos randonnées quotidiennes."
+        }
+      }
+    },
+    {
+      "key": "outdoor-daypack",
+      "title": "Daypack",
+      "description": "A 20-liter daypack with adjustable straps.",
+      "productType": "outdoor-product",
+      "variants": [
+        {
+          "sku": "PACK-BLACK",
+          "quantity": 11,
+          "attributes": {
+            "material": "Recycled nylon",
+            "weightGrams": 620,
+            "volumeMl": 20000,
+            "care": "Wipe clean",
+            "color": {
+              "key": "BLACK",
+              "label": "Black"
+            }
+          },
+          "optionValues": {
+            "color": "BLACK"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 5900,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-daypack-black-generated-0b06b7b3c174.png?v=1793393350",
+              "altText": "Black 20-liter daypack, three-quarter view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        },
+        {
+          "sku": "PACK-GREEN",
+          "quantity": 7,
+          "attributes": {
+            "material": "Recycled nylon",
+            "weightGrams": 640,
+            "volumeMl": 20000,
+            "care": "Wipe clean",
+            "color": {
+              "key": "GREEN",
+              "label": "Green"
+            }
+          },
+          "optionValues": {
+            "color": "GREEN"
+          },
+          "price": {
+            "regular": {
+              "centAmount": 5900,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-daypack-green-generated-bb6f9d63239b.png?v=1793393355",
+              "altText": "Green 20-liter daypack, three-quarter view",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "key": "color",
+          "label": "Color",
+          "values": [
+            {
+              "key": "BLACK",
+              "label": "Black"
+            },
+            {
+              "key": "GREEN",
+              "label": "Green"
+            }
+          ]
+        }
+      ],
+      "relatedProductKeys": ["outdoor-insulated-bottle"],
+      "categoryKeys": ["outdoor-packs"],
+      "translations": {
+        "fr-FR": {
+          "title": "Sac à dos de randonnée",
+          "description": "Un sac à dos compact pour transporter vos essentiels en randonnée."
+        },
+        "en-CA": {
+          "description": "A 20-liter daypack with adjustable straps.",
+          "title": "Daypack"
+        },
+        "fr-CA": {
+          "title": "Sac à dos de randonnée",
+          "description": "Un sac à dos compact pour transporter vos essentiels en randonnée."
+        }
+      }
+    },
+    {
+      "key": "outdoor-insulated-bottle",
+      "title": "Insulated bottle",
+      "description": "A reusable 750 ml insulated bottle.",
+      "productType": "outdoor-product",
+      "variants": [
+        {
+          "sku": "BOTTLE-750",
+          "quantity": 30,
+          "attributes": {
+            "material": "Stainless steel",
+            "weightGrams": 330,
+            "volumeMl": 750,
+            "insulated": true,
+            "care": "Hand wash"
+          },
+          "optionValues": {},
+          "price": {
+            "regular": {
+              "centAmount": 2400,
+              "currencyCode": "USD"
+            }
+          },
+          "images": [
+            {
+              "url": "https://cdn.shopify.com/s/files/1/0715/2802/2067/files/outdoor-insulated-bottle-generated-ae8d446f0f53.png?v=1793393360",
+              "altText": "750 ml brushed stainless steel insulated bottle with black carry-loop cap",
+              "width": 1254,
+              "height": 1254
+            }
+          ]
+        }
+      ],
+      "options": [],
+      "relatedProductKeys": [],
+      "categoryKeys": ["outdoor-drinkware"],
+      "translations": {
+        "fr-FR": {
+          "title": "Gourde isotherme",
+          "description": "Une gourde réutilisable pour garder vos boissons à la bonne température."
+        },
+        "en-CA": {
+          "description": "A reusable 750 ml insulated bottle.",
+          "title": "Insulated bottle"
+        },
+        "fr-CA": {
+          "title": "Gourde isotherme",
+          "description": "Une gourde réutilisable pour garder vos boissons à la bonne température."
+        }
+      }
+    }
+  ]
+}

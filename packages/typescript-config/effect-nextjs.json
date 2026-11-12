@@ -1,0 +1,15 @@
+{
+  "$schema": "../../node_modules/@effect/tsgo/schema.json",
+  "display": "Effect Next.js",
+  "extends": "./nextjs.json",
+  "compilerOptions": {
+    "plugins": [
+      { "name": "next" },
+      {
+        "name": "@effect/language-service",
+        "diagnostics": false,
+        "includeSuggestionsInTsc": false
+      }
+    ]
+  }
+}

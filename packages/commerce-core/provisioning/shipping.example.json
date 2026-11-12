@@ -1,0 +1,15 @@
+{
+  "zones": [{ "key": "sandbox-us", "countries": ["US"] }],
+  "services": [
+    {
+      "key": "sandbox-standard",
+      "name": "Sandbox standard shipping",
+      "rates": [
+        {
+          "zoneKey": "sandbox-us",
+          "price": { "centAmount": 500, "currencyCode": "USD" }
+        }
+      ]
+    }
+  ]
+}

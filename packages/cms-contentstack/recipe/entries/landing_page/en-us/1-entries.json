@@ -1,0 +1,52 @@
+{
+  "bltnexthydrahome01": {
+    "components": [
+      {
+        "hero_section": {
+          "cta": [
+            {
+              "external_url": "/products",
+              "label": "Browse equipment"
+            }
+          ],
+          "description": {
+            "attrs": {},
+            "children": [
+              {
+                "attrs": {},
+                "children": [
+                  {
+                    "text": "Explore durable equipment for construction, agriculture, and material handling."
+                  }
+                ],
+                "type": "p",
+                "uid": "c90ee225fe724768"
+              }
+            ],
+            "type": "doc",
+            "uid": "0979e91a3bb148bb"
+          },
+          "image_alt": "",
+          "tagline": "B2B equipment catalog",
+          "title": "Heavy machinery for every job"
+        }
+      }
+    ],
+    "display_title": "",
+    "hide_display_title": true,
+    "locale": "en-us",
+    "publish_details": [
+      {
+        "environment": "bltnexthydradev01",
+        "locale": "en-us"
+      },
+      {
+        "environment": "bltnexthydraprd01",
+        "locale": "en-us"
+      }
+    ],
+    "title": "Home",
+    "uid": "bltnexthydrahome01",
+    "url": "/"
+  }
+}

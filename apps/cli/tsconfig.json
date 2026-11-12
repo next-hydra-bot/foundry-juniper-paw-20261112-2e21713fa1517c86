@@ -1,0 +1,32 @@
+{
+  "extends": "@repo/typescript-config/effect.json",
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "paths": {
+      "@repo/auth": [
+        "../../packages/auth-clerk"
+      ],
+      "@repo/auth/*": [
+        "../../packages/auth-clerk/*"
+      ],
+      "@repo/commerce-provider": [
+        "../../packages/commerce-shopify"
+      ],
+      "@repo/commerce-provider/*": [
+        "../../packages/commerce-shopify/*"
+      ],
+      "@repo/cms": [
+        "../../packages/cms-contentstack"
+      ],
+      "@repo/cms/*": [
+        "../../packages/cms-contentstack/*"
+      ],
+      "@repo/*": ["../../packages/*"]
+    }
+  },
+  "include": ["env.ts", "src/**/*.ts"],
+  "exclude": ["node_modules", "**/*.template.*"]
+}

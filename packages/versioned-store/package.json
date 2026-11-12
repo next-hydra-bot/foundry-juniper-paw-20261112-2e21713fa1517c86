@@ -1,0 +1,21 @@
+{
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "vitest": "catalog:",
+    "typescript": "catalog:",
+    "effect": "catalog:"
+  },
+  "name": "@repo/versioned-store",
+  "peerDependencies": {
+    "effect": "catalog:"
+  },
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "test": "NODE_ENV=test vitest run",
+    "typecheck": "pnpm --workspace-root exec tsc --noEmit --project packages/versioned-store/tsconfig.json"
+  }
+}

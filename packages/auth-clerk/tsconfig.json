@@ -1,0 +1,11 @@
+{
+  "extends": "@repo/typescript-config/effect-nextjs.json",
+  "compilerOptions": {
+    "paths": {
+      "@repo/auth/*": ["./*"],
+      "@repo/*": ["../../packages/*"]
+    }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", "prototypes", "registry", "**/*.template.*"]
+}

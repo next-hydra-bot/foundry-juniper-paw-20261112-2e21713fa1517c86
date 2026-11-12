@@ -1,0 +1,18 @@
+{
+  "addOns": [
+    "commerce-shopify-customer-accounts"
+  ],
+  "providers": {
+    "auth": "auth-clerk",
+    "cms": "cms-contentstack",
+    "commerce": "commerce-shopify"
+  },
+  "recipes": {
+    "commerce.purchasing": [
+      "b2c"
+    ],
+    "commerce.checkout": [
+      "hosted"
+    ]
+  }
+}

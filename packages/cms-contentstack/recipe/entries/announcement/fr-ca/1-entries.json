@@ -1,0 +1,21 @@
+{
+  "bltdemoannouncement": {
+    "uid": "bltdemoannouncement",
+    "locale": "fr-ca",
+    "title": "Annonce de démonstration",
+    "enabled": true,
+    "message": "Ceci est une démonstration du modèle Next Hydra.",
+    "link_label": "Découvrir Next Hydra",
+    "link_url": "https://next-hydra.dev",
+    "publish_details": [
+      {
+        "environment": "bltnexthydradev01",
+        "locale": "fr-ca"
+      },
+      {
+        "environment": "bltnexthydraprd01",
+        "locale": "fr-ca"
+      }
+    ]
+  }
+}

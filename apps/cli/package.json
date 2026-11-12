@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "@repo/cli-core": "workspace:*",
+    "@effect/platform-node": "catalog:",
+    "effect": "catalog:",
+    "@repo/commerce-provider": "workspace:@repo/commerce-shopify@*",
+    "@repo/auth": "workspace:@repo/auth-clerk@*",
+    "@repo/cms": "workspace:@repo/cms-contentstack@*"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "tsx": "^4.23.12",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "name": "cli",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo node_modules",
+    "cli": "tsx --use-system-ca src/index.ts",
+    "test": "NODE_ENV=test vitest run",
+    "typecheck": "pnpm --workspace-root exec tsc --noEmit --project apps/cli/tsconfig.json"
+  }
+}

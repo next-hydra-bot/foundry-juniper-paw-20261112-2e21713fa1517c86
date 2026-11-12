@@ -1,0 +1,33 @@
+import type { CommerceContextRequest } from "@repo/commerce-core/domain/commerce-request-context";
+import { AuthUserId } from "@repo/commerce-core/domain/commerce-request-context";
+import { Effect, Schema } from "effect";
+
+import type { CurrentCartCookie } from "../lib/current-cart/cookie";
+
+export interface CommerceRequestInput {
+  readonly context: CommerceContextRequest;
+  readonly currentCartCookie: CurrentCartCookie;
+}
+
+export class CommerceRequestFailure extends Schema.TaggedError<CommerceRequestFailure>()(
+  "CommerceRequestFailure",
+  {
+    cause: Schema.Defect(),
+    operation: Schema.Literal("decodeAuthUserId"),
+  }
+) {}
+
+export const decodeCommerceAuthUserId = (
+  rawAuthUserId: string | undefined
+): Effect.Effect<AuthUserId | undefined, CommerceRequestFailure> =>
+  rawAuthUserId === undefined
+    ? Effect.succeed(undefined)
+    : Schema.decodeUnknownEffect(AuthUserId)(rawAuthUserId).pipe(
+        Effect.mapError(
+          (cause) =>
+            new CommerceRequestFailure({
+              cause,
+              operation: "decodeAuthUserId",
+            })
+        )
+      );

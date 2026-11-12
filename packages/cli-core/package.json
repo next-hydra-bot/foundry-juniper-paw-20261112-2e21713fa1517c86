@@ -1,0 +1,41 @@
+{
+  "dependencies": {
+    "migrate-sdk": "0.17.1",
+    "ora": "^8.2.0"
+  },
+  "devDependencies": {
+    "@effect/platform-node": "catalog:",
+    "@effect/vitest": "catalog:",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "effect": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "name": "@repo/cli-core",
+  "peerDependencies": {
+    "effect": "catalog:"
+  },
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./json-migrations": "./json-migrations.ts",
+    "./json-migration-command": "./json-migration-command.ts",
+    "./provisioning-input-models": "./provisioning-input-models.ts",
+    "./provision-migrations": "./provision-migrations.ts",
+    "./private-dotenv": "./private-dotenv.ts",
+    "./runtime-environment": "./runtime-environment.ts",
+    "./runtime-environment-cli": "./runtime-environment-cli.ts",
+    "./command-output": "./command-output.ts",
+    "./output-model": "./output-model.ts",
+    "./runtime-environment-output": "./runtime-environment-output.ts",
+    "./provisioning-output": "./provisioning-output.ts",
+    "./user-error": "./user-error.ts"
+  },
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "test": "NODE_ENV=test vitest run",
+    "typecheck": "pnpm --workspace-root exec tsc --noEmit --project packages/cli-core/tsconfig.json"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "@vitejs/plugin-react": "^4.5.0",
+    "typescript": "catalog:",
+    "vitest": "catalog:"
+  },
+  "name": "@repo/testing",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "type": "commonjs",
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "pnpm --workspace-root exec tsc --noEmit --project packages/testing/tsconfig.json"
+  }
+}

@@ -1,0 +1,224 @@
+"use client";
+
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@repo/design-system/components/ui/avatar";
+import { Button } from "@repo/design-system/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@repo/design-system/components/ui/dropdown-menu";
+import { useTranslations } from "@repo/i18n";
+import { Link } from "@repo/i18n/navigation";
+import { LogOut, UserRound } from "lucide-react";
+import type { ReactNode } from "react";
+
+export type AccountMenuUser = {
+  readonly email?: string | null;
+  readonly firstName?: string | null;
+  readonly lastName?: string | null;
+  readonly profilePictureUrl?: string | null;
+};
+
+export type AccountMenuLabels = {
+  readonly account: string;
+  readonly user: string;
+  readonly signIn: string;
+  readonly signOut: string;
+  readonly signUp: string;
+};
+
+export type AccountMenuProps = {
+  readonly accountHref?: string;
+  readonly labels: AccountMenuLabels;
+  readonly loading?: boolean;
+  readonly signInHref?: string;
+  readonly signOutControl?: ReactNode;
+  readonly signOutHref?: string;
+  readonly signUpHref?: string;
+  readonly user?: AccountMenuUser | null;
+};
+
+// Avoid speculative RSC requests for menu destinations that may redirect.
+function MenuLink({
+  children,
+  href,
+}: {
+  readonly children: React.ReactNode;
+  readonly href: string;
+}) {
+  // Auth endpoints and external providers need full navigation, without a locale prefix.
+  if (
+    !href.startsWith("/") ||
+    href.startsWith("//") ||
+    /^\/api(?:[/?#]|$)/u.test(href)
+  ) {
+    return (
+      <a href={href} style={{ textDecoration: "none" }}>
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} prefetch={false} style={{ textDecoration: "none" }}>
+      {children}
+    </Link>
+  );
+}
+
+function UserButton({
+  accountHref,
+  labels,
+  signOutHref,
+  signOutControl,
+  user,
+}: {
+  readonly accountHref?: string;
+  readonly labels: AccountMenuLabels;
+  readonly signOutHref: string;
+  readonly signOutControl?: ReactNode;
+  readonly user: AccountMenuUser;
+}) {
+  const displayName =
+    user.firstName && user.lastName
+      ? `${user.firstName} ${user.lastName}`
+      : (user.email ?? labels.user);
+  const initials =
+    user.firstName && user.lastName
+      ? `${user.firstName[0]}${user.lastName[0]}`
+      : (user.email?.[0]?.toUpperCase() ?? "U");
+
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          className="relative size-8 rounded-full"
+          type="button"
+        >
+          <Avatar className="size-8">
+            {user.profilePictureUrl && (
+              <AvatarImage src={user.profilePictureUrl} alt={displayName} />
+            )}
+            <AvatarFallback>{initials}</AvatarFallback>
+          </Avatar>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-56">
+        <DropdownMenuLabel>
+          <div className="flex flex-col space-y-1">
+            <p className="font-medium text-sm leading-none">{displayName}</p>
+            {user.email && (
+              <p className="text-muted-foreground text-xs leading-none">
+                {user.email}
+              </p>
+            )}
+          </div>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        {accountHref === undefined ? null : (
+          <MenuLink href={accountHref}>
+            <span className="relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+              <UserRound className="mr-2 size-4" />
+              <span>{labels.account}</span>
+            </span>
+          </MenuLink>
+        )}
+        {accountHref === undefined ? null : <DropdownMenuSeparator />}
+        {signOutControl ?? (
+          <MenuLink href={signOutHref}>
+            <span className="relative flex w-full cursor-pointer select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground">
+              <LogOut className="mr-2 size-4" />
+              <span>{labels.signOut}</span>
+            </span>
+          </MenuLink>
+        )}
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}
+
+export function PostSignOutMenuItem({ href }: { readonly href: string }) {
+  const t = useTranslations("web.header");
+  return (
+    <form action={href} method="post">
+      <DropdownMenuItem
+        asChild
+        onSelect={(event) => {
+          event.preventDefault();
+        }}
+      >
+        <button className="w-full" type="submit">
+          <LogOut className="size-4" />
+          {t("signOut")}
+        </button>
+      </DropdownMenuItem>
+    </form>
+  );
+}
+
+export function AccountMenu({
+  accountHref,
+  labels,
+  loading,
+  signInHref = "/api/auth/signin",
+  signOutHref = "/api/auth/signout",
+  signOutControl,
+  signUpHref,
+  user,
+}: AccountMenuProps) {
+  if (loading) {
+    return null;
+  }
+
+  return (
+    <div className="flex items-center gap-3 text-xs sm:text-sm">
+      {user ? (
+        <div className="flex items-center">
+          <UserButton
+            accountHref={accountHref}
+            labels={labels}
+            signOutHref={signOutHref}
+            signOutControl={signOutControl}
+            user={user}
+          />
+        </div>
+      ) : (
+        <div className="flex items-center gap-2">
+          <MenuLink href={signInHref}>
+            <Button
+              variant="link"
+              size="sm"
+              className="px-0 text-[inherit] hover:text-[inherit] hover:underline"
+            >
+              {labels.signIn}
+            </Button>
+          </MenuLink>
+          {signUpHref ? (
+            <>
+              <span aria-hidden="true" className="hidden sm:inline">
+                /
+              </span>
+              <MenuLink href={signUpHref}>
+                <Button
+                  variant="link"
+                  size="sm"
+                  className="px-0 text-[inherit] hover:text-[inherit] hover:underline"
+                >
+                  {labels.signUp}
+                </Button>
+              </MenuLink>
+            </>
+          ) : null}
+        </div>
+      )}
+    </div>
+  );
+}

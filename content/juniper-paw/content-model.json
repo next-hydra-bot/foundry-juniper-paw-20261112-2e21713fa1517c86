@@ -1,0 +1,19 @@
+{
+  "blockTypes": [
+    "hero",
+    "rich-text",
+    "product-collection"
+  ],
+  "defaultLocale": "en-US",
+  "entryTypes": [
+    "page",
+    "article"
+  ],
+  "key": "site",
+  "locales": [
+    "en-US",
+    "en-CA",
+    "fr-CA"
+  ],
+  "schemaVersion": 1
+}

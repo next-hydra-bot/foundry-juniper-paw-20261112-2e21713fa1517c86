@@ -1,0 +1,765 @@
+{
+  "web": {
+    "header": {
+      "account": "\u00c1rea de clientes",
+      "signUp": "Registrarse",
+      "signIn": "Iniciar sesi\u00f3n",
+      "signOut": "Cerrar sesi\u00f3n",
+      "signingOut": "Cerrando sesi\u00f3n\u2026",
+      "signOutFailed": "No se pudo cerrar sesi\u00f3n. Int\u00e9ntalo de nuevo.",
+      "user": "Usuario"
+    },
+    "product": {
+      "addToCart": "A\u00f1adir al carrito",
+      "quoteRequest": "Solicitar un presupuesto",
+      "priceStartsAt": "Precio desde {price}",
+      "badgeNew": "Nuevo",
+      "titlePlaceholder": "T\u00edtulo de la variante del producto",
+      "descriptionPlaceholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "errorLoadingProduct": "Error al cargar el producto",
+      "inStock": "En stock",
+      "outOfStock": "Agotado",
+      "currentlyOutOfStock": "Actualmente agotado",
+      "unitsAvailable": "{count, plural, one {# unidad disponible} other {# unidades disponibles}}",
+      "quantity": "Cantidad",
+      "loading": "Cargando...",
+      "selectedConfiguration": "Configuraci\u00f3n seleccionada:",
+      "units": "{count, plural, one {unidad} other {unidades}}",
+      "outOfStockSuffix": "(Agotado)",
+      "variantLabel": "Variante",
+      "productHasNoVariants": "El producto no tiene variantes",
+      "viewDetails": "Ver detalles",
+      "combinationUnavailable": "Esta combinaci\u00f3n no est\u00e1 disponible"
+    },
+    "navigation": {
+      "home": "Inicio",
+      "products": "Productos",
+      "categoryFallback": "Categor\u00eda"
+    },
+    "search": {
+      "productListing": {
+        "facets": {
+          "category": "Categor\u00eda",
+          "availability": "Disponibilidad",
+          "price": "Precio"
+        },
+        "filters": "Filtros",
+        "clearAll": "Borrar todo",
+        "minimum": "M\u00ednimo",
+        "maximum": "M\u00e1ximo",
+        "apply": "Aplicar",
+        "showLess": "Mostrar menos",
+        "showMore": "Mostrar m\u00e1s"
+      }
+    },
+    "article": {
+      "readGuide": "Leer la gu\u00eda"
+    },
+    "cart": {
+      "addedToCartAlert": "Se a\u00f1adieron {quantity} {variantLabel} al carrito a {price} cada uno.\nEstado del stock: {stockStatus}",
+      "stockIn": "En Stock",
+      "stockOut": "Agotado",
+      "toast": {
+        "addedToCart": "A\u00f1adido al carrito",
+        "removedFromCart": "Eliminado del carrito",
+        "updatedQuantity": "Cantidad actualizada",
+        "failedToAdd": "Error al a\u00f1adir al carrito",
+        "failedToRemove": "Error al eliminar el art\u00edculo",
+        "failedToUpdate": "Error al actualizar la cantidad"
+      },
+      "title": "Carrito de Compras ({count})",
+      "empty": {
+        "heading": "Tu carrito est\u00e1 vac\u00edo",
+        "description": "Agrega maquinaria pesada para comenzar",
+        "actions": {
+          "browseProducts": "Explorar Productos"
+        }
+      },
+      "summary": {
+        "subtotal": {
+          "label": "Subtotal"
+        },
+        "shipping": {
+          "label": "Env\u00edo",
+          "description": "Calculado en el pago"
+        },
+        "total": {
+          "label": "Total",
+          "estimated": "Total estimado"
+        },
+        "taxesAndShippingNotice": "El total se confirma al finalizar la compra.",
+        "tax": {
+          "label": "Impuestos",
+          "included": "Impuestos (incluidos)",
+          "unknown": "Se calculan al finalizar la compra",
+          "estimated": "Estimado"
+        }
+      },
+      "actions": {
+        "checkout": "Proceder al Pago",
+        "continueShopping": "Continuar Comprando",
+        "viewCart": "Ver carrito"
+      },
+      "pageTitle": "Carrito",
+      "promotions": {
+        "code": "C\u00f3digo de descuento",
+        "apply": "Aplicar",
+        "remove": "Eliminar {code}",
+        "removeButton": "Eliminar",
+        "inapplicable": "Este c\u00f3digo no se aplica al carrito actual.",
+        "failed": "No se pudo actualizar el c\u00f3digo. Int\u00e9ntalo de nuevo.",
+        "discount": "Descuento"
+      }
+    },
+    "registration": {
+      "page": {
+        "eyebrow": "Registro de empresa",
+        "title": "Registra tu empresa y solicita acceso.",
+        "description": "Comparte los datos de tu empresa y de la persona de contacto principal. Si se aprueba el registro, te enviaremos un enlace seguro para completar la configuraci\u00f3n del acceso."
+      },
+      "awaiting": {
+        "eyebrow": "Revisi\u00f3n en curso",
+        "title": "Tu registro est\u00e1 en revisi\u00f3n.",
+        "description": "Hemos recibido tu registro. Te enviaremos los siguientes pasos por correo cuando tu empresa haya sido aprobada.",
+        "backToSite": "Volver al sitio"
+      },
+      "form": {
+        "sections": {
+          "company": "Informaci\u00f3n de la empresa",
+          "contact": "Contacto principal"
+        },
+        "fields": {
+          "companyName": {
+            "label": "Nombre de la empresa",
+            "placeholder": "Nombre de la empresa"
+          },
+          "companyPhone": {
+            "label": "Tel\u00e9fono de la empresa",
+            "placeholder": "Tel\u00e9fono de la empresa"
+          },
+          "vatId": {
+            "label": "NIF / IVA",
+            "placeholder": "NIF / IVA"
+          },
+          "country": {
+            "label": "Pa\u00eds",
+            "placeholder": "Selecciona un pa\u00eds"
+          },
+          "streetAddress": {
+            "label": "Direcci\u00f3n",
+            "placeholder": "Direcci\u00f3n"
+          },
+          "addressLine2": {
+            "label": "Piso, puerta, etc. (opcional)",
+            "placeholder": "Suite, planta, edificio o departamento"
+          },
+          "postalCode": {
+            "label": "C\u00f3digo postal",
+            "placeholder": "C\u00f3digo postal"
+          },
+          "city": {
+            "label": "Ciudad",
+            "placeholder": "Ciudad"
+          },
+          "region": {
+            "requiredLabel": "Estado / provincia",
+            "optionalLabel": "Estado / regi\u00f3n",
+            "codeLabel": "C\u00f3digo de regi\u00f3n (opcional)",
+            "selectPlaceholder": "Elige estado o provincia"
+          },
+          "firstName": {
+            "label": "Nombre",
+            "placeholder": "Nombre"
+          },
+          "lastName": {
+            "label": "Apellidos",
+            "placeholder": "Apellidos"
+          },
+          "email": {
+            "label": "Correo electr\u00f3nico",
+            "placeholder": "Correo electr\u00f3nico"
+          }
+        },
+        "disclaimer": "Revisamos cada registro de empresa antes de conceder acceso. Si se aprueba, enviaremos a tu contacto principal un enlace seguro para terminar de configurar la cuenta.",
+        "actions": {
+          "submit": "Registrar empresa",
+          "submitting": "Enviando..."
+        },
+        "errors": {
+          "invalidSubmission": "Revisa los campos marcados e int\u00e9ntalo de nuevo.",
+          "unsupportedRegistrationCountry": "A\u00fan no podemos aceptar registros de empresas de este pa\u00eds.",
+          "submitFailed": "No hemos podido enviar tu registro en este momento. Int\u00e9ntalo de nuevo.",
+          "submissionOutcomeUnknown": "No hemos podido confirmar si se recibi\u00f3 tu registro. Ponte en contacto con soporte antes de volver a enviarlo."
+        },
+        "validation": {
+          "companyName": "Introduce el nombre de la empresa.",
+          "companyNameMax": "El nombre de la empresa es demasiado largo.",
+          "companyPhone": "Introduce un tel\u00e9fono de empresa v\u00e1lido.",
+          "vatId": "El NIF / IVA es demasiado largo.",
+          "firstName": "Introduce un nombre.",
+          "firstNameMax": "El nombre es demasiado largo.",
+          "lastName": "Introduce los apellidos.",
+          "lastNameMax": "Los apellidos son demasiado largos.",
+          "email": "Introduce una direcci\u00f3n de correo v\u00e1lida.",
+          "duplicateEmail": "Este correo electr\u00f3nico ya est\u00e1 asociado a un registro existente o pendiente.",
+          "invalidVatId": "Introduce un NIF / IVA v\u00e1lido.",
+          "streetAddress": "Introduce una direcci\u00f3n.",
+          "postalCode": "Introduce un c\u00f3digo postal.",
+          "city": "Introduce una ciudad.",
+          "region": "Introduce un estado, provincia o regi\u00f3n.",
+          "country": "Selecciona un pa\u00eds."
+        }
+      },
+      "gate": {
+        "actions": {
+          "signOut": "Cerrar sesi\u00f3n",
+          "backToHome": "Volver al inicio"
+        },
+        "accessUnavailable": {
+          "eyebrow": "Acceso no disponible",
+          "title": "Esta cuenta no est\u00e1 conectada a una cuenta de empresa.",
+          "description": "Utiliza el enlace recibido por correo tras la aprobaci\u00f3n o contacta con soporte si esperabas tener acceso."
+        },
+        "rejected": {
+          "eyebrow": "Registro no aprobado",
+          "title": "El registro de tu empresa no ha sido aprobado.",
+          "description": "Contacta con soporte si necesitas otra revisi\u00f3n o quieres enviar informaci\u00f3n actualizada."
+        },
+        "failed": {
+          "eyebrow": "Registro no disponible",
+          "title": "No hemos podido completar tu registro.",
+          "description": "Ponte en contacto con soporte o vuelve a enviar un nuevo registro m\u00e1s tarde."
+        },
+        "pending": {
+          "eyebrow": "Revisi\u00f3n en curso",
+          "title": "El registro de tu empresa sigue en revisi\u00f3n.",
+          "description": "Te enviaremos los siguientes pasos por correo cuando tu empresa haya sido aprobada."
+        }
+      }
+    },
+    "customerArea": {
+      "title": "\u00c1rea de clientes",
+      "description": "Gestiona la cuenta de tu empresa y las personas que pueden comprar en su nombre.",
+      "navigation": {
+        "accountManagement": "Gesti\u00f3n de la cuenta",
+        "orders": "Pedidos",
+        "addresses": "Direcciones",
+        "comingSoon": "Pr\u00f3ximamente",
+        "overview": "Resumen",
+        "profile": "Perfil y direcciones",
+        "members": "Miembros e invitaciones"
+      },
+      "users": {
+        "adminOnly": {
+          "title": "Se requiere acceso de administrador",
+          "description": "Solo un administrador de la empresa puede invitar usuarios."
+        },
+        "invite": {
+          "title": "A\u00f1adir un usuario",
+          "description": "Env\u00eda una invitaci\u00f3n y elige lo que la persona puede hacer para tu empresa.",
+          "firstNameLabel": "Nombre",
+          "firstNamePlaceholder": "Ada",
+          "lastNameLabel": "Apellidos",
+          "lastNamePlaceholder": "Lovelace",
+          "emailLabel": "Correo electr\u00f3nico",
+          "emailPlaceholder": "nombre@empresa.com",
+          "rolesLabel": "Roles de empresa",
+          "rolesDescription": "Selecciona uno o m\u00e1s roles. Sus permisos se combinar\u00e1n.",
+          "roles": {
+            "admin": {
+              "label": "Administrador",
+              "description": "Gestionar usuarios y accesos."
+            },
+            "buyer": {
+              "label": "Comprador",
+              "description": "Realizar pedidos para la empresa."
+            },
+            "approver": {
+              "label": "Aprobador",
+              "description": "Revisar y aprobar pedidos."
+            }
+          },
+          "send": "Enviar invitaci\u00f3n",
+          "sending": "Enviando...",
+          "successTitle": "Invitaci\u00f3n enviada",
+          "successDescription": "Se envi\u00f3 una invitaci\u00f3n a {email}.",
+          "memberAddedTitle": "Usuario a\u00f1adido",
+          "memberAddedDescription": "{email} ya ten\u00eda una cuenta y se a\u00f1adi\u00f3 a tu empresa.",
+          "failureTitle": "Invitaci\u00f3n no enviada"
+        },
+        "management": {
+          "title": "Usuarios de la empresa",
+          "description": "Gestiona usuarios activos e invitaciones pendientes.",
+          "empty": "Todav\u00eda no hay usuarios ni invitaciones.",
+          "person": "Usuario",
+          "roles": "Roles",
+          "status": "Estado",
+          "expiry": "Caduca",
+          "actions": "Acciones",
+          "cancel": "Cancelar invitaci\u00f3n",
+          "reissue": "Enviar de nuevo",
+          "remove": "Eliminar",
+          "currentUser": "T\u00fa",
+          "inheritedMembership": "Gestionado por la empresa matriz",
+          "noAction": "Aprovisionando",
+          "statuses": {
+            "active": "Activo",
+            "pending": "Pendiente",
+            "accepted": "Aceptada",
+            "expired": "Caducada",
+            "revoked": "Cancelada"
+          }
+        }
+      },
+      "errors": {
+        "InputInvalid": "Introduce un correo electr\u00f3nico v\u00e1lido.",
+        "InputInvalidName": "Introduce el nombre y los apellidos de la persona.",
+        "InputInvalidRoles": "Selecciona al menos un rol de empresa.",
+        "InvitationPolicyError": "Solo un administrador de la empresa puede invitar usuarios.",
+        "InvitationConflict": "No se puede invitar a este usuario.",
+        "CommerceCustomerEmailConflict": "Ese correo pertenece a otro cliente de comercio.",
+        "CustomerAccountIdentityLookupFailure": "El directorio de identidades no est\u00e1 disponible temporalmente. Int\u00e9ntalo de nuevo.",
+        "InvitationProviderFailure": "No se pudo completar la operaci\u00f3n de invitaci\u00f3n. Int\u00e9ntalo de nuevo.",
+        "IdentityMembershipProjectionFailure": "No se pudo sincronizar la membres\u00eda de la empresa. Int\u00e9ntalo de nuevo.",
+        "InvitationIssueOutcomeUnknown": "Es posible que se haya enviado la invitaci\u00f3n, pero no se pudo confirmar el resultado. No vuelvas a enviarla.",
+        "CustomerAccountProfileIncomplete": "Tu perfil necesita un correo electr\u00f3nico.",
+        "CommerceRequestContextNotFound": "La cuenta de empresa actual no est\u00e1 disponible.",
+        "CommerceAccountUnavailable": "La cuenta de empresa no est\u00e1 disponible temporalmente.",
+        "CommerceCustomerProfileNotFound": "No se encontr\u00f3 tu perfil de cliente.",
+        "CompanyMemberInvitationNotFound": "No se encontr\u00f3 esta invitaci\u00f3n. Actualiza la lista de miembros.",
+        "CompanyMemberInvitationPersistenceFailure": "Las invitaciones de la empresa no est\u00e1n disponibles temporalmente. Int\u00e9ntalo de nuevo.",
+        "CompanyMemberInvitationRecordConflict": "Esta invitaci\u00f3n cambi\u00f3 mientras trabajabas. Actualiza la lista de miembros.",
+        "InvitationExpired": "Esta invitaci\u00f3n ha caducado. Actualiza la lista de miembros para volver a emitirla.",
+        "InvitationNotFound": "El proveedor de identidad ya no tiene esta invitaci\u00f3n. Actualiza la lista de miembros.",
+        "CompanyMemberRemovalConflict": "Este miembro no se puede eliminar en el estado actual de la empresa. Actualiza e int\u00e9ntalo de nuevo.",
+        "CompanyMemberManagementForbidden": "Solo un administrador de la empresa puede gestionar miembros."
+      },
+      "companyProfile": {
+        "title": "Datos y direcciones de la empresa",
+        "description": "Gestiona los datos de la ubicaci\u00f3n seleccionada.",
+        "name": "Nombre de la ubicaci\u00f3n",
+        "shipping": "Direcci\u00f3n de env\u00edo",
+        "billing": "Direcci\u00f3n de facturaci\u00f3n",
+        "save": "Guardar cambios",
+        "saving": "Guardando\u2026",
+        "refresh": "Actualizar datos",
+        "readOnly": "Solo los administradores de la empresa pueden editar estos datos.",
+        "invalid": "Revisa los campos obligatorios y las direcciones.",
+        "forbidden": "Solo los administradores pueden editar los datos de la empresa.",
+        "changed": "Estos datos han cambiado. Actualiza antes de guardar.",
+        "unknown": "No se pudo confirmar el guardado. Actualiza antes de intentarlo de nuevo.",
+        "unavailable": "Los datos de la empresa no est\u00e1n disponibles."
+      },
+      "overview": {
+        "account": "Mi cuenta",
+        "title": "Resumen",
+        "description": "Tu cuenta y tus compras.",
+        "details": "Tus datos"
+      }
+    },
+    "checkout": {
+      "title": "Finalizar compra",
+      "paymentOptions": {
+        "availableToSpend": "{amount} available to spend",
+        "card": "Card",
+        "cardInvalid": "Check your card details and try again.",
+        "cardNotReady": "Card entry is still loading.",
+        "chooseMethod": "Choose a payment method",
+        "netTerms": "Net {days}",
+        "paymentMethod": "Payment method",
+        "save": "Save payment options",
+        "saving": "Saving...",
+        "useShippingAddress": "Use shipping address for billing"
+      },
+      "steps": {
+        "contact": "Contacto",
+        "deliveryDetails": "Datos de entrega",
+        "shippingOptions": "Opciones de env\u00edo",
+        "paymentOptions": "Opciones de pago",
+        "reviewOrder": "Revisar pedido"
+      },
+      "status": {
+        "complete": "Completo",
+        "incomplete": "Incompleto"
+      },
+      "activeStep": "Paso activo",
+      "editingStep": "Editando",
+      "attention": "Este paso requiere atenci\u00f3n",
+      "actions": {
+        "edit": "Editar"
+      },
+      "errorBoundary": {
+        "tryAgain": "Intentar de nuevo"
+      },
+      "cart": {
+        "title": "Carrito",
+        "items": "{count, plural, one {# art\u00edculo} other {# art\u00edculos}}",
+        "quantity": "Cant. {quantity}",
+        "violations": "Problemas del proceso de compra",
+        "subtotal": "Subtotal"
+      },
+      "contact": {
+        "fields": {
+          "email": "Correo electr\u00f3nico",
+          "firstName": "Nombre",
+          "lastName": "Apellidos",
+          "phone": "Tel\u00e9fono"
+        },
+        "actions": {
+          "save": "Guardar contacto",
+          "saving": "Guardando...",
+          "useCustomerProfile": "Usar perfil de cliente"
+        }
+      },
+      "deliveryDetails": {
+        "addressBook": {
+          "chooseShippingAddress": "Elige una direcci\u00f3n de env\u00edo",
+          "defaultShipping": "Direcci\u00f3n de env\u00edo predeterminada",
+          "makeDefaultShipping": "Establecer como direcci\u00f3n de env\u00edo predeterminada",
+          "saveShippingAddress": "Guardar esta direcci\u00f3n de env\u00edo",
+          "useNewAddress": "Usar una direcci\u00f3n nueva"
+        },
+        "fields": {
+          "addressLine1": "Direcci\u00f3n, l\u00ednea 1",
+          "addressLine2": "Direcci\u00f3n, l\u00ednea 2",
+          "city": "Ciudad",
+          "postalCode": "C\u00f3digo postal",
+          "region": "Regi\u00f3n",
+          "country": "Pa\u00eds"
+        },
+        "actions": {
+          "save": "Guardar datos de entrega",
+          "saving": "Guardando..."
+        }
+      },
+      "shippingOptions": {
+        "chooseOption": "Elige una opci\u00f3n de env\u00edo",
+        "choosePlan": "Elige un plan de entrega",
+        "delivery": "Entrega {number}",
+        "noOptions": "No hay opciones de env\u00edo disponibles para esta entrega.",
+        "noPlans": "No hay ning\u00fan plan de entrega disponible para esta direcci\u00f3n.",
+        "plan": "Plan de entrega {number}",
+        "quantity": "Cant. {quantity}",
+        "actions": {
+          "save": "Guardar opciones de env\u00edo",
+          "saving": "Guardando..."
+        }
+      },
+      "errors": {
+        "addressBook": {
+          "accessDenied": "La libreta de direcciones no est\u00e1 disponible para este proceso de compra.",
+          "providerFailure": "No se pudieron cargar las direcciones guardadas. Int\u00e9ntalo de nuevo."
+        },
+        "badRequest": "La solicitud del proceso de compra no es v\u00e1lida.",
+        "cartMismatch": "Este proceso de compra ya no est\u00e1 actualizado. Actualiza la p\u00e1gina e int\u00e9ntalo de nuevo.",
+        "internal": "No se pudo completar el proceso de compra. Int\u00e9ntalo de nuevo.",
+        "deliveryDetails": {
+          "addressBookEntryUnavailable": "Esta direcci\u00f3n guardada ya no est\u00e1 disponible.",
+          "sourceUnavailable": "Esta fuente de entrega no est\u00e1 disponible para este proceso de compra.",
+          "providerFailure": "No se pudieron guardar los datos de entrega. Int\u00e9ntalo de nuevo.",
+          "unsupported": "Esta fuente de entrega a\u00fan no es compatible."
+        },
+        "notFound": "No se encontr\u00f3 el proceso de compra para esta solicitud.",
+        "paymentOptions": {
+          "unavailable": "Completa el paso actual del proceso de compra antes de preparar el pago."
+        },
+        "versionConflict": "El proceso de compra cambi\u00f3 antes de guardar. Actualiza la p\u00e1gina e int\u00e9ntalo de nuevo.",
+        "saveContact": {
+          "CheckoutCartMismatch": "Este proceso de compra ya no est\u00e1 actualizado. Actualiza la p\u00e1gina e int\u00e9ntalo de nuevo.",
+          "CheckoutCustomerProfileIncomplete": "En tu perfil de cliente faltan datos de contacto obligatorios. Introd\u00facelos abajo para continuar.",
+          "InputInvalid": "Introduce un correo electr\u00f3nico, un nombre y unos apellidos.",
+          "CheckoutMutationOutcomeUnknown": "No hemos podido confirmar si se guardaron tus datos de contacto. Actualiza antes de volver a intentarlo.",
+          "CheckoutMutationSourceUnavailable": "Esta fuente de contacto no est\u00e1 disponible para este proceso de compra.",
+          "CheckoutMutationProviderFailure": "No se pudo guardar el contacto. Int\u00e9ntalo de nuevo.",
+          "CommerceAccountUnavailable": "No se pudo guardar el contacto. Int\u00e9ntalo de nuevo.",
+          "CommerceRequestFailure": "No se pudo guardar el contacto. Int\u00e9ntalo de nuevo.",
+          "CheckoutMutationUnsupported": "Esta fuente de contacto a\u00fan no es compatible.",
+          "CheckoutUnavailable": "No se encontr\u00f3 el proceso de compra para esta solicitud.",
+          "CommerceRequestContextNotFound": "No se encontr\u00f3 el proceso de compra para esta solicitud.",
+          "CheckoutVersionConflict": "El proceso de compra cambi\u00f3 antes de guardar. Actualiza la p\u00e1gina e int\u00e9ntalo de nuevo."
+        },
+        "saveDeliveryDetails": {
+          "CheckoutCartMismatch": "Este proceso de compra ya no est\u00e1 actualizado. Actualiza la p\u00e1gina e int\u00e9ntalo de nuevo.",
+          "CheckoutMutationAddressBookEntryUnavailable": "Esta direcci\u00f3n guardada ya no est\u00e1 disponible.",
+          "InputInvalid": "Introduce la direcci\u00f3n, el c\u00f3digo postal, la ciudad y el pa\u00eds.",
+          "CheckoutMutationOutcomeUnknown": "No hemos podido confirmar si se guardaron tus datos de entrega. Actualiza antes de volver a intentarlo.",
+          "CheckoutMutationSourceUnavailable": "Esta fuente de entrega no est\u00e1 disponible para este proceso de compra.",
+          "CheckoutMutationProviderFailure": "No se pudieron guardar los datos de entrega. Int\u00e9ntalo de nuevo.",
+          "CommerceAccountUnavailable": "No se pudieron guardar los datos de entrega. Int\u00e9ntalo de nuevo.",
+          "CommerceRequestFailure": "No se pudieron guardar los datos de entrega. Int\u00e9ntalo de nuevo.",
+          "CheckoutMutationUnsupported": "Esta fuente de entrega a\u00fan no es compatible.",
+          "CheckoutUnavailable": "No se encontr\u00f3 el proceso de compra para esta solicitud.",
+          "CommerceRequestContextNotFound": "No se encontr\u00f3 el proceso de compra para esta solicitud.",
+          "CheckoutVersionConflict": "El proceso de compra cambi\u00f3 antes de guardar. Actualiza la p\u00e1gina e int\u00e9ntalo de nuevo.",
+          "AddressBookMutationRejected": "No se ha aceptado la direcci\u00f3n. Comprueba el pa\u00eds, la provincia, el c\u00f3digo postal y la calle."
+        },
+        "savePaymentOptions": {
+          "CheckoutCartMismatch": "This checkout is no longer current. Refresh and try again.",
+          "InputInvalid": "Choose an available payment method and complete its details.",
+          "CheckoutMutationOutcomeUnknown": "We could not confirm whether your payment options were saved. Refresh before trying again.",
+          "CheckoutMutationProviderFailure": "Payment options could not be saved. Try again.",
+          "CheckoutPaymentMethodUnavailable": "That payment method is no longer available. Refresh and choose again.",
+          "CheckoutPaymentOptionsUnavailable": "Completa el paso actual del proceso de compra antes de preparar el pago.",
+          "CheckoutPaymentPreparationRefreshRequired": "Card details no longer match this checkout. Refresh and enter them again.",
+          "CheckoutUnavailable": "Checkout was not found for the current request.",
+          "CheckoutVersionConflict": "Checkout changed before your payment options could be saved. Refresh and try again.",
+          "CommerceAccountUnavailable": "Payment options could not be saved. Try again.",
+          "CommerceRequestContextNotFound": "Checkout was not found for the current request."
+        },
+        "saveShippingOptions": {
+          "CheckoutCartMismatch": "Este proceso de compra ya no est\u00e1 actualizado.",
+          "InputInvalid": "Elige una opci\u00f3n de env\u00edo para cada entrega.",
+          "CheckoutMutationOutcomeUnknown": "No pudimos confirmar si se guardaron las opciones. Actualiza la p\u00e1gina.",
+          "CheckoutMutationProviderFailure": "No se pudieron guardar las opciones de env\u00edo.",
+          "CheckoutShippingOptionsRefreshRequired": "Las opciones de env\u00edo se guardaron, pero no se pudo actualizar el proceso de compra. Actualiza la p\u00e1gina.",
+          "CheckoutShippingSelectionUnavailable": "Esa opci\u00f3n de env\u00edo ya no est\u00e1 disponible.",
+          "CheckoutUnavailable": "No se encontr\u00f3 el proceso de compra.",
+          "CheckoutVersionConflict": "El proceso de compra cambi\u00f3 antes de guardar.",
+          "CommerceAccountUnavailable": "No se pudieron guardar las opciones de env\u00edo.",
+          "CommerceRequestContextNotFound": "No se encontr\u00f3 el proceso de compra."
+        }
+      },
+      "violations": {
+        "unknownCountry": "este destino",
+        "shippingCountryUnavailable": "El env\u00edo a {country} no est\u00e1 disponible.",
+        "guestItemLimit": "Los carritos de invitado est\u00e1n limitados a {maxQuantity} art\u00edculos. Elimina al menos {excessQuantity, plural, one {# art\u00edculo} other {# art\u00edculos}}.",
+        "incompatibleCartItems": "Estos art\u00edculos no se pueden comprar juntos.",
+        "shippingAddressRestricted": "Esta direcci\u00f3n no puede recibir uno o m\u00e1s art\u00edculos del carrito.",
+        "policyUnavailable": "No se pudo verificar la disponibilidad del proceso de compra.",
+        "generic": "No se puede continuar hasta que se resuelva este problema.",
+        "taxUnavailable": "No se pudieron calcular los impuestos. Int\u00e9ntalo de nuevo o contacta con soporte."
+      }
+    },
+    "customerAccount": {
+      "title": "My account",
+      "description": "Manage your personal details and saved addresses.",
+      "label": "Personal account",
+      "registrationTitle": "Create your personal account",
+      "registrationDescription": "Your account is ready to shop as soon as you save your details. Company approval is not required.",
+      "register": "Create account",
+      "signIn": "Sign in or create an account",
+      "signInDescription": "Use your email to sign in or create an account, then complete your personal details.",
+      "companyRegistration": "Register a company instead",
+      "customerRegistration": "Create a personal account",
+      "profileTitle": "Personal details",
+      "saveProfile": "Save details",
+      "addressesTitle": "Saved addresses",
+      "editAddress": "Editar",
+      "editAddressTitle": "Editar direcci\u00f3n",
+      "removeAddress": "Eliminar",
+      "removeAddressTitle": "\u00bfEliminar esta direcci\u00f3n?",
+      "removeAddressDescription": "Esta direcci\u00f3n se eliminar\u00e1 de tus direcciones guardadas.",
+      "cancelAddressChange": "Cancelar",
+      "defaultAddress": "Predeterminada",
+      "defaultShippingAddress": "Env\u00edo predeterminado",
+      "defaultBillingAddress": "Facturaci\u00f3n predeterminada",
+      "setDefaultAddress": "Establecer como predeterminada",
+      "noAddresses": "You have no saved addresses yet.",
+      "addAddress": "Add an address",
+      "saveAddress": "Save address",
+      "saved": "Saved successfully.",
+      "saving": "Saving...",
+      "emailRequired": "Add an email address to your sign-in account before continuing.",
+      "errors": {
+        "invalidInput": "Please review your details and complete all required fields.",
+        "unauthenticated": "Sign in before saving your details.",
+        "emailRequired": "Add an email address to your sign-in account before continuing.",
+        "emailConflict": "This email belongs to an existing account. Sign in with that account or contact support.",
+        "unavailable": "We could not save your details right now. Please try again.",
+        "addressNotFound": "Esta direcci\u00f3n ya no est\u00e1 disponible. Actualiza tu cuenta.",
+        "defaultAddressRemoval": "Establece otra direcci\u00f3n como predeterminada antes de eliminar esta. A\u00f1ade una direcci\u00f3n nueva si es necesario.",
+        "addressOutcomeUnknown": "No se ha podido confirmar el cambio. Actualiza tu cuenta antes de volver a intentarlo.",
+        "contextUnavailable": "Your personal account is unavailable. Complete account setup and try again.",
+        "addressRejected": "No se ha aceptado la direcci\u00f3n. Comprueba el pa\u00eds, la provincia, el c\u00f3digo postal y la calle."
+      },
+      "overview": "Overview",
+      "overviewDescription": "Your account, saved products and orders.",
+      "signedInAccount": "Signed-in account",
+      "customerDetails": "Customer details and addresses",
+      "manageDetails": "Manage details",
+      "orders": "Orders",
+      "ordersDescription": "View your purchases and delivery information.",
+      "viewOrders": "View orders",
+      "connectingAccount": "Conectando tu cuenta de cliente\u2026",
+      "continueToAccount": "Continuar a tu cuenta"
+    },
+    "commercetoolsCheckout": {
+      "title": "Finalizar compra",
+      "start": "Continuar con la compra",
+      "starting": "Cargando\u2026",
+      "startFailed": "No se pudo iniciar la compra. Actualiza la p\u00e1gina y revisa el carrito y tu cuenta.",
+      "sessionOutcomeUnknown": "No se pudo confirmar la sesi\u00f3n. Actualiza esta p\u00e1gina antes de iniciar otra sesi\u00f3n.",
+      "checkoutFailed": "No se pudo continuar con el pago. Actualiza esta p\u00e1gina para reanudar el mismo proceso.",
+      "orderReceived": "Pedido recibido",
+      "orderNumber": "Pedido {number}",
+      "confirmed": "Pago confirmado.",
+      "pending": "La confirmaci\u00f3n del pago est\u00e1 pendiente. Actualiza esta p\u00e1gina para comprobarlo.",
+      "failed": "El pago ha fallado. Contacta con atenci\u00f3n al cliente sobre este pedido.",
+      "refresh": "Actualizar compra",
+      "returnFailed": "No se pudo reanudar el regreso del pago. Contacta con soporte antes de iniciar otro pago."
+    },
+    "orderHistory": {
+      "title": "Pedidos",
+      "description": "Tus compras y actualizaciones de entrega.",
+      "detailDescription": "Art\u00edculos comprados, importes, entrega y seguimiento.",
+      "account": "Cuenta",
+      "order": "Pedido",
+      "date": "Fecha",
+      "store": "Tienda",
+      "allStores": "Todas las tiendas",
+      "apply": "Aplicar",
+      "unattributed": "Sin registrar",
+      "payment": "Pago",
+      "fulfillment": "Preparaci\u00f3n",
+      "delivery": "Entrega",
+      "cancellation": "Cancelaci\u00f3n",
+      "total": "Total",
+      "empty": "A\u00fan no hay pedidos",
+      "findPreviousOrders": "Buscar pedidos anteriores",
+      "emptyPage": "A\u00fan no se han encontrado pedidos coincidentes. Sigue buscando.",
+      "nextPage": "P\u00e1gina siguiente",
+      "firstPage": "Pedidos recientes",
+      "back": "Volver a los pedidos",
+      "accessDenied": "No tiene acceso a este historial. Inicie sesi\u00f3n o seleccione una empresa autorizada.",
+      "configuration": "El historial de pedidos no est\u00e1 disponible temporalmente. Int\u00e9ntalo m\u00e1s tarde.",
+      "invalidCursor": "Esta p\u00e1gina ya no est\u00e1 disponible. Vuelve a tus pedidos recientes.",
+      "unavailable": "No pudimos cargar sus pedidos. Int\u00e9ntelo de nuevo.",
+      "purchaseOrder": "Referencia de compra",
+      "items": "Art\u00edculos comprados",
+      "sku": "SKU",
+      "quantity": "Cantidad pedida",
+      "quantityShort": "Cant.",
+      "currentQuantity": "Cantidad actual",
+      "each": "cada uno",
+      "subtotal": "Subtotal",
+      "shipping": "Env\u00edo",
+      "tax": "Impuestos",
+      "discounts": "Descuentos",
+      "adjustments": "Ajustes",
+      "discountsApplied": "Descuentos ya aplicados",
+      "taxIncluded": "Impuestos incluidos",
+      "refunded": "Reembolsado",
+      "outstanding": "Pendiente de pago",
+      "shippingAddress": "Direcci\u00f3n de entrega",
+      "billingAddress": "Direcci\u00f3n de facturaci\u00f3n",
+      "shipments": "Env\u00edos",
+      "tracking": "Seguimiento",
+      "track": "Seguir el env\u00edo",
+      "status": {
+        "notCancelled": "Sin cancelar",
+        "cancelled": "Cancelado",
+        "unknown": "Desconocido",
+        "notRequired": "No necesario",
+        "pending": "Pendiente",
+        "ready": "Listo",
+        "inTransit": "En tr\u00e1nsito",
+        "partiallyDelivered": "Entregado parcialmente",
+        "delivered": "Entregado",
+        "delayed": "Retrasado",
+        "backordered": "Pendiente de reposici\u00f3n",
+        "failed": "Fallido",
+        "unfulfilled": "Sin preparar",
+        "inProgress": "En curso",
+        "partiallyFulfilled": "Preparado parcialmente",
+        "fulfilled": "Preparado",
+        "onHold": "En espera",
+        "scheduled": "Programado",
+        "balanceDue": "Saldo pendiente",
+        "authorized": "Autorizado",
+        "partiallyPaid": "Pagado parcialmente",
+        "paid": "Pagado",
+        "partiallyRefunded": "Reembolsado parcialmente",
+        "refunded": "Reembolsado",
+        "creditOwed": "Cr\u00e9dito pendiente",
+        "voided": "Anulado",
+        "expired": "Caducado"
+      },
+      "orderNumberFilter": "N\u00famero de pedido",
+      "purchaseOrderFilter": "N\u00famero de orden de compra",
+      "dateFrom": "Desde",
+      "dateTo": "Hasta",
+      "anyStatus": "Cualquier estado",
+      "clearFilters": "Borrar filtros",
+      "continueSearch": "Seguir buscando",
+      "invalidFilter": "Revisa los filtros y el intervalo de fechas e int\u00e9ntalo de nuevo.",
+      "emptyDescription": "Tus pedidos aparecer\u00e1n aqu\u00ed despu\u00e9s de tu primera compra.",
+      "noMatches": "No hay pedidos coincidentes",
+      "noMatchesDescription": "Prueba otro n\u00famero de pedido o ajusta los filtros.",
+      "continueShopping": "Seguir comprando",
+      "search": "Buscar",
+      "searchPlaceholder": "Introducir n\u00famero de pedido",
+      "filters": "Filtros",
+      "statusLabel": "Estado",
+      "statusUnavailable": "Estado no disponible",
+      "viewOrder": "Ver pedido",
+      "pagination": "P\u00e1ginas de pedidos",
+      "errorTitle": "No pudimos cargar tus pedidos",
+      "retry": "Reintentar",
+      "historyLimit": "Se muestran los pedidos de los \u00faltimos {days, number} d\u00edas. Los pedidos anteriores no est\u00e1n disponibles aqu\u00ed.",
+      "emptyRecent": "No hay pedidos recientes",
+      "emptyRecentDescription": "No tienes pedidos en el historial disponible."
+    },
+    "categories": {
+      "title": "Categor\u00edas",
+      "description": "Explora los productos por categor\u00eda.",
+      "empty": "A\u00fan no hay categor\u00edas disponibles.",
+      "allCategories": "Todas las categor\u00edas"
+    },
+    "shoppingLists": {
+      "title": "Shopping lists",
+      "account": "Account",
+      "description": "Keep your favorite products and plan your next order.",
+      "store": "Store",
+      "name": "List name",
+      "create": "Create list",
+      "rename": "Save name",
+      "items": "Items",
+      "empty": "You have no shopping lists yet.",
+      "emptyItems": "Save products to this list from their product pages.",
+      "addItem": "Add item",
+      "catalogUnavailable": "Products are unavailable right now. You can still manage this list.",
+      "variant": "Variant",
+      "quantity": "Quantity",
+      "updateQuantity": "Update quantity",
+      "remove": "Remove item",
+      "delete": "Delete list",
+      "confirmDelete": "Confirm deletion",
+      "ownership": "Show lists",
+      "mine": "My lists",
+      "others": "Other customer lists",
+      "all": "All company lists",
+      "apply": "Apply",
+      "saving": "Saving\u2026",
+      "saved": "Saved.",
+      "refresh": "Refresh list",
+      "firstPage": "Back to my lists",
+      "nextPage": "Next page",
+      "conflict": "This list changed since you opened it. Refresh the list before making another change.",
+      "accessDenied": "You do not have permission to perform this action in the current purchasing context. If you switched company or Store, refresh the page.",
+      "outcomeUnknown": "The change could not be confirmed. Refresh the list to check its current contents before trying again.",
+      "limitExceeded": "This list has reached its item limit. Remove an item before adding another.",
+      "notFound": "This list is no longer available. Return to your lists.",
+      "unavailable": "Shopping lists are unavailable right now. Check your account connection or try again later.",
+      "invalidInput": "Check the form: a name and positive whole quantities are required.",
+      "favorites": "Wish List",
+      "addFavorite": "Add to Wish List",
+      "removeFavorite": "Remove from Wish List",
+      "chooseVariant": "Choose a variant to save",
+      "continueToLists": "Continue to your lists",
+      "otherList": "Add to another list",
+      "createWithItem": "Create list and add item",
+      "browseProducts": "Browse all products",
+      "editName": "Edit list name",
+      "update": "Update",
+      "sku": "SKU",
+      "outOfStock": "Currently out of stock",
+      "removedProduct": "Product no longer available",
+      "removedProductHint": "You can remove this item from your list.",
+      "productDetailsUnavailable": "Product details temporarily unavailable",
+      "noImage": "No image",
+      "deleteDescription": "This deletes the list and all its saved items. This cannot be undone.",
+      "renameDescription": "Give this shopping list a name that is easy to recognize.",
+      "cancel": "Cancel"
+    }
+  }
+}

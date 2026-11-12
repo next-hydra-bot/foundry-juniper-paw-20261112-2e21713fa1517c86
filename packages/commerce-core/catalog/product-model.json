@@ -1,0 +1,574 @@
+{
+  "defaultLocale": "en-US",
+  "productTypes": [
+    {
+      "attributes": [],
+      "cartSummary": [],
+      "description": "Products without specific attributes",
+      "key": "generic-product",
+      "labels": {
+        "en-US": "Generic Product",
+        "en-CA": "Generic Product",
+        "fr-CA": "Produit générique"
+      },
+      "searchFacets": [],
+      "variantOptions": []
+    },
+    {
+      "attributes": [
+        {
+          "key": "capacity",
+          "labels": {
+            "en-NZ": "Capacity",
+            "en-AU": "Capacity",
+            "en-US": "Capacity",
+            "pt-PT": "Capacidade",
+            "es-ES": "Capacidad",
+            "it-IT": "Capacità",
+            "de-DE": "Kapazität",
+            "fr-FR": "Capacité",
+            "nl-NL": "Capaciteit",
+            "en-GB": "Capacity",
+            "en-CA": "Capacity",
+            "fr-CA": "Capacité"
+          },
+          "required": false,
+          "type": "number"
+        },
+        {
+          "key": "iso45001",
+          "labels": {
+            "en-NZ": "ISO 45001 certified",
+            "en-AU": "ISO 45001 certified",
+            "en-US": "ISO 45001 certified",
+            "pt-PT": "Certificado ISO 45001",
+            "es-ES": "Certificado ISO 45001",
+            "it-IT": "Certificato ISO 45001",
+            "de-DE": "ISO 45001 zertifiziert",
+            "fr-FR": "Certifié ISO 45001",
+            "nl-NL": "ISO 45001 gecertificeerd",
+            "en-GB": "ISO 45001 certified",
+            "en-CA": "ISO 45001 certified",
+            "fr-CA": "Certifié ISO 45001"
+          },
+          "required": false,
+          "type": "boolean",
+          "variantConstraint": "same"
+        },
+        {
+          "key": "relatedProducts",
+          "labels": {
+            "en-NZ": "Related products",
+            "en-AU": "Related products",
+            "en-US": "Related products",
+            "pt-PT": "Produtos relacionados",
+            "es-ES": "Productos relacionados",
+            "it-IT": "Prodotti correlati",
+            "de-DE": "Verwandte Produkte",
+            "fr-FR": "Produits associés",
+            "nl-NL": "Gerelateerde producten",
+            "en-GB": "Related products",
+            "en-CA": "Related products",
+            "fr-CA": "Produits associés"
+          },
+          "list": true,
+          "required": false,
+          "type": "product-reference",
+          "variantConstraint": "same"
+        },
+        {
+          "key": "mobility",
+          "labels": {
+            "en-NZ": "Mobility",
+            "en-AU": "Mobility",
+            "en-US": "Mobility",
+            "pt-PT": "Mobilidade",
+            "es-ES": "Movilidad",
+            "it-IT": "Mobilità",
+            "de-DE": "Mobilität",
+            "fr-FR": "Mobilité",
+            "nl-NL": "Mobiliteit",
+            "en-GB": "Mobility",
+            "en-CA": "Mobility",
+            "fr-CA": "Mobilité"
+          },
+          "required": false,
+          "type": "enum",
+          "values": [
+            {
+              "key": "tracked",
+              "labels": {
+                "en-US": "Tracked",
+                "en-CA": "Tracked",
+                "fr-CA": "Sur chenilles"
+              }
+            },
+            {
+              "key": "wheeled",
+              "labels": {
+                "en-US": "Wheeled",
+                "en-CA": "Wheeled",
+                "fr-CA": "Sur roues"
+              }
+            },
+            {
+              "key": "fixed",
+              "labels": {
+                "en-US": "Fixed",
+                "en-CA": "Fixed",
+                "fr-CA": "Fixe"
+              }
+            },
+            {
+              "key": "marine",
+              "labels": {
+                "en-US": "Marine",
+                "en-CA": "Marine",
+                "fr-CA": "Maritime"
+              }
+            }
+          ],
+          "variantConstraint": "same"
+        },
+        {
+          "key": "model",
+          "labels": {
+            "en-NZ": "Model",
+            "en-AU": "Model",
+            "en-US": "Model",
+            "pt-PT": "Modelo",
+            "es-ES": "Modelo",
+            "it-IT": "Modello",
+            "de-DE": "Modell",
+            "fr-FR": "Modèle",
+            "nl-NL": "Model",
+            "en-GB": "Model",
+            "en-CA": "Model",
+            "fr-CA": "Modèle"
+          },
+          "required": true,
+          "type": "number",
+          "variantConstraint": "unique"
+        }
+      ],
+      "cartSummary": [
+        "model"
+      ],
+      "description": "Equipment used in heavy earthmoving and construction activities",
+      "key": "heavy-earthmoving-and-construction-equipment",
+      "labels": {
+        "en-US": "Heavy Earthmoving and Construction Equipment",
+        "en-CA": "Heavy Earthmoving and Construction Equipment",
+        "fr-CA": "Équipement lourd de terrassement et de construction"
+      },
+      "searchFacets": [
+        "capacity",
+        "mobility"
+      ],
+      "variantOptions": [
+        "model"
+      ]
+    },
+    {
+      "attributes": [
+        {
+          "key": "capacity",
+          "labels": {
+            "en-NZ": "Capacity",
+            "en-AU": "Capacity",
+            "en-US": "Capacity",
+            "pt-PT": "Capacidade",
+            "es-ES": "Capacidad",
+            "it-IT": "Capacità",
+            "de-DE": "Kapazität",
+            "fr-FR": "Capacité",
+            "nl-NL": "Capaciteit",
+            "en-GB": "Capacity",
+            "en-CA": "Capacity",
+            "fr-CA": "Capacité"
+          },
+          "required": false,
+          "type": "number",
+          "variantConstraint": "same"
+        },
+        {
+          "key": "iso45001",
+          "labels": {
+            "en-NZ": "ISO 45001 certified",
+            "en-AU": "ISO 45001 certified",
+            "en-US": "ISO 45001 certified",
+            "pt-PT": "Certificado ISO 45001",
+            "es-ES": "Certificado ISO 45001",
+            "it-IT": "Certificato ISO 45001",
+            "de-DE": "ISO 45001 zertifiziert",
+            "fr-FR": "Certifié ISO 45001",
+            "nl-NL": "ISO 45001 gecertificeerd",
+            "en-GB": "ISO 45001 certified",
+            "en-CA": "ISO 45001 certified",
+            "fr-CA": "Certifié ISO 45001"
+          },
+          "required": false,
+          "type": "boolean",
+          "variantConstraint": "same"
+        },
+        {
+          "key": "relatedProducts",
+          "labels": {
+            "en-NZ": "Related products",
+            "en-AU": "Related products",
+            "en-US": "Related products",
+            "pt-PT": "Produtos relacionados",
+            "es-ES": "Productos relacionados",
+            "it-IT": "Prodotti correlati",
+            "de-DE": "Verwandte Produkte",
+            "fr-FR": "Produits associés",
+            "nl-NL": "Gerelateerde producten",
+            "en-GB": "Related products",
+            "en-CA": "Related products",
+            "fr-CA": "Produits associés"
+          },
+          "list": true,
+          "required": false,
+          "type": "product-reference",
+          "variantConstraint": "same"
+        },
+        {
+          "key": "mobility",
+          "labels": {
+            "en-NZ": "Mobility",
+            "en-AU": "Mobility",
+            "en-US": "Mobility",
+            "pt-PT": "Mobilidade",
+            "es-ES": "Movilidad",
+            "it-IT": "Mobilità",
+            "de-DE": "Mobilität",
+            "fr-FR": "Mobilité",
+            "nl-NL": "Mobiliteit",
+            "en-GB": "Mobility",
+            "en-CA": "Mobility",
+            "fr-CA": "Mobilité"
+          },
+          "required": false,
+          "type": "enum",
+          "values": [
+            {
+              "key": "tracked",
+              "labels": {
+                "en-US": "Tracked",
+                "en-CA": "Tracked",
+                "fr-CA": "Sur chenilles"
+              }
+            },
+            {
+              "key": "wheeled",
+              "labels": {
+                "en-US": "Wheeled",
+                "en-CA": "Wheeled",
+                "fr-CA": "Sur roues"
+              }
+            },
+            {
+              "key": "fixed",
+              "labels": {
+                "en-US": "Fixed",
+                "en-CA": "Fixed",
+                "fr-CA": "Fixe"
+              }
+            },
+            {
+              "key": "marine",
+              "labels": {
+                "en-US": "Marine",
+                "en-CA": "Marine",
+                "fr-CA": "Maritime"
+              }
+            }
+          ],
+          "variantConstraint": "same"
+        },
+        {
+          "key": "color",
+          "labels": {
+            "en-NZ": "Color",
+            "en-AU": "Color",
+            "en-US": "Color",
+            "pt-PT": "Cor",
+            "es-ES": "Color",
+            "it-IT": "Colore",
+            "de-DE": "Farbe",
+            "fr-FR": "Couleur",
+            "nl-NL": "Kleur",
+            "en-GB": "Color",
+            "en-CA": "Color",
+            "fr-CA": "Couleur"
+          },
+          "required": true,
+          "type": "enum",
+          "values": [
+            {
+              "key": "RED",
+              "labels": {
+                "en-NZ": "Red",
+                "en-AU": "Red",
+                "en-US": "Red",
+                "pt-PT": "Vermelho",
+                "es-ES": "Rojo",
+                "it-IT": "Rosso",
+                "de-DE": "Rot",
+                "fr-FR": "Rouge",
+                "nl-NL": "Rood",
+                "en-GB": "Red",
+                "en-CA": "Red",
+                "fr-CA": "Rouge"
+              },
+              "swatch": {
+                "color": "#BD3D36"
+              }
+            },
+            {
+              "key": "BLUE",
+              "labels": {
+                "en-NZ": "Blue",
+                "en-AU": "Blue",
+                "en-US": "Blue",
+                "pt-PT": "Azul",
+                "es-ES": "Azul",
+                "it-IT": "Blu",
+                "de-DE": "Blau",
+                "fr-FR": "Bleu",
+                "nl-NL": "Blauw",
+                "en-GB": "Blue",
+                "en-CA": "Blue",
+                "fr-CA": "Bleu"
+              },
+              "swatch": {
+                "color": "#315D84"
+              }
+            },
+            {
+              "key": "GREEN",
+              "labels": {
+                "en-NZ": "Green",
+                "en-AU": "Green",
+                "en-US": "Green",
+                "pt-PT": "Verde",
+                "es-ES": "Verde",
+                "it-IT": "Verde",
+                "de-DE": "Grün",
+                "fr-FR": "Vert",
+                "nl-NL": "Groen",
+                "en-GB": "Green",
+                "en-CA": "Green",
+                "fr-CA": "Vert"
+              },
+              "swatch": {
+                "color": "#45654B"
+              }
+            }
+          ],
+          "variantConstraint": "unique"
+        }
+      ],
+      "cartSummary": [],
+      "description": "Equipment designed for heavy lifting and specialized tasks",
+      "key": "heavy-lifting-and-specialized-equipment",
+      "labels": {
+        "en-US": "Heavy Lifting and Specialized Equipment",
+        "en-CA": "Heavy Lifting and Specialized Equipment",
+        "fr-CA": "Équipement spécialisé et de levage lourd"
+      },
+      "searchFacets": [
+        "capacity",
+        "mobility",
+        "color"
+      ],
+      "variantOptions": [
+        "color"
+      ]
+    },
+    {
+      "attributes": [
+        {
+          "key": "material",
+          "labels": {
+            "en-US": "Material",
+            "en-CA": "Material",
+            "fr-CA": "Matériau"
+          },
+          "required": true,
+          "type": "text"
+        },
+        {
+          "key": "weightGrams",
+          "labels": {
+            "en-US": "Weight (g)",
+            "en-CA": "Weight (g)",
+            "fr-CA": "Poids (g)"
+          },
+          "required": true,
+          "type": "number"
+        },
+        {
+          "key": "volumeMl",
+          "labels": {
+            "en-US": "Volume (ml)",
+            "en-CA": "Volume (ml)",
+            "fr-CA": "Volume (ml)"
+          },
+          "required": false,
+          "type": "number"
+        },
+        {
+          "key": "care",
+          "labels": {
+            "en-US": "Care instructions",
+            "en-CA": "Care instructions",
+            "fr-CA": "Consignes d’entretien"
+          },
+          "required": false,
+          "type": "text"
+        },
+        {
+          "key": "insulated",
+          "labels": {
+            "en-US": "Insulated",
+            "en-CA": "Insulated",
+            "fr-CA": "Isolé"
+          },
+          "required": false,
+          "type": "boolean"
+        },
+        {
+          "key": "relatedProducts",
+          "labels": {
+            "en-US": "Related products",
+            "en-CA": "Related products",
+            "fr-CA": "Produits connexes"
+          },
+          "list": true,
+          "required": false,
+          "type": "product-reference"
+        },
+        {
+          "key": "size",
+          "labels": {
+            "en-US": "Size",
+            "fr-FR": "Taille",
+            "en-CA": "Size",
+            "fr-CA": "Taille"
+          },
+          "required": false,
+          "type": "enum",
+          "values": [
+            {
+              "key": "S",
+              "labels": {
+                "en-US": "S",
+                "en-CA": "S",
+                "fr-CA": "S"
+              }
+            },
+            {
+              "key": "M",
+              "labels": {
+                "en-US": "M",
+                "en-CA": "M",
+                "fr-CA": "M"
+              }
+            },
+            {
+              "key": "L",
+              "labels": {
+                "en-US": "L",
+                "en-CA": "L",
+                "fr-CA": "L"
+              }
+            }
+          ]
+        },
+        {
+          "key": "color",
+          "labels": {
+            "en-US": "Color",
+            "fr-FR": "Couleur",
+            "en-CA": "Color",
+            "fr-CA": "Couleur"
+          },
+          "required": false,
+          "type": "enum",
+          "values": [
+            {
+              "key": "RED",
+              "labels": {
+                "en-US": "Red",
+                "fr-FR": "Rouge",
+                "en-CA": "Red",
+                "fr-CA": "Rouge"
+              },
+              "swatch": {
+                "color": "#BD3D36"
+              }
+            },
+            {
+              "key": "BLUE",
+              "labels": {
+                "en-US": "Blue",
+                "fr-FR": "Bleu",
+                "en-CA": "Blue",
+                "fr-CA": "Bleu"
+              },
+              "swatch": {
+                "color": "#315D84"
+              }
+            },
+            {
+              "key": "GREEN",
+              "labels": {
+                "en-US": "Green",
+                "fr-FR": "Vert",
+                "en-CA": "Green",
+                "fr-CA": "Vert"
+              },
+              "swatch": {
+                "color": "#45654B"
+              }
+            },
+            {
+              "key": "BLACK",
+              "labels": {
+                "en-US": "Black",
+                "fr-FR": "Noir",
+                "en-CA": "Black",
+                "fr-CA": "Noir"
+              },
+              "swatch": {
+                "color": "#202124"
+              }
+            }
+          ]
+        }
+      ],
+      "cartSummary": [
+        "size",
+        "color"
+      ],
+      "description": "Apparel and equipment with typed material, weight, volume and care attributes. Variant selections are modeled as Product Options.",
+      "key": "outdoor-product",
+      "labels": {
+        "en-US": "Outdoor product",
+        "en-CA": "Outdoor product",
+        "fr-CA": "Produit de plein air"
+      },
+      "searchFacets": [
+        "color",
+        "material",
+        "size"
+      ],
+      "variantOptions": [
+        "size",
+        "color"
+      ]
+    }
+  ],
+  "schemaVersion": 1
+}

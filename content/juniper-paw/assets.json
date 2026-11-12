@@ -1,0 +1,11 @@
+[
+  {
+    "key": "home-companions",
+    "source": "images/home-companions.png",
+    "alt": {
+      "en-US": "A golden retriever and tabby cat resting together at home",
+      "en-CA": "A golden retriever and tabby cat resting together at home",
+      "fr-CA": "Un golden retriever et un chat tigré se reposent ensemble à la maison"
+    }
+  }
+]

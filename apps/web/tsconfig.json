@@ -1,0 +1,57 @@
+{
+  "extends": [
+    "@repo/typescript-config/effect-nextjs.json",
+    "@repo/cms/typescript-config.json"
+  ],
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./*"],
+      "@repo/cms": [
+        "../../packages/cms-contentstack"
+      ],
+      "@repo/cms/*": [
+        "../../packages/cms-contentstack/*"
+      ],
+      "@repo/*": [
+        "../../packages/*"
+      ],
+      "@repo/auth": [
+        "../../packages/auth-clerk"
+      ],
+      "@repo/auth/*": [
+        "../../packages/auth-clerk/*"
+      ],
+      "@repo/commerce-core/product/public-catalog": [
+        "../../packages/commerce-shopify/product/public-catalog.ts"
+      ],
+      "@repo/commerce-b2c/bindings": [
+        "./lib/commerce-runtime.ts"
+      ],
+      "@repo/commerce-core/bindings": [
+        "./lib/commerce-runtime.ts"
+      ],
+      "@repo/commerce-core/customer-account/bindings": [
+        "./components/layout/customer-account-navigation.ts"
+      ],
+      "@repo/commerce-provider": [
+        "../../packages/commerce-shopify"
+      ],
+      "@repo/commerce-provider/*": [
+        "../../packages/commerce-shopify/*"
+      ],
+      "@repo/commerce-shopify/checkout/bindings": [
+        "./lib/commerce-runtime.ts"
+      ],
+      "@repo/commerce-shopify/customer-account/bindings": [
+        "./lib/commerce-runtime.ts"
+      ]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "next.config.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ]
+}

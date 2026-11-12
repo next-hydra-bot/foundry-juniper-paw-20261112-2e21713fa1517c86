@@ -1,0 +1,144 @@
+{
+  "key": "machinery-trade",
+  "sourceCatalog": "b2b",
+  "stores": [
+    {
+      "storeKey": "earthworks-store",
+      "locale": "en-US",
+      "currency": "USD",
+      "isDefault": true,
+      "displayCode": "EARTH",
+      "displayName": "Earthworks trade",
+      "assortmentKey": "earthworks"
+    },
+    {
+      "storeKey": "warehouse-store",
+      "locale": "en-US",
+      "currency": "USD",
+      "isDefault": false,
+      "displayCode": "WARE",
+      "displayName": "Warehouse trade",
+      "assortmentKey": "warehouse"
+    },
+    {
+      "storeKey": "france-store",
+      "locale": "fr-FR",
+      "currency": "EUR",
+      "isDefault": true,
+      "displayCode": "FR",
+      "displayName": "France",
+      "assortmentKey": "warehouse"
+    }
+  ],
+  "assortments": [
+    {
+      "key": "earthworks",
+      "productKeys": [
+        "equipment-compact-excavator",
+        "equipment-replacement-attachment"
+      ]
+    },
+    {
+      "key": "warehouse",
+      "productKeys": [
+        "equipment-mobile-lift",
+        "equipment-pallet-truck",
+        "equipment-replacement-attachment"
+      ]
+    }
+  ],
+  "priceLists": [
+    {
+      "key": "gold-usd",
+      "currency": "USD",
+      "prices": [
+        {
+          "sku": "EXC-180",
+          "centAmount": 2250000
+        },
+        {
+          "sku": "EXC-250",
+          "centAmount": 3000000
+        },
+        {
+          "sku": "ATTACH-STD",
+          "centAmount": 15000
+        },
+        {
+          "sku": "LIFT-RED",
+          "centAmount": 435000
+        },
+        {
+          "sku": "LIFT-BLUE",
+          "centAmount": 400000
+        },
+        {
+          "sku": "PALLET-2000",
+          "centAmount": 41000
+        }
+      ]
+    },
+    {
+      "key": "standard-usd",
+      "currency": "USD",
+      "prices": [
+        {
+          "sku": "EXC-180",
+          "centAmount": 2350000
+        },
+        {
+          "sku": "EXC-250",
+          "centAmount": 3100000
+        },
+        {
+          "sku": "LIFT-RED",
+          "centAmount": 435000
+        },
+        {
+          "sku": "LIFT-BLUE",
+          "centAmount": 400000
+        },
+        {
+          "sku": "PALLET-2000",
+          "centAmount": 41000
+        },
+        {
+          "sku": "ATTACH-STD",
+          "centAmount": 16500
+        }
+      ]
+    },
+    {
+      "key": "standard-eur",
+      "currency": "EUR",
+      "prices": [
+        {
+          "sku": "LIFT-RED",
+          "centAmount": 399000
+        },
+        {
+          "sku": "LIFT-BLUE",
+          "centAmount": 379000
+        },
+        {
+          "sku": "PALLET-2000",
+          "centAmount": 39000
+        },
+        {
+          "sku": "ATTACH-STD",
+          "centAmount": 14500
+        }
+      ]
+    }
+  ],
+  "pricingGroups": [
+    {
+      "key": "gold-dealers",
+      "priceListKeys": ["gold-usd"]
+    },
+    {
+      "key": "standard-dealers",
+      "priceListKeys": ["standard-usd", "standard-eur"]
+    }
+  ]
+}

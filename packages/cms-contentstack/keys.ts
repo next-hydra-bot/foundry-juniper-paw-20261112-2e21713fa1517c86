@@ -1,0 +1,40 @@
+import { createEnv } from "@t3-oss/env-nextjs";
+import { z } from "zod";
+
+export const keys = () =>
+  createEnv({
+    client: {
+      NEXT_PUBLIC_CONTENTSTACK_API_KEY: z.string(),
+      NEXT_PUBLIC_CONTENTSTACK_ENVIRONMENT: z.string(),
+    },
+    runtimeEnv: {
+      CONTENTSTACK_API_KEY: process.env.CONTENTSTACK_API_KEY,
+      CONTENTSTACK_BRANCH: process.env.CONTENTSTACK_BRANCH ?? "main",
+      CONTENTSTACK_DELIVERY_TOKEN: process.env.CONTENTSTACK_DELIVERY_TOKEN,
+      CONTENTSTACK_ENVIRONMENT: process.env.CONTENTSTACK_ENVIRONMENT,
+      CONTENTSTACK_GRAPHQL_HOST_NAME:
+        process.env.CONTENTSTACK_GRAPHQL_HOST_NAME ??
+        "graphql.contentstack.com",
+      CONTENTSTACK_LIVE_PREVIEW_HOST_NAME:
+        process.env.CONTENTSTACK_LIVE_PREVIEW_HOST_NAME ??
+        "graphql-preview.contentstack.com",
+      CONTENTSTACK_PREVIEW_TOKEN: process.env.CONTENTSTACK_PREVIEW_TOKEN,
+      CONTENTSTACK_REGION: process.env.CONTENTSTACK_REGION ?? "NA",
+      CONTENTSTACK_WEBHOOK_SECRET: process.env.CONTENTSTACK_WEBHOOK_SECRET,
+      NEXT_PUBLIC_CONTENTSTACK_API_KEY:
+        process.env.NEXT_PUBLIC_CONTENTSTACK_API_KEY,
+      NEXT_PUBLIC_CONTENTSTACK_ENVIRONMENT:
+        process.env.NEXT_PUBLIC_CONTENTSTACK_ENVIRONMENT,
+    },
+    server: {
+      CONTENTSTACK_API_KEY: z.string(),
+      CONTENTSTACK_BRANCH: z.string().min(1),
+      CONTENTSTACK_DELIVERY_TOKEN: z.string().startsWith("cs"),
+      CONTENTSTACK_ENVIRONMENT: z.string(),
+      CONTENTSTACK_GRAPHQL_HOST_NAME: z.string(),
+      CONTENTSTACK_LIVE_PREVIEW_HOST_NAME: z.string(),
+      CONTENTSTACK_PREVIEW_TOKEN: z.string().startsWith("cs"),
+      CONTENTSTACK_REGION: z.string(),
+      CONTENTSTACK_WEBHOOK_SECRET: z.string(),
+    },
+  });

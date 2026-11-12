@@ -1,0 +1,30 @@
+{
+  "devDependencies": {
+    "@next/env": "catalog:",
+    "@playwright/test": "catalog:",
+    "@repo/e2e-testing": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "effect": "catalog:",
+    "jiti": "^2.6.1",
+    "playwright-bdd": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "@repo/auth-contract": "workspace:*",
+    "@repo/auth": "workspace:@repo/auth-clerk@*",
+    "web": "workspace:*",
+    "@repo/cms": "workspace:@repo/cms-contentstack@*"
+  },
+  "name": "@repo/e2e",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "e2e": "bddgen && playwright test --pass-with-no-tests",
+    "e2e:generate": "bddgen",
+    "clean": "git clean -xdf .features-gen playwright-report test-results node_modules",
+    "test": "NODE_ENV=test vitest run",
+    "typecheck": "pnpm --workspace-root exec tsc --noEmit --project tests/e2e/tsconfig.json",
+    "e2e:list": "bddgen && playwright test --list --pass-with-no-tests"
+  }
+}

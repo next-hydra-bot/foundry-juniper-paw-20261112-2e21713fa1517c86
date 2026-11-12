@@ -1,0 +1,53 @@
+{
+  "companies": [
+    {
+      "businessUnitKey": "earthworks",
+      "companyId": "gid://shopify/Company/REPLACE_WITH_EARTHWORKS_COMPANY_ID",
+      "companyLocationIds": [
+        "gid://shopify/CompanyLocation/REPLACE_WITH_EARTHWORKS_LOCATION_ID"
+      ]
+    },
+    {
+      "businessUnitKey": "earthworks-service",
+      "companyId": "gid://shopify/Company/REPLACE_WITH_EARTHWORKS_COMPANY_ID",
+      "companyLocationIds": [
+        "gid://shopify/CompanyLocation/REPLACE_WITH_SERVICE_LOCATION_ID"
+      ]
+    },
+    {
+      "businessUnitKey": "earthworks-parts",
+      "companyId": "gid://shopify/Company/REPLACE_WITH_EARTHWORKS_COMPANY_ID",
+      "companyLocationIds": [
+        "gid://shopify/CompanyLocation/REPLACE_WITH_PARTS_LOCATION_ID"
+      ]
+    },
+    {
+      "businessUnitKey": "warehouse",
+      "companyId": "gid://shopify/Company/REPLACE_WITH_WAREHOUSE_COMPANY_ID"
+    },
+    {
+      "businessUnitKey": "france",
+      "companyId": "gid://shopify/Company/REPLACE_WITH_FRANCE_COMPANY_ID"
+    }
+  ],
+  "pricingGroups": [
+    {
+      "pricingGroupKey": "gold-dealers",
+      "currency": "USD",
+      "marketHandle": "gold-dealers-usd",
+      "marketName": "Gold dealers USD"
+    },
+    {
+      "pricingGroupKey": "standard-dealers",
+      "currency": "USD",
+      "marketHandle": "standard-dealers-usd",
+      "marketName": "Standard dealers USD"
+    },
+    {
+      "pricingGroupKey": "standard-dealers",
+      "currency": "EUR",
+      "marketHandle": "standard-dealers-eur",
+      "marketName": "Standard dealers EUR"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+packages:
+  - apps/*
+  - packages/*
+  - tests/*
+# Keep framework instances shared when only nested peer dependencies differ.
+dedupePeers: true
+catalog:
+  "@effect/platform-node": 4.0.6
+  "@effect/platform-node-shared": 4.0.6
+  "@effect/vitest": 4.0.6
+  "@next/bundle-analyzer": 16.3.1
+  "@next/env": 16.3.1
+  "@next/third-parties": 16.3.1
+  "@playwright/test": 1.62.1
+  "@t3-oss/env-nextjs": ^0.13.4
+  "@types/node": 24.13.3
+  "@types/react": 19.2.10
+  "@types/react-dom": 19.2.3
+  effect: 4.0.6
+  next: 16.3.1
+  playwright-bdd: 9.2.0
+  react: 19.2.8
+  react-dom: 19.2.8
+  server-only: ^0.0.1
+  typescript: npm:@typescript/typescript6@6.0.2
+  vitest: 5.0.1
+catalogs:
+  typescript7:
+    "@typescript/native": npm:typescript@7.0.2
+    typescript: npm:typescript@7.0.2
+overrides:
+  react: 19.2.8
+  react-dom: 19.2.8
+patchedDependencies:
+  "@zanreal/nemo@3.0.1": patches/@zanreal__nemo@3.0.1.patch
+  "@contentstack/cli-cm-import@2.0.0": patches/@contentstack__cli-cm-import@2.0.0.patch
+  "@contentstack/cli-migration@2.0.0": patches/@contentstack__cli-migration@2.0.0.patch
+  migrate-sdk@0.17.1: patches/migrate-sdk@0.17.1.patch
+allowBuilds:
+  "@clerk/shared": false
+  "@nestjs/core": false
+  "@parcel/watcher": true
+  "@sentry/cli": true
+  "@swc/core": true
+  bufferutil: false
+  cbor-extract: false
+  core-js: false
+  core-js-pure: false
+  esbuild: true
+  msgpackr-extract: false
+  msw: false
+  sharp: true
+  unrs-resolver: true
+  yarn: false
+minimumReleaseAgeExclude:
+  - "@workflow/astro@5.0.8"
+  - "@workflow/builders@5.0.8"
+  - "@workflow/cli@5.0.8"
+  - "@workflow/core@5.4.0"
+  - "@workflow/nest@5.1.6"
+  - "@workflow/next@5.0.8"
+  - "@workflow/nitro@5.0.8"
+  - "@workflow/nuxt@5.0.8"
+  - "@workflow/rollup@5.0.8"
+  - "@workflow/sveltekit@5.0.8"
+  - "@workflow/vite@5.0.8"
+  - "@workflow/web@5.0.8"
+  - "@workflow/world-local@5.2.1"
+  - "@workflow/world-vercel@5.4.0"
+  - workflow@5.4.0
+  - "@workflow/vitest@5.0.8"

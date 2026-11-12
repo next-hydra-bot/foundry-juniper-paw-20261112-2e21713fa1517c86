@@ -1,0 +1,668 @@
+[
+  {
+    "key": "home",
+    "locale": "en-US",
+    "path": "/",
+    "published": true,
+    "title": "Home",
+    "type": "page",
+    "blocks": [
+      {
+        "type": "hero",
+        "key": "intro",
+        "title": "Good days start with their essentials",
+        "tagline": "For the love of everyday adventures",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Thoughtful finds for dogs and cats, from playtime to quiet time."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Shop for dogs",
+            "entryKey": "dogs"
+          },
+          {
+            "label": "Shop for cats",
+            "entryKey": "cats"
+          }
+        ],
+        "imageKey": "home-companions"
+      },
+      {
+        "type": "product-collection",
+        "key": "dog",
+        "title": "For the dog days",
+        "categoryKey": "dog-supplies",
+        "limit": 6
+      },
+      {
+        "type": "product-collection",
+        "key": "cat",
+        "title": "For the curious cats",
+        "categoryKey": "cat-supplies",
+        "limit": 6
+      },
+      {
+        "type": "hero",
+        "key": "care-feature",
+        "title": "Make room for a little care",
+        "tagline": "A happier daily rhythm",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Simple ideas for creating a comfortable routine together."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Read the care guide",
+            "entryKey": "care-guide"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "dogs",
+    "locale": "en-US",
+    "path": "/collections/dogs",
+    "published": true,
+    "title": "For dogs",
+    "type": "page",
+    "blocks": [
+      {
+        "type": "hero",
+        "key": "intro",
+        "title": "Made for the dog days",
+        "tagline": "Walk, play, rest, repeat",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Explore practical picks for the routines you share."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Read our care guide",
+            "entryKey": "care-guide"
+          }
+        ]
+      },
+      {
+        "type": "product-collection",
+        "key": "dog",
+        "title": "Dog essentials",
+        "categoryKey": "dog-supplies",
+        "limit": 6
+      }
+    ]
+  },
+  {
+    "key": "cats",
+    "locale": "en-US",
+    "path": "/collections/cats",
+    "published": true,
+    "title": "For cats",
+    "type": "page",
+    "blocks": [
+      {
+        "type": "hero",
+        "key": "intro",
+        "title": "For curious cats",
+        "tagline": "Play, explore, curl up",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Discover everyday comforts for your feline companion."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Read our care guide",
+            "entryKey": "care-guide"
+          }
+        ]
+      },
+      {
+        "type": "product-collection",
+        "key": "cat",
+        "title": "Cat essentials",
+        "categoryKey": "cat-supplies",
+        "limit": 6
+      }
+    ]
+  },
+  {
+    "key": "care-guide",
+    "locale": "en-US",
+    "path": "/guides/everyday-care",
+    "published": true,
+    "title": "A little care for every day",
+    "type": "article",
+    "summary": "Simple ways to build a comfortable daily routine for dogs and cats.",
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "The best routines leave room for your companion’s individual needs. Start with the basics, observe what they enjoy, and adjust as life changes."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "children": [
+          {
+            "text": "Make space for rest"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Offer a quiet, comfortable place to settle, with fresh water nearby. Keep bedding clean and check toys and accessories regularly for wear."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "children": [
+          {
+            "text": "Make time for play"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Choose activities suited to your pet’s age, size and preferences. Supervise play and put away damaged toys. Cats may enjoy short, varied sessions; dogs often appreciate a mix of walks, play and downtime."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "children": [
+          {
+            "text": "Notice the little things"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Changes in appetite, behaviour or energy can be worth discussing with your veterinarian. For individual feeding, exercise and health advice, ask your veterinary team."
+          }
+        ]
+      }
+    ],
+    "imageKey": "home-companions"
+  },
+  {
+    "key": "home",
+    "locale": "en-CA",
+    "path": "/",
+    "published": true,
+    "title": "Home",
+    "type": "page",
+    "blocks": [
+      {
+        "type": "hero",
+        "key": "intro",
+        "title": "Good days start with their essentials",
+        "tagline": "For the love of everyday adventures",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Thoughtful finds for dogs and cats, from playtime to quiet time."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Shop for dogs",
+            "entryKey": "dogs"
+          },
+          {
+            "label": "Shop for cats",
+            "entryKey": "cats"
+          }
+        ],
+        "imageKey": "home-companions"
+      },
+      {
+        "type": "product-collection",
+        "key": "dog",
+        "title": "For the dog days",
+        "categoryKey": "dog-supplies",
+        "limit": 6
+      },
+      {
+        "type": "product-collection",
+        "key": "cat",
+        "title": "For the curious cats",
+        "categoryKey": "cat-supplies",
+        "limit": 6
+      },
+      {
+        "type": "hero",
+        "key": "care-feature",
+        "title": "Make room for a little care",
+        "tagline": "A happier daily rhythm",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Simple ideas for creating a comfortable routine together."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Read the care guide",
+            "entryKey": "care-guide"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "dogs",
+    "locale": "en-CA",
+    "path": "/collections/dogs",
+    "published": true,
+    "title": "For dogs",
+    "type": "page",
+    "blocks": [
+      {
+        "type": "hero",
+        "key": "intro",
+        "title": "Made for the dog days",
+        "tagline": "Walk, play, rest, repeat",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Explore practical picks for the routines you share."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Read our care guide",
+            "entryKey": "care-guide"
+          }
+        ]
+      },
+      {
+        "type": "product-collection",
+        "key": "dog",
+        "title": "Dog essentials",
+        "categoryKey": "dog-supplies",
+        "limit": 6
+      }
+    ]
+  },
+  {
+    "key": "cats",
+    "locale": "en-CA",
+    "path": "/collections/cats",
+    "published": true,
+    "title": "For cats",
+    "type": "page",
+    "blocks": [
+      {
+        "type": "hero",
+        "key": "intro",
+        "title": "For curious cats",
+        "tagline": "Play, explore, curl up",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Discover everyday comforts for your feline companion."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Read our care guide",
+            "entryKey": "care-guide"
+          }
+        ]
+      },
+      {
+        "type": "product-collection",
+        "key": "cat",
+        "title": "Cat essentials",
+        "categoryKey": "cat-supplies",
+        "limit": 6
+      }
+    ]
+  },
+  {
+    "key": "care-guide",
+    "locale": "en-CA",
+    "path": "/guides/everyday-care",
+    "published": true,
+    "title": "A little care for every day",
+    "type": "article",
+    "summary": "Simple ways to build a comfortable daily routine for dogs and cats.",
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "The best routines leave room for your companion’s individual needs. Start with the basics, observe what they enjoy, and adjust as life changes."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "children": [
+          {
+            "text": "Make space for rest"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Offer a quiet, comfortable place to settle, with fresh water nearby. Keep bedding clean and check toys and accessories regularly for wear."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "children": [
+          {
+            "text": "Make time for play"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Choose activities suited to your pet’s age, size and preferences. Supervise play and put away damaged toys. Cats may enjoy short, varied sessions; dogs often appreciate a mix of walks, play and downtime."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "children": [
+          {
+            "text": "Notice the little things"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Changes in appetite, behaviour or energy can be worth discussing with your veterinarian. For individual feeding, exercise and health advice, ask your veterinary team."
+          }
+        ]
+      }
+    ],
+    "imageKey": "home-companions"
+  },
+  {
+    "key": "home",
+    "locale": "fr-CA",
+    "path": "/",
+    "published": true,
+    "title": "Accueil",
+    "type": "page",
+    "blocks": [
+      {
+        "type": "hero",
+        "key": "intro",
+        "title": "De belles journées commencent par leurs essentiels",
+        "tagline": "Pour les petits bonheurs du quotidien",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Des trouvailles pour chiens et chats, des moments de jeu aux instants de repos."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Pour les chiens",
+            "entryKey": "dogs"
+          },
+          {
+            "label": "Pour les chats",
+            "entryKey": "cats"
+          }
+        ],
+        "imageKey": "home-companions"
+      },
+      {
+        "type": "product-collection",
+        "key": "dog",
+        "title": "Pour les chiens",
+        "categoryKey": "dog-supplies",
+        "limit": 6
+      },
+      {
+        "type": "product-collection",
+        "key": "cat",
+        "title": "Pour les chats curieux",
+        "categoryKey": "cat-supplies",
+        "limit": 6
+      },
+      {
+        "type": "hero",
+        "key": "care-feature",
+        "title": "Une petite place pour les soins",
+        "tagline": "Une routine tout en douceur",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Des idées simples pour créer une routine confortable ensemble."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Lire le guide de soins",
+            "entryKey": "care-guide"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "key": "dogs",
+    "locale": "fr-CA",
+    "path": "/collections/dogs",
+    "published": true,
+    "title": "Pour les chiens",
+    "type": "page",
+    "blocks": [
+      {
+        "type": "hero",
+        "key": "intro",
+        "title": "Pour les belles journées canines",
+        "tagline": "Promenade, jeu, repos et on recommence",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Découvrez des choix pratiques pour vos routines partagées."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Lire le guide de soins",
+            "entryKey": "care-guide"
+          }
+        ]
+      },
+      {
+        "type": "product-collection",
+        "key": "dog",
+        "title": "Les essentiels pour chiens",
+        "categoryKey": "dog-supplies",
+        "limit": 6
+      }
+    ]
+  },
+  {
+    "key": "cats",
+    "locale": "fr-CA",
+    "path": "/collections/cats",
+    "published": true,
+    "title": "Pour les chats",
+    "type": "page",
+    "blocks": [
+      {
+        "type": "hero",
+        "key": "intro",
+        "title": "Pour les chats curieux",
+        "tagline": "Jouer, explorer, se blottir",
+        "body": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "text": "Découvrez des essentiels de tous les jours pour votre compagnon félin."
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Lire le guide de soins",
+            "entryKey": "care-guide"
+          }
+        ]
+      },
+      {
+        "type": "product-collection",
+        "key": "cat",
+        "title": "Les essentiels pour chats",
+        "categoryKey": "cat-supplies",
+        "limit": 6
+      }
+    ]
+  },
+  {
+    "key": "care-guide",
+    "locale": "fr-CA",
+    "path": "/guides/everyday-care",
+    "published": true,
+    "title": "Un peu de soin chaque jour",
+    "type": "article",
+    "summary": "Des idées simples pour une routine confortable avec votre chien ou votre chat.",
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Une bonne routine tient compte des besoins de votre compagnon. Commencez par les essentiels, observez ce qu’il aime et adaptez-vous au fil du temps."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "children": [
+          {
+            "text": "Faire une place au repos"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Aménagez un coin tranquille et confortable, avec de l’eau fraîche à proximité. Nettoyez régulièrement sa literie et vérifiez l’usure des jouets et accessoires."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "children": [
+          {
+            "text": "Prendre le temps de jouer"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Choisissez des activités adaptées à son âge, à sa taille et à ses préférences. Surveillez les jeux et retirez les jouets abîmés. Les chats peuvent apprécier de courtes séances variées; les chiens aiment souvent alterner promenades, jeux et repos."
+          }
+        ]
+      },
+      {
+        "type": "heading",
+        "level": 2,
+        "children": [
+          {
+            "text": "Remarquer les petits changements"
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "text": "Un changement d’appétit, de comportement ou d’énergie mérite parfois une discussion avec votre vétérinaire. Pour des conseils adaptés sur l’alimentation, l’activité et la santé, consultez votre équipe vétérinaire."
+          }
+        ]
+      }
+    ],
+    "imageKey": "home-companions"
+  }
+]

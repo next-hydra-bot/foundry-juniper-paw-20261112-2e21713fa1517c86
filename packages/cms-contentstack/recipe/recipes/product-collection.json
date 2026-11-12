@@ -1,0 +1,109 @@
+{
+  "id": "contentstack/product-collection",
+  "contentType": {
+    "uid": "landing_page",
+    "blockField": "components",
+    "block": {
+      "schema": [
+        {
+          "data_type": "text",
+          "display_name": "Heading",
+          "field_metadata": {},
+          "mandatory": false,
+          "multiple": false,
+          "non_localizable": false,
+          "uid": "heading",
+          "unique": false
+        },
+        {
+          "data_type": "json",
+          "display_name": "Description",
+          "field_metadata": {
+            "allow_json_rte": true,
+            "embed_entry": false,
+            "multiline": false,
+            "rich_text_type": "advanced"
+          },
+          "mandatory": false,
+          "multiple": false,
+          "non_localizable": false,
+          "reference_to": [],
+          "uid": "description",
+          "unique": false
+        },
+        {
+          "data_type": "text",
+          "display_name": "Commerce category",
+          "field_metadata": {
+            "description": "Commerce category ID. Use the same ID across translations."
+          },
+          "mandatory": false,
+          "multiple": false,
+          "non_localizable": false,
+          "uid": "product_category",
+          "unique": false
+        },
+        {
+          "uid": "limit",
+          "data_type": "number",
+          "display_name": "Product limit",
+          "mandatory": false,
+          "multiple": false,
+          "non_localizable": false,
+          "field_metadata": {
+            "default_value": 3
+          }
+        }
+      ],
+      "title": "Dynamic product collection",
+      "uid": "dynamic_product_collection"
+    }
+  },
+  "entry": {
+    "contentType": "landing_page",
+    "locale": "en-us",
+    "uid": "bltnexthydrahome01",
+    "block": {
+      "dynamic_product_collection": {
+        "description": {
+          "children": [
+            {
+              "children": [
+                {
+                  "text": "Connect this block to a Commerce category to feature a curated collection.",
+                  "type": "text"
+                }
+              ],
+              "type": "p"
+            }
+          ],
+          "type": "doc"
+        },
+        "heading": "Featured equipment",
+        "product_category": null
+      }
+    },
+    "localizedBlocks": {
+      "fr-ca": {
+        "dynamic_product_collection": {
+          "description": {
+            "children": [
+              {
+                "children": [
+                  {
+                    "text": "Associez ce bloc à une catégorie du catalogue pour présenter une sélection d’équipement.",
+                    "type": "text"
+                  }
+                ],
+                "type": "p"
+              }
+            ],
+            "type": "doc"
+          },
+          "heading": "Équipement en vedette",
+          "product_category": null
+        }
+      }
+    }
+  }
+}

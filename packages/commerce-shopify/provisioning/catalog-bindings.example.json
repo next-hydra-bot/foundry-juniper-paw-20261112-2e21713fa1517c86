@@ -1,0 +1,22 @@
+{
+  "pricingGroups": [
+    {
+      "pricingGroupKey": "gold-dealers",
+      "currency": "USD",
+      "marketHandle": "gold-dealers-usd",
+      "marketName": "Gold dealers USD"
+    },
+    {
+      "pricingGroupKey": "standard-dealers",
+      "currency": "USD",
+      "marketHandle": "standard-dealers-usd",
+      "marketName": "Standard dealers USD"
+    },
+    {
+      "pricingGroupKey": "standard-dealers",
+      "currency": "EUR",
+      "marketHandle": "standard-dealers-eur",
+      "marketName": "Standard dealers EUR"
+    }
+  ]
+}

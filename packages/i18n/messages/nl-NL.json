@@ -1,0 +1,765 @@
+{
+  "web": {
+    "header": {
+      "account": "Klantenzone",
+      "signUp": "Aanmelden",
+      "signIn": "Aanmelden",
+      "signOut": "Afmelden",
+      "signingOut": "Bezig met afmelden\u2026",
+      "signOutFailed": "Afmelden is niet gelukt. Probeer het opnieuw.",
+      "user": "Gebruiker"
+    },
+    "product": {
+      "addToCart": "Toevoegen aan winkelwagentje",
+      "quoteRequest": "Vraag een offerte aan",
+      "priceStartsAt": "Prijs vanaf {price}",
+      "badgeNew": "Nieuw",
+      "titlePlaceholder": "Productvariant Titel",
+      "descriptionPlaceholder": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "errorLoadingProduct": "Fout bij het laden van product",
+      "inStock": "Op voorraad",
+      "outOfStock": "Niet op voorraad",
+      "currentlyOutOfStock": "Momenteel niet op voorraad",
+      "unitsAvailable": "{count, plural, one {# eenheid beschikbaar} other {# eenheden beschikbaar}}",
+      "quantity": "Hoeveelheid",
+      "loading": "Laden...",
+      "selectedConfiguration": "Geselecteerde configuratie:",
+      "units": "{count, plural, one {eenheid} other {eenheden}}",
+      "outOfStockSuffix": "(Niet op voorraad)",
+      "variantLabel": "Variant",
+      "productHasNoVariants": "Product heeft geen varianten",
+      "viewDetails": "Bekijk details",
+      "combinationUnavailable": "Deze combinatie is niet beschikbaar"
+    },
+    "navigation": {
+      "home": "Home",
+      "products": "Producten",
+      "categoryFallback": "Categorie"
+    },
+    "search": {
+      "productListing": {
+        "facets": {
+          "category": "Categorie",
+          "availability": "Beschikbaarheid",
+          "price": "Prijs"
+        },
+        "filters": "Filters",
+        "clearAll": "Alles wissen",
+        "minimum": "Minimum",
+        "maximum": "Maximum",
+        "apply": "Toepassen",
+        "showLess": "Minder tonen",
+        "showMore": "Meer tonen"
+      }
+    },
+    "article": {
+      "readGuide": "Gids lezen"
+    },
+    "cart": {
+      "addedToCartAlert": "Toegevoegd {quantity} {variantLabel} aan winkelwagentje voor {price} per stuk.\nVoorraadstatus: {stockStatus}",
+      "stockIn": "Op Voorraad",
+      "stockOut": "Niet Op Voorraad",
+      "toast": {
+        "addedToCart": "Aan winkelwagentje toegevoegd",
+        "removedFromCart": "Uit winkelwagentje verwijderd",
+        "updatedQuantity": "Hoeveelheid bijgewerkt",
+        "failedToAdd": "Toevoegen aan winkelwagentje mislukt",
+        "failedToRemove": "Artikel verwijderen mislukt",
+        "failedToUpdate": "Hoeveelheid bijwerken mislukt"
+      },
+      "title": "Winkelwagentje ({count})",
+      "empty": {
+        "heading": "Je winkelwagentje is leeg",
+        "description": "Voeg wat zware machines toe om te beginnen",
+        "actions": {
+          "browseProducts": "Blader door Producten"
+        }
+      },
+      "summary": {
+        "subtotal": {
+          "label": "Subtotaal"
+        },
+        "shipping": {
+          "label": "Verzending",
+          "description": "Bereken bij afrekenen"
+        },
+        "total": {
+          "label": "Totaal",
+          "estimated": "Geschat totaal"
+        },
+        "taxesAndShippingNotice": "Het totaal wordt bevestigd bij het afrekenen.",
+        "tax": {
+          "label": "Belasting",
+          "included": "Belasting (inbegrepen)",
+          "unknown": "Berekend bij het afrekenen",
+          "estimated": "Geschat"
+        }
+      },
+      "actions": {
+        "checkout": "Ga naar Afrekenen",
+        "continueShopping": "Blijf Winkelen",
+        "viewCart": "Winkelwagen bekijken"
+      },
+      "pageTitle": "Winkelwagen",
+      "promotions": {
+        "code": "Kortingscode",
+        "apply": "Toepassen",
+        "remove": "{code} verwijderen",
+        "removeButton": "Verwijderen",
+        "inapplicable": "Deze code geldt niet voor de huidige winkelwagen.",
+        "failed": "De kortingscode kon niet worden bijgewerkt. Probeer het opnieuw.",
+        "discount": "Korting"
+      }
+    },
+    "registration": {
+      "page": {
+        "eyebrow": "Bedrijfsregistratie",
+        "title": "Registreer uw bedrijf en vraag toegang aan.",
+        "description": "Deel de gegevens van uw bedrijf en uw hoofdcontactpersoon. Als uw registratie wordt goedgekeurd, sturen we een beveiligde link om de toegang af te ronden."
+      },
+      "awaiting": {
+        "eyebrow": "Beoordeling bezig",
+        "title": "Uw registratie wordt beoordeeld.",
+        "description": "Uw registratie is ontvangen. We sturen de volgende stappen per e-mail zodra uw bedrijf is goedgekeurd.",
+        "backToSite": "Terug naar de site"
+      },
+      "form": {
+        "sections": {
+          "company": "Bedrijfsgegevens",
+          "contact": "Hoofdcontactpersoon"
+        },
+        "fields": {
+          "companyName": {
+            "label": "Bedrijfsnaam",
+            "placeholder": "Bedrijfsnaam"
+          },
+          "companyPhone": {
+            "label": "Telefoonnummer van het bedrijf",
+            "placeholder": "Telefoonnummer van het bedrijf"
+          },
+          "vatId": {
+            "label": "Btw-nummer / fiscaal nummer",
+            "placeholder": "Btw-nummer / fiscaal nummer"
+          },
+          "country": {
+            "label": "Land",
+            "placeholder": "Selecteer een land"
+          },
+          "streetAddress": {
+            "label": "Adres",
+            "placeholder": "Adres"
+          },
+          "addressLine2": {
+            "label": "Appartement, verdieping, enz. (optioneel)",
+            "placeholder": "Suite, verdieping, gebouw of afdeling"
+          },
+          "postalCode": {
+            "label": "Postcode",
+            "placeholder": "Postcode"
+          },
+          "city": {
+            "label": "Plaats",
+            "placeholder": "Plaats"
+          },
+          "region": {
+            "requiredLabel": "Staat / provincie",
+            "optionalLabel": "Staat / regio",
+            "codeLabel": "Regiocode (optioneel)",
+            "selectPlaceholder": "Kies staat of provincie"
+          },
+          "firstName": {
+            "label": "Voornaam",
+            "placeholder": "Voornaam"
+          },
+          "lastName": {
+            "label": "Achternaam",
+            "placeholder": "Achternaam"
+          },
+          "email": {
+            "label": "E-mailadres",
+            "placeholder": "E-mailadres"
+          }
+        },
+        "disclaimer": "We beoordelen elke bedrijfsregistratie voordat we toegang verlenen. Als de registratie wordt goedgekeurd, sturen we uw hoofdcontactpersoon een beveiligde link om het account af te ronden.",
+        "actions": {
+          "submit": "Bedrijf registreren",
+          "submitting": "Bezig met verzenden..."
+        },
+        "errors": {
+          "invalidSubmission": "Controleer de gemarkeerde velden en probeer het opnieuw.",
+          "unsupportedRegistrationCountry": "We kunnen nog geen bedrijfsregistraties uit dit land accepteren.",
+          "submitFailed": "We konden uw registratie nu niet verzenden. Probeer het opnieuw.",
+          "submissionOutcomeUnknown": "We konden niet bevestigen of uw registratie is ontvangen. Neem contact op met de ondersteuning voordat u deze opnieuw indient."
+        },
+        "validation": {
+          "companyName": "Voer de bedrijfsnaam in.",
+          "companyNameMax": "De bedrijfsnaam is te lang.",
+          "companyPhone": "Voer een geldig telefoonnummer van het bedrijf in.",
+          "vatId": "Het btw-nummer / fiscale nummer is te lang.",
+          "firstName": "Voer een voornaam in.",
+          "firstNameMax": "De voornaam is te lang.",
+          "lastName": "Voer een achternaam in.",
+          "lastNameMax": "De achternaam is te lang.",
+          "email": "Voer een geldig e-mailadres in.",
+          "duplicateEmail": "Dit e-mailadres is al gekoppeld aan een bestaande of openstaande registratie.",
+          "invalidVatId": "Voer een geldig btw-nummer / fiscaal nummer in.",
+          "streetAddress": "Voer een adres in.",
+          "postalCode": "Voer een postcode in.",
+          "city": "Voer een plaats in.",
+          "region": "Voer een staat, provincie of regio in.",
+          "country": "Selecteer een land."
+        }
+      },
+      "gate": {
+        "actions": {
+          "signOut": "Afmelden",
+          "backToHome": "Terug naar home"
+        },
+        "accessUnavailable": {
+          "eyebrow": "Toegang niet beschikbaar",
+          "title": "Dit account is niet gekoppeld aan een bedrijfsaccount.",
+          "description": "Gebruik de e-maillink die na goedkeuring is verzonden of neem contact op met support als u toegang verwachtte."
+        },
+        "rejected": {
+          "eyebrow": "Registratie niet goedgekeurd",
+          "title": "Uw bedrijfsregistratie is niet goedgekeurd.",
+          "description": "Neem contact op met support als u een nieuwe beoordeling nodig hebt of bijgewerkte gegevens wilt indienen."
+        },
+        "failed": {
+          "eyebrow": "Registratie niet beschikbaar",
+          "title": "We konden uw registratie niet voltooien.",
+          "description": "Neem contact op met support of dien later een nieuwe registratie in."
+        },
+        "pending": {
+          "eyebrow": "Beoordeling bezig",
+          "title": "Uw bedrijfsregistratie wordt nog beoordeeld.",
+          "description": "We sturen de volgende stappen per e-mail zodra uw bedrijf is goedgekeurd."
+        }
+      }
+    },
+    "customerArea": {
+      "title": "Klantenzone",
+      "description": "Beheer je bedrijfsaccount en de mensen die namens het bedrijf mogen inkopen.",
+      "navigation": {
+        "accountManagement": "Accountbeheer",
+        "orders": "Bestellingen",
+        "addresses": "Adressen",
+        "comingSoon": "Binnenkort",
+        "overview": "Overzicht",
+        "profile": "Profiel en adressen",
+        "members": "Leden en uitnodigingen"
+      },
+      "users": {
+        "adminOnly": {
+          "title": "Beheerderstoegang vereist",
+          "description": "Alleen een bedrijfsbeheerder kan gebruikers uitnodigen."
+        },
+        "invite": {
+          "title": "Gebruiker toevoegen",
+          "description": "Nodig iemand uit en kies wat die persoon voor je bedrijf mag doen.",
+          "firstNameLabel": "Voornaam",
+          "firstNamePlaceholder": "Ada",
+          "lastNameLabel": "Achternaam",
+          "lastNamePlaceholder": "Lovelace",
+          "emailLabel": "E-mailadres",
+          "emailPlaceholder": "naam@bedrijf.nl",
+          "rolesLabel": "Bedrijfsrollen",
+          "rolesDescription": "Selecteer een of meer rollen. De rechten worden gecombineerd.",
+          "roles": {
+            "admin": {
+              "label": "Beheerder",
+              "description": "Gebruikers en toegang beheren."
+            },
+            "buyer": {
+              "label": "Inkoper",
+              "description": "Bestellingen voor het bedrijf plaatsen."
+            },
+            "approver": {
+              "label": "Goedkeurder",
+              "description": "Bestellingen beoordelen en goedkeuren."
+            }
+          },
+          "send": "Uitnodiging versturen",
+          "sending": "Versturen...",
+          "successTitle": "Uitnodiging verstuurd",
+          "successDescription": "Er is een uitnodiging verstuurd naar {email}.",
+          "memberAddedTitle": "Gebruiker toegevoegd",
+          "memberAddedDescription": "{email} had al een account en is aan uw bedrijf toegevoegd.",
+          "failureTitle": "Uitnodiging niet verstuurd"
+        },
+        "management": {
+          "title": "Bedrijfsgebruikers",
+          "description": "Beheer actieve gebruikers en openstaande uitnodigingen.",
+          "empty": "Er zijn nog geen gebruikers of uitnodigingen.",
+          "person": "Gebruiker",
+          "roles": "Rollen",
+          "status": "Status",
+          "expiry": "Verloopt",
+          "actions": "Acties",
+          "cancel": "Uitnodiging annuleren",
+          "reissue": "Opnieuw verzenden",
+          "remove": "Verwijderen",
+          "currentUser": "U",
+          "inheritedMembership": "Beheerd door moederbedrijf",
+          "noAction": "Wordt ingericht",
+          "statuses": {
+            "active": "Actief",
+            "pending": "In afwachting",
+            "accepted": "Geaccepteerd",
+            "expired": "Verlopen",
+            "revoked": "Geannuleerd"
+          }
+        }
+      },
+      "errors": {
+        "InputInvalid": "Voer een geldig e-mailadres in.",
+        "InputInvalidName": "Voer de voor- en achternaam van de persoon in.",
+        "InputInvalidRoles": "Selecteer ten minste \u00e9\u00e9n bedrijfsrol.",
+        "InvitationPolicyError": "Alleen een bedrijfsbeheerder kan gebruikers uitnodigen.",
+        "InvitationConflict": "Deze gebruiker kan niet worden uitgenodigd.",
+        "CommerceCustomerEmailConflict": "Dit e-mailadres hoort bij een andere commerce-klant.",
+        "CustomerAccountIdentityLookupFailure": "De identiteitsdirectory is tijdelijk niet beschikbaar. Probeer het opnieuw.",
+        "InvitationProviderFailure": "De uitnodigingsactie kon niet worden voltooid. Probeer opnieuw.",
+        "IdentityMembershipProjectionFailure": "Het bedrijfslidmaatschap kon niet worden gesynchroniseerd. Probeer opnieuw.",
+        "InvitationIssueOutcomeUnknown": "De uitnodiging is mogelijk verstuurd, maar het resultaat kon niet worden bevestigd. Verstuur de uitnodiging niet opnieuw.",
+        "CustomerAccountProfileIncomplete": "Je profiel heeft een e-mailadres nodig.",
+        "CommerceRequestContextNotFound": "Het huidige bedrijfsaccount is niet beschikbaar.",
+        "CommerceAccountUnavailable": "Het bedrijfsaccount is tijdelijk niet beschikbaar.",
+        "CommerceCustomerProfileNotFound": "Je klantprofiel is niet gevonden.",
+        "CompanyMemberInvitationNotFound": "Deze uitnodiging is niet gevonden. Vernieuw de ledenlijst.",
+        "CompanyMemberInvitationPersistenceFailure": "Bedrijfsuitnodigingen zijn tijdelijk niet beschikbaar. Probeer het opnieuw.",
+        "CompanyMemberInvitationRecordConflict": "Deze uitnodiging is ondertussen gewijzigd. Vernieuw de ledenlijst.",
+        "InvitationExpired": "Deze uitnodiging is verlopen. Vernieuw de ledenlijst om deze opnieuw te versturen.",
+        "InvitationNotFound": "De identiteitsprovider heeft deze uitnodiging niet meer. Vernieuw de ledenlijst.",
+        "CompanyMemberRemovalConflict": "Dit lid kan in de huidige bedrijfstoestand niet worden verwijderd. Vernieuw en probeer opnieuw.",
+        "CompanyMemberManagementForbidden": "Alleen een bedrijfsbeheerder kan leden beheren."
+      },
+      "companyProfile": {
+        "title": "Bedrijfsgegevens en adressen",
+        "description": "Beheer de gegevens van de geselecteerde locatie.",
+        "name": "Locatienaam",
+        "shipping": "Verzendadres",
+        "billing": "Factuuradres",
+        "save": "Wijzigingen opslaan",
+        "saving": "Opslaan\u2026",
+        "refresh": "Gegevens vernieuwen",
+        "readOnly": "Alleen bedrijfsbeheerders kunnen deze gegevens wijzigen.",
+        "invalid": "Controleer de verplichte velden en adressen.",
+        "forbidden": "Alleen bedrijfsbeheerders kunnen bedrijfsgegevens wijzigen.",
+        "changed": "Deze gegevens zijn gewijzigd. Vernieuw ze voordat u opslaat.",
+        "unknown": "Opslaan kon niet worden bevestigd. Vernieuw voordat u het opnieuw probeert.",
+        "unavailable": "Bedrijfsgegevens zijn momenteel niet beschikbaar."
+      },
+      "overview": {
+        "account": "Mijn account",
+        "title": "Overzicht",
+        "description": "Je account en je aankopen.",
+        "details": "Je gegevens"
+      }
+    },
+    "checkout": {
+      "title": "Afrekenen",
+      "paymentOptions": {
+        "availableToSpend": "{amount} available to spend",
+        "card": "Card",
+        "cardInvalid": "Check your card details and try again.",
+        "cardNotReady": "Card entry is still loading.",
+        "chooseMethod": "Choose a payment method",
+        "netTerms": "Net {days}",
+        "paymentMethod": "Payment method",
+        "save": "Save payment options",
+        "saving": "Saving...",
+        "useShippingAddress": "Use shipping address for billing"
+      },
+      "steps": {
+        "contact": "Contact",
+        "deliveryDetails": "Bezorggegevens",
+        "shippingOptions": "Verzendopties",
+        "paymentOptions": "Betaalopties",
+        "reviewOrder": "Bestelling controleren"
+      },
+      "status": {
+        "complete": "Voltooid",
+        "incomplete": "Onvolledig"
+      },
+      "activeStep": "Actieve stap",
+      "editingStep": "Bewerken",
+      "attention": "Deze stap vereist aandacht",
+      "actions": {
+        "edit": "Bewerken"
+      },
+      "errorBoundary": {
+        "tryAgain": "Opnieuw proberen"
+      },
+      "cart": {
+        "title": "Winkelwagen",
+        "items": "{count, plural, one {# artikel} other {# artikelen}}",
+        "quantity": "Aantal {quantity}",
+        "violations": "Problemen bij het afrekenen",
+        "subtotal": "Subtotaal"
+      },
+      "contact": {
+        "fields": {
+          "email": "E-mail",
+          "firstName": "Voornaam",
+          "lastName": "Achternaam",
+          "phone": "Telefoon"
+        },
+        "actions": {
+          "save": "Contact opslaan",
+          "saving": "Opslaan...",
+          "useCustomerProfile": "Klantprofiel gebruiken"
+        }
+      },
+      "deliveryDetails": {
+        "addressBook": {
+          "chooseShippingAddress": "Kies een bezorgadres",
+          "defaultShipping": "Standaard bezorgadres",
+          "makeDefaultShipping": "Instellen als standaard bezorgadres",
+          "saveShippingAddress": "Dit bezorgadres opslaan",
+          "useNewAddress": "Een nieuw adres gebruiken"
+        },
+        "fields": {
+          "addressLine1": "Adresregel 1",
+          "addressLine2": "Adresregel 2",
+          "city": "Plaats",
+          "postalCode": "Postcode",
+          "region": "Regio",
+          "country": "Land"
+        },
+        "actions": {
+          "save": "Bezorggegevens opslaan",
+          "saving": "Opslaan..."
+        }
+      },
+      "shippingOptions": {
+        "chooseOption": "Kies een verzendoptie",
+        "choosePlan": "Kies een bezorgplan",
+        "delivery": "Bezorging {number}",
+        "noOptions": "Er zijn geen verzendopties voor deze bezorging.",
+        "noPlans": "Er is geen bezorgplan beschikbaar voor dit adres.",
+        "plan": "Bezorgplan {number}",
+        "quantity": "Aantal {quantity}",
+        "actions": {
+          "save": "Verzendopties opslaan",
+          "saving": "Opslaan..."
+        }
+      },
+      "errors": {
+        "addressBook": {
+          "accessDenied": "Het adresboek is niet beschikbaar voor deze checkout.",
+          "providerFailure": "Opgeslagen adressen konden niet worden geladen. Probeer het opnieuw."
+        },
+        "badRequest": "Het checkoutverzoek is ongeldig.",
+        "cartMismatch": "Deze checkout is niet meer actueel. Vernieuw de pagina en probeer het opnieuw.",
+        "internal": "De checkout kon niet worden voltooid. Probeer het opnieuw.",
+        "deliveryDetails": {
+          "addressBookEntryUnavailable": "Dit opgeslagen adres is niet meer beschikbaar.",
+          "sourceUnavailable": "Deze bezorgbron is niet beschikbaar voor deze checkout.",
+          "providerFailure": "De bezorggegevens konden niet worden opgeslagen. Probeer het opnieuw.",
+          "unsupported": "Deze bezorgbron wordt nog niet ondersteund."
+        },
+        "notFound": "De checkout is niet gevonden voor dit verzoek.",
+        "paymentOptions": {
+          "unavailable": "Voltooi de huidige checkoutstap voordat je de betaling voorbereidt."
+        },
+        "versionConflict": "De checkout is gewijzigd voordat de gegevens zijn opgeslagen. Vernieuw de pagina en probeer het opnieuw.",
+        "saveContact": {
+          "CheckoutCartMismatch": "Deze checkout is niet meer actueel. Vernieuw de pagina en probeer het opnieuw.",
+          "CheckoutCustomerProfileIncomplete": "In uw klantprofiel ontbreken verplichte contactgegevens. Vul ze hieronder in om verder te gaan.",
+          "InputInvalid": "Voer een e-mailadres, voornaam en achternaam in.",
+          "CheckoutMutationOutcomeUnknown": "We konden niet bevestigen of uw contactgegevens zijn opgeslagen. Vernieuw de pagina voordat u het opnieuw probeert.",
+          "CheckoutMutationSourceUnavailable": "Deze contactbron is niet beschikbaar voor deze checkout.",
+          "CheckoutMutationProviderFailure": "Het contact kon niet worden opgeslagen. Probeer het opnieuw.",
+          "CommerceAccountUnavailable": "Het contact kon niet worden opgeslagen. Probeer het opnieuw.",
+          "CommerceRequestFailure": "Het contact kon niet worden opgeslagen. Probeer het opnieuw.",
+          "CheckoutMutationUnsupported": "Deze contactbron wordt nog niet ondersteund.",
+          "CheckoutUnavailable": "De checkout is niet gevonden voor dit verzoek.",
+          "CommerceRequestContextNotFound": "De checkout is niet gevonden voor dit verzoek.",
+          "CheckoutVersionConflict": "De checkout is gewijzigd voordat de gegevens zijn opgeslagen. Vernieuw de pagina en probeer het opnieuw."
+        },
+        "saveDeliveryDetails": {
+          "CheckoutCartMismatch": "Deze checkout is niet meer actueel. Vernieuw de pagina en probeer het opnieuw.",
+          "CheckoutMutationAddressBookEntryUnavailable": "Dit opgeslagen adres is niet meer beschikbaar.",
+          "InputInvalid": "Voer adresregel 1, postcode, plaats en land in.",
+          "CheckoutMutationOutcomeUnknown": "We konden niet bevestigen of uw bezorggegevens zijn opgeslagen. Vernieuw de pagina voordat u het opnieuw probeert.",
+          "CheckoutMutationSourceUnavailable": "Deze bezorgbron is niet beschikbaar voor deze checkout.",
+          "CheckoutMutationProviderFailure": "De bezorggegevens konden niet worden opgeslagen. Probeer het opnieuw.",
+          "CommerceAccountUnavailable": "De bezorggegevens konden niet worden opgeslagen. Probeer het opnieuw.",
+          "CommerceRequestFailure": "De bezorggegevens konden niet worden opgeslagen. Probeer het opnieuw.",
+          "CheckoutMutationUnsupported": "Deze bezorgbron wordt nog niet ondersteund.",
+          "CheckoutUnavailable": "De checkout is niet gevonden voor dit verzoek.",
+          "CommerceRequestContextNotFound": "De checkout is niet gevonden voor dit verzoek.",
+          "CheckoutVersionConflict": "De checkout is gewijzigd voordat de gegevens zijn opgeslagen. Vernieuw de pagina en probeer het opnieuw.",
+          "AddressBookMutationRejected": "Het adres is niet geaccepteerd. Controleer het land, de regio, de postcode en de straat."
+        },
+        "savePaymentOptions": {
+          "CheckoutCartMismatch": "This checkout is no longer current. Refresh and try again.",
+          "InputInvalid": "Choose an available payment method and complete its details.",
+          "CheckoutMutationOutcomeUnknown": "We could not confirm whether your payment options were saved. Refresh before trying again.",
+          "CheckoutMutationProviderFailure": "Payment options could not be saved. Try again.",
+          "CheckoutPaymentMethodUnavailable": "That payment method is no longer available. Refresh and choose again.",
+          "CheckoutPaymentOptionsUnavailable": "Voltooi de huidige checkoutstap voordat je de betaling voorbereidt.",
+          "CheckoutPaymentPreparationRefreshRequired": "Card details no longer match this checkout. Refresh and enter them again.",
+          "CheckoutUnavailable": "Checkout was not found for the current request.",
+          "CheckoutVersionConflict": "Checkout changed before your payment options could be saved. Refresh and try again.",
+          "CommerceAccountUnavailable": "Payment options could not be saved. Try again.",
+          "CommerceRequestContextNotFound": "Checkout was not found for the current request."
+        },
+        "saveShippingOptions": {
+          "CheckoutCartMismatch": "Deze checkout is niet meer actueel.",
+          "InputInvalid": "Kies voor elke bezorging een verzendoptie.",
+          "CheckoutMutationOutcomeUnknown": "Opslaan kon niet worden bevestigd. Vernieuw de pagina.",
+          "CheckoutMutationProviderFailure": "De verzendopties konden niet worden opgeslagen.",
+          "CheckoutShippingOptionsRefreshRequired": "De verzendopties zijn opgeslagen, maar de checkout kon niet worden vernieuwd. Vernieuw de pagina.",
+          "CheckoutShippingSelectionUnavailable": "Deze verzendoptie is niet meer beschikbaar.",
+          "CheckoutUnavailable": "Checkout is niet gevonden.",
+          "CheckoutVersionConflict": "De checkout is gewijzigd v\u00f3\u00f3r het opslaan.",
+          "CommerceAccountUnavailable": "De verzendopties konden niet worden opgeslagen.",
+          "CommerceRequestContextNotFound": "Checkout is niet gevonden."
+        }
+      },
+      "violations": {
+        "unknownCountry": "deze bestemming",
+        "shippingCountryUnavailable": "Verzending naar {country} is niet beschikbaar.",
+        "guestItemLimit": "Gastwinkelwagens zijn beperkt tot {maxQuantity} artikelen. Verwijder minstens {excessQuantity, plural, one {# artikel} other {# artikelen}}.",
+        "incompatibleCartItems": "Deze artikelen kunnen niet samen worden gekocht.",
+        "shippingAddressRestricted": "Een of meer artikelen kunnen niet naar dit adres worden verzonden.",
+        "policyUnavailable": "De beschikbaarheid van de checkout kon niet worden gecontroleerd.",
+        "generic": "De checkout kan pas doorgaan als dit probleem is opgelost.",
+        "taxUnavailable": "De belasting kon niet worden berekend. Probeer het opnieuw of neem contact op met de klantenservice."
+      }
+    },
+    "customerAccount": {
+      "title": "My account",
+      "description": "Manage your personal details and saved addresses.",
+      "label": "Personal account",
+      "registrationTitle": "Create your personal account",
+      "registrationDescription": "Your account is ready to shop as soon as you save your details. Company approval is not required.",
+      "register": "Create account",
+      "signIn": "Sign in or create an account",
+      "signInDescription": "Use your email to sign in or create an account, then complete your personal details.",
+      "companyRegistration": "Register a company instead",
+      "customerRegistration": "Create a personal account",
+      "profileTitle": "Personal details",
+      "saveProfile": "Save details",
+      "addressesTitle": "Saved addresses",
+      "editAddress": "Bewerken",
+      "editAddressTitle": "Adres bewerken",
+      "removeAddress": "Verwijderen",
+      "removeAddressTitle": "Dit adres verwijderen?",
+      "removeAddressDescription": "Dit adres wordt uit je opgeslagen adressen verwijderd.",
+      "cancelAddressChange": "Annuleren",
+      "defaultAddress": "Standaard",
+      "defaultShippingAddress": "Standaard verzendadres",
+      "defaultBillingAddress": "Standaard factuuradres",
+      "setDefaultAddress": "Instellen als standaard",
+      "noAddresses": "You have no saved addresses yet.",
+      "addAddress": "Add an address",
+      "saveAddress": "Save address",
+      "saved": "Saved successfully.",
+      "saving": "Saving...",
+      "emailRequired": "Add an email address to your sign-in account before continuing.",
+      "errors": {
+        "invalidInput": "Please review your details and complete all required fields.",
+        "unauthenticated": "Sign in before saving your details.",
+        "emailRequired": "Add an email address to your sign-in account before continuing.",
+        "emailConflict": "This email belongs to an existing account. Sign in with that account or contact support.",
+        "unavailable": "We could not save your details right now. Please try again.",
+        "addressNotFound": "Dit adres is niet meer beschikbaar. Vernieuw je accountpagina.",
+        "defaultAddressRemoval": "Stel eerst een ander adres in als standaard. Voeg indien nodig een nieuw adres toe.",
+        "addressOutcomeUnknown": "De adreswijziging kon niet worden bevestigd. Vernieuw je accountpagina voordat je het opnieuw probeert.",
+        "contextUnavailable": "Your personal account is unavailable. Complete account setup and try again.",
+        "addressRejected": "Het adres is niet geaccepteerd. Controleer het land, de regio, de postcode en de straat."
+      },
+      "overview": "Overview",
+      "overviewDescription": "Your account, saved products and orders.",
+      "signedInAccount": "Signed-in account",
+      "customerDetails": "Customer details and addresses",
+      "manageDetails": "Manage details",
+      "orders": "Orders",
+      "ordersDescription": "View your purchases and delivery information.",
+      "viewOrders": "View orders",
+      "connectingAccount": "Je klantaccount wordt verbonden\u2026",
+      "continueToAccount": "Ga verder naar je account"
+    },
+    "commercetoolsCheckout": {
+      "title": "Afrekenen",
+      "start": "Doorgaan naar afrekenen",
+      "starting": "Laden\u2026",
+      "startFailed": "Afrekenen kon niet worden gestart. Vernieuw de pagina en controleer je winkelwagen en account.",
+      "sessionOutcomeUnknown": "De sessie kon niet worden bevestigd. Vernieuw deze pagina voordat je een nieuwe sessie start.",
+      "checkoutFailed": "Afrekenen kon niet doorgaan. Vernieuw deze pagina om dezelfde checkout te hervatten.",
+      "orderReceived": "Bestelling ontvangen",
+      "orderNumber": "Bestelling {number}",
+      "confirmed": "Betaling bevestigd.",
+      "pending": "De betalingsbevestiging is in behandeling. Vernieuw deze pagina om opnieuw te controleren.",
+      "failed": "Betaling mislukt. Neem contact op met de klantenservice over deze bestelling.",
+      "refresh": "Afrekenen vernieuwen",
+      "returnFailed": "De terugkeer van de betaling kon niet worden hervat. Neem contact op met de klantenservice voordat je een nieuwe betaling start."
+    },
+    "orderHistory": {
+      "title": "Bestellingen",
+      "description": "Je aankopen en bezorgupdates.",
+      "detailDescription": "Gekochte artikelen, bedragen, levering en tracking.",
+      "account": "Account",
+      "order": "Bestelling",
+      "date": "Datum",
+      "store": "Winkel",
+      "allStores": "Alle winkels",
+      "apply": "Toepassen",
+      "unattributed": "Niet vastgelegd",
+      "payment": "Betaling",
+      "fulfillment": "Afhandeling",
+      "delivery": "Levering",
+      "cancellation": "Annulering",
+      "total": "Totaal",
+      "empty": "Nog geen bestellingen",
+      "findPreviousOrders": "Eerdere bestellingen zoeken",
+      "emptyPage": "Nog geen overeenkomende bestellingen gevonden. Zoek verder.",
+      "nextPage": "Volgende pagina",
+      "firstPage": "Nieuwste bestellingen",
+      "back": "Terug naar bestellingen",
+      "accessDenied": "U hebt geen toegang tot deze geschiedenis. Meld u aan of selecteer een bevoegd bedrijf.",
+      "configuration": "De bestelgeschiedenis is tijdelijk niet beschikbaar. Probeer het later opnieuw.",
+      "invalidCursor": "Deze pagina is niet meer beschikbaar. Ga terug naar je nieuwste bestellingen.",
+      "unavailable": "Uw bestellingen konden niet worden geladen. Probeer het opnieuw.",
+      "purchaseOrder": "Inkoopreferentie",
+      "items": "Gekochte artikelen",
+      "sku": "SKU",
+      "quantity": "Bestelde hoeveelheid",
+      "quantityShort": "Aantal",
+      "currentQuantity": "Huidige hoeveelheid",
+      "each": "per stuk",
+      "subtotal": "Subtotaal",
+      "shipping": "Verzending",
+      "tax": "Belasting",
+      "discounts": "Kortingen",
+      "adjustments": "Aanpassingen",
+      "discountsApplied": "Reeds toegepaste kortingen",
+      "taxIncluded": "Btw (inbegrepen)",
+      "refunded": "Terugbetaald",
+      "outstanding": "Openstaand",
+      "shippingAddress": "Bezorgadres",
+      "billingAddress": "Factuuradres",
+      "shipments": "Zendingen",
+      "tracking": "Zending volgen",
+      "track": "Zending volgen",
+      "status": {
+        "notCancelled": "Niet geannuleerd",
+        "cancelled": "Geannuleerd",
+        "unknown": "Onbekend",
+        "notRequired": "Niet vereist",
+        "pending": "In afwachting",
+        "ready": "Gereed",
+        "inTransit": "Onderweg",
+        "partiallyDelivered": "Gedeeltelijk geleverd",
+        "delivered": "Geleverd",
+        "delayed": "Vertraagd",
+        "backordered": "In nabestelling",
+        "failed": "Mislukt",
+        "unfulfilled": "Niet afgehandeld",
+        "inProgress": "In uitvoering",
+        "partiallyFulfilled": "Gedeeltelijk afgehandeld",
+        "fulfilled": "Afgehandeld",
+        "onHold": "Gepauzeerd",
+        "scheduled": "Gepland",
+        "balanceDue": "Saldo verschuldigd",
+        "authorized": "Geautoriseerd",
+        "partiallyPaid": "Gedeeltelijk betaald",
+        "paid": "Betaald",
+        "partiallyRefunded": "Gedeeltelijk terugbetaald",
+        "refunded": "Terugbetaald",
+        "creditOwed": "Tegoed verschuldigd",
+        "voided": "Ongeldig gemaakt",
+        "expired": "Verlopen"
+      },
+      "orderNumberFilter": "Bestelnummer",
+      "purchaseOrderFilter": "Inkoopordernummer",
+      "dateFrom": "Vanaf",
+      "dateTo": "Tot en met",
+      "anyStatus": "Alle statussen",
+      "clearFilters": "Filters wissen",
+      "continueSearch": "Verder zoeken",
+      "invalidFilter": "Controleer de filters en het datumbereik en probeer het opnieuw.",
+      "emptyDescription": "Je bestellingen verschijnen hier na je eerste aankoop.",
+      "noMatches": "Geen overeenkomende bestellingen",
+      "noMatchesDescription": "Probeer een ander bestelnummer of pas je filters aan.",
+      "continueShopping": "Verder winkelen",
+      "search": "Zoeken",
+      "searchPlaceholder": "Voer bestelnummer in",
+      "filters": "Filters",
+      "statusLabel": "Status",
+      "statusUnavailable": "Status niet beschikbaar",
+      "viewOrder": "Bestelling bekijken",
+      "pagination": "Bestelpagina\u2019s",
+      "errorTitle": "We konden je bestellingen niet laden",
+      "retry": "Opnieuw proberen",
+      "historyLimit": "Bestellingen van de afgelopen {days, number} dagen worden getoond. Oudere bestellingen zijn hier niet beschikbaar.",
+      "emptyRecent": "Geen recente bestellingen",
+      "emptyRecentDescription": "Je hebt geen bestellingen in de beschikbare bestelgeschiedenis."
+    },
+    "categories": {
+      "title": "Categorie\u00ebn",
+      "description": "Bekijk producten per categorie.",
+      "empty": "Er zijn nog geen categorie\u00ebn beschikbaar.",
+      "allCategories": "Alle categorie\u00ebn"
+    },
+    "shoppingLists": {
+      "title": "Shopping lists",
+      "account": "Account",
+      "description": "Keep your favorite products and plan your next order.",
+      "store": "Store",
+      "name": "List name",
+      "create": "Create list",
+      "rename": "Save name",
+      "items": "Items",
+      "empty": "You have no shopping lists yet.",
+      "emptyItems": "Save products to this list from their product pages.",
+      "addItem": "Add item",
+      "catalogUnavailable": "Products are unavailable right now. You can still manage this list.",
+      "variant": "Variant",
+      "quantity": "Quantity",
+      "updateQuantity": "Update quantity",
+      "remove": "Remove item",
+      "delete": "Delete list",
+      "confirmDelete": "Confirm deletion",
+      "ownership": "Show lists",
+      "mine": "My lists",
+      "others": "Other customer lists",
+      "all": "All company lists",
+      "apply": "Apply",
+      "saving": "Saving\u2026",
+      "saved": "Saved.",
+      "refresh": "Refresh list",
+      "firstPage": "Back to my lists",
+      "nextPage": "Next page",
+      "conflict": "This list changed since you opened it. Refresh the list before making another change.",
+      "accessDenied": "You do not have permission to perform this action in the current purchasing context. If you switched company or Store, refresh the page.",
+      "outcomeUnknown": "The change could not be confirmed. Refresh the list to check its current contents before trying again.",
+      "limitExceeded": "This list has reached its item limit. Remove an item before adding another.",
+      "notFound": "This list is no longer available. Return to your lists.",
+      "unavailable": "Shopping lists are unavailable right now. Check your account connection or try again later.",
+      "invalidInput": "Check the form: a name and positive whole quantities are required.",
+      "favorites": "Wish List",
+      "addFavorite": "Add to Wish List",
+      "removeFavorite": "Remove from Wish List",
+      "chooseVariant": "Choose a variant to save",
+      "continueToLists": "Continue to your lists",
+      "otherList": "Add to another list",
+      "createWithItem": "Create list and add item",
+      "browseProducts": "Browse all products",
+      "editName": "Edit list name",
+      "update": "Update",
+      "sku": "SKU",
+      "outOfStock": "Currently out of stock",
+      "removedProduct": "Product no longer available",
+      "removedProductHint": "You can remove this item from your list.",
+      "productDetailsUnavailable": "Product details temporarily unavailable",
+      "noImage": "No image",
+      "deleteDescription": "This deletes the list and all its saved items. This cannot be undone.",
+      "renameDescription": "Give this shopping list a name that is easy to recognize.",
+      "cancel": "Cancel"
+    }
+  }
+}

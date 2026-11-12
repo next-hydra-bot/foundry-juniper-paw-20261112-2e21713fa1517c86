@@ -1,0 +1,573 @@
+diff --git a/src/runtime/process-source-item.ts b/src/runtime/process-source-item.ts
+--- a/src/runtime/process-source-item.ts
++++ b/src/runtime/process-source-item.ts
+@@ -205,6 +205,23 @@
+     ? previousState.trackingRecord
+     : undefined;
+
++const mergeProcessJournal = (
++  previous: FailedItemState["journal"],
++  current: FailedItemState["journal"]
++): FailedItemState["journal"] => {
++  if (previous === undefined || current === undefined) {
++    return current ?? previous;
++  }
++  return {
++    ...current,
++    processAttempts: [
++      ...(previous.processAttempts ?? []),
++      ...(previous.process.entries.length === 0 ? [] : [previous.process]),
++    ],
++    rollbackAttempts: previous.rollbackAttempts,
++  };
++};
++
+ const makeSkippedItemState = <Payload>(
+   sourceVersionContractContext: ItemStateContractContext,
+   runId: MigrationRunId,
+@@ -217,9 +234,9 @@
+ ): SkippedItemState => {
+   const preservedJournal =
+     journalExtensions === undefined
+-      ? (previousState?.journal ?? journal)
++      ? (mergeProcessJournal(previousState?.journal, journal))
+       : applyJournalExtensions(
+-          previousState?.journal ?? journal,
++          mergeProcessJournal(previousState?.journal, journal),
+           journalExtensions,
+           runId
+         );
+@@ -251,9 +268,9 @@
+ ): FailedItemState => {
+   const preservedJournal =
+     journalExtensions === undefined
+-      ? (previousState?.journal ?? journal)
++      ? (mergeProcessJournal(previousState?.journal, journal))
+       : applyJournalExtensions(
+-          previousState?.journal ?? journal,
++          mergeProcessJournal(previousState?.journal, journal),
+           journalExtensions,
+           runId
+         );
+@@ -593,6 +610,27 @@
+     } = admitted;
+     const store = yield* MigrationStore;
+     const tracking = yield* makeProcessScope({
++      checkpoint: ({ extensions, process }) =>
++        Effect.gen(function* () {
++          const updatedAt = yield* DateTime.nowAsDate;
++          yield* store.upsertItemState(
++            makeFailedItemState(
++              sourceVersionContractContext,
++              runId,
++              decodedSourceItem,
++              updatedAt,
++              {
++                kind: "tracking",
++                errorTag: "TrackingCheckpoint",
++                message:
++                  "Item processing has not settled since the journal checkpoint",
++              },
++              previousState,
++              makeProcessJournal(process),
++              extensions
++            )
++          );
++        }),
+       ...(previousState?.journal?.extensions === undefined
+         ? {}
+         : { extensions: previousState.journal.extensions }),
+@@ -649,7 +687,7 @@
+
+     const updatedAt = yield* DateTime.nowAsDate;
+     const migratedJournal = applyJournalExtensions(
+-      processJournal,
++      mergeProcessJournal(previousState?.journal, processJournal),
+       processJournalExtensions,
+       runId
+     );
+diff --git a/src/domain/tracking.ts b/src/domain/tracking.ts
+--- a/src/domain/tracking.ts
++++ b/src/domain/tracking.ts
+@@ -137,11 +137,13 @@
+ export const DestinationJournal = Schema.Struct({
+   extensions: Schema.optional(DestinationJournalExtensions),
+   process: DestinationJournalSegment,
++  processAttempts: Schema.optional(Schema.Array(DestinationJournalSegment)),
+   rollbackAttempts: Schema.Array(DestinationRollbackAttemptJournalSegment),
+ });
+ export interface DestinationJournal {
+   readonly extensions?: DestinationJournalExtensions | undefined;
+   readonly process: DestinationJournalSegment;
++  readonly processAttempts?: readonly DestinationJournalSegment[] | undefined;
+   readonly rollbackAttempts: readonly DestinationRollbackAttemptJournalSegment[];
+ }
+ 
+diff --git a/src/services/tracking.ts b/src/services/tracking.ts
+--- a/src/services/tracking.ts
++++ b/src/services/tracking.ts
+@@ -1,5 +1,7 @@
+-import { Effect, Ref, Schema } from "effect";
++import { Effect, Ref, Schema, Semaphore } from "effect";
+ import { Service } from "effect/Context";
++
++import { MigrationStoreError } from "../domain/errors.ts";
+ import type { EncodedSourceIdentity, MigrationRunId } from "../domain/ids.ts";
+ import type {
+   DestinationChangeDescriptor,
+@@ -21,7 +23,15 @@
+   TrackingRecordContract,
+ } from "../domain/tracking.ts";
+
++interface JournalCheckpoint {
++  readonly process: DestinationJournalSegment | null;
++  readonly extensions: DestinationJournalExtensions;
++}
++
+ interface TrackingProcessContext {
++  readonly checkpoint?:
++    | ((journal: JournalCheckpoint) => Effect.Effect<void, MigrationStoreError>)
++    | undefined;
+   readonly extensions?: DestinationJournalExtensions | undefined;
+   readonly runId: MigrationRunId;
+   readonly sourceIdentity: EncodedSourceIdentity;
+@@ -58,6 +68,8 @@
+   );
+
+ interface TrackingService {
++  /** Persist journal evidence without publishing a successful tracking record. */
++  readonly checkpoint?: Effect.Effect<void, MigrationStoreError>;
+   readonly logDiagnostic: (
+     input: DestinationJournalDiagnosticInput
+   ) => Effect.Effect<DestinationJournalDiagnosticEntry, Schema.SchemaError>;
+@@ -101,6 +113,13 @@
+ export class Tracking extends Service<Tracking, TrackingService>()(
+   "@migrate-sdk/Tracking"
+ ) {
++  static readonly checkpoint = Effect.flatMap(
++    Tracking,
++    (tracking) => tracking.checkpoint ?? Effect.fail(new MigrationStoreError({
++      message: "The Tracking service does not support journal checkpoints",
++    }))
++  );
++
+   static readonly recordChange = <
+     Value extends DestinationChangeValue,
+     Encoded extends Schema.Json,
+@@ -164,6 +183,9 @@
+   };
+   const journalWithoutExtensions: DestinationJournal = {
+     process: baseJournal.process,
++    ...(baseJournal.processAttempts === undefined
++      ? {}
++      : { processAttempts: baseJournal.processAttempts }),
+     rollbackAttempts: baseJournal.rollbackAttempts,
+   };
+
+@@ -329,7 +351,31 @@
+       )
+     );
+
++    const checkpointLock = yield* Semaphore.make(1);
++    const checkpoint = checkpointLock.withPermit(
++      Effect.gen(function* () {
++        if (context.checkpoint === undefined) {
++          return yield* new MigrationStoreError({
++            message:
++              "Journal checkpoints are only supported during forward item processing",
++          });
++        }
++        const state = yield* Ref.get(stateRef);
++        yield* context.checkpoint({
++          extensions: state.extensions,
++          process:
++            state.entries.length === 0
++              ? null
++              : {
++                  entries: state.entries,
++                  runId: context.runId,
++                },
++        });
++      })
++    );
++
+     const service: TrackingService = {
++      checkpoint,
+       logDiagnostic,
+       recordChange,
+       removeExtension,
+diff --git a/dist/runtime/process-source-item.js b/dist/runtime/process-source-item.js
+--- a/dist/runtime/process-source-item.js
++++ b/dist/runtime/process-source-item.js
+@@ -33,10 +33,23 @@
+ const previousTrackingRecord = (previousState) => previousState !== null && "trackingRecord" in previousState
+     ? previousState.trackingRecord
+     : undefined;
++const mergeProcessJournal = (previous, current) => {
++    if (previous === undefined || current === undefined) {
++        return current ?? previous;
++    }
++    return {
++        ...current,
++        processAttempts: [
++            ...(previous.processAttempts ?? []),
++            ...(previous.process.entries.length === 0 ? [] : [previous.process]),
++        ],
++        rollbackAttempts: previous.rollbackAttempts,
++    };
++};
+ const makeSkippedItemState = (sourceVersionContractContext, runId, sourceItem, updatedAt, reason, previousState = null, journal, journalExtensions) => {
+     const preservedJournal = journalExtensions === undefined
+-        ? (previousState?.journal ?? journal)
+-        : applyJournalExtensions(previousState?.journal ?? journal, journalExtensions, runId);
++        ? mergeProcessJournal(previousState?.journal, journal)
++        : applyJournalExtensions(mergeProcessJournal(previousState?.journal, journal), journalExtensions, runId);
+     const trackingRecord = previousTrackingRecord(previousState);
+     return {
+         ...makeItemStateBase(sourceVersionContractContext, runId, sourceItem, updatedAt),
+@@ -48,8 +61,8 @@
+ };
+ const makeFailedItemState = (sourceVersionContractContext, runId, sourceItem, updatedAt, error, previousState = null, journal, journalExtensions) => {
+     const preservedJournal = journalExtensions === undefined
+-        ? (previousState?.journal ?? journal)
+-        : applyJournalExtensions(previousState?.journal ?? journal, journalExtensions, runId);
++        ? mergeProcessJournal(previousState?.journal, journal)
++        : applyJournalExtensions(mergeProcessJournal(previousState?.journal, journal), journalExtensions, runId);
+     const trackingRecord = previousTrackingRecord(previousState);
+     return {
+         ...makeItemStateBase(sourceVersionContractContext, runId, sourceItem, updatedAt),
+@@ -125,6 +138,14 @@
+     const { decodedSourceItem, previousState, runId, sourceVersionContractContext, } = admitted;
+     const store = yield* MigrationStore;
+     const tracking = yield* makeProcessScope({
++        checkpoint: ({ extensions, process }) => Effect.gen(function* () {
++            const updatedAt = yield* DateTime.nowAsDate;
++            yield* store.upsertItemState(makeFailedItemState(sourceVersionContractContext, runId, decodedSourceItem, updatedAt, {
++                kind: "tracking",
++                errorTag: "TrackingCheckpoint",
++                message: "Item processing has not settled since the journal checkpoint",
++            }, previousState, makeProcessJournal(process), extensions));
++        }),
+         ...(previousState?.journal?.extensions === undefined
+             ? {}
+             : { extensions: previousState.journal.extensions }),
+@@ -165,7 +186,7 @@
+         return "failed";
+     }
+     const updatedAt = yield* DateTime.nowAsDate;
+-    const migratedJournal = applyJournalExtensions(processJournal, processJournalExtensions, runId);
++    const migratedJournal = applyJournalExtensions(mergeProcessJournal(previousState?.journal, processJournal), processJournalExtensions, runId);
+     yield* store.upsertItemState(makeMigratedItemState(sourceVersionContractContext, runId, decodedSourceItem, updatedAt, {
+         ...(migratedJournal === undefined
+             ? {}
+diff --git a/dist/domain/tracking.js b/dist/domain/tracking.js
+--- a/dist/domain/tracking.js
++++ b/dist/domain/tracking.js
+@@ -54,6 +54,7 @@
+ export const DestinationJournal = Schema.Struct({
+     extensions: Schema.optional(DestinationJournalExtensions),
+     process: DestinationJournalSegment,
++    processAttempts: Schema.optional(Schema.Array(DestinationJournalSegment)),
+     rollbackAttempts: Schema.Array(DestinationRollbackAttemptJournalSegment),
+ });
+ export const TrackingRecord = Schema.Record(Schema.String, Schema.Json);
+diff --git a/dist/services/tracking.js b/dist/services/tracking.js
+--- a/dist/services/tracking.js
++++ b/dist/services/tracking.js
+@@ -1,5 +1,6 @@
+-import { Effect, Ref, Schema } from "effect";
++import { Effect, Ref, Schema, Semaphore } from "effect";
+ import { Service } from "effect/Context";
++import { MigrationStoreError } from "../domain/errors.js";
+ import { DestinationJournalDiagnosticInput as DestinationJournalDiagnosticInputSchema, TrackingRecordContract, } from "../domain/tracking.js";
+ const diagnosticLogLevel = (severity) => {
+     switch (severity) {
+@@ -18,6 +19,9 @@
+ const logDiagnosticEvent = (entry) => Effect.logWithLevel(diagnosticLogLevel(entry.severity))(entry.message, ...(entry.details === undefined ? [] : [entry.details]));
+ const scopedSourceIdentities = new WeakMap();
+ export class Tracking extends Service()("@migrate-sdk/Tracking") {
++    static checkpoint = Effect.flatMap(Tracking, (tracking) => tracking.checkpoint ?? Effect.fail(new MigrationStoreError({
++        message: "The Tracking service does not support journal checkpoints",
++    })));
+     static recordChange = (descriptor, value) => Effect.flatMap(Tracking, (tracking) => tracking.recordChange(descriptor, value));
+     static logDiagnostic = (input) => Effect.flatMap(Tracking, (tracking) => tracking.logDiagnostic(input));
+     static removeExtension = (extension) => Effect.flatMap(Tracking, (tracking) => tracking.removeExtension(extension));
+@@ -38,6 +42,9 @@
+     };
+     const journalWithoutExtensions = {
+         process: baseJournal.process,
++        ...(baseJournal.processAttempts === undefined
++            ? {}
++            : { processAttempts: baseJournal.processAttempts }),
+         rollbackAttempts: baseJournal.rollbackAttempts,
+     };
+     return Object.keys(extensions).length === 0
+@@ -122,7 +129,26 @@
+             entries: state.entries,
+             runId: context.runId,
+         }));
++    const checkpointLock = yield* Semaphore.make(1);
++    const checkpoint = checkpointLock.withPermit(Effect.gen(function* () {
++        if (context.checkpoint === undefined) {
++            return yield* new MigrationStoreError({
++                message: "Journal checkpoints are only supported during forward item processing",
++            });
++        }
++        const state = yield* Ref.get(stateRef);
++        yield* context.checkpoint({
++            extensions: state.extensions,
++            process: state.entries.length === 0
++                ? null
++                : {
++                    entries: state.entries,
++                    runId: context.runId,
++                },
++        });
++    }));
+     const service = {
++        checkpoint,
+         logDiagnostic,
+         recordChange,
+         removeExtension,
+diff --git a/dist/domain/tracking.d.ts b/dist/domain/tracking.d.ts
+--- a/dist/domain/tracking.d.ts
++++ b/dist/domain/tracking.d.ts
+@@ -132,6 +132,7 @@
+         }>]>>;
+         readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+     }>;
++    readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+     readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+         readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+             readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -161,6 +162,7 @@
+ export interface DestinationJournal {
+     readonly extensions?: DestinationJournalExtensions | undefined;
+     readonly process: DestinationJournalSegment;
++    readonly processAttempts?: readonly DestinationJournalSegment[] | undefined;
+     readonly rollbackAttempts: readonly DestinationRollbackAttemptJournalSegment[];
+ }
+ export type TrackingRecordValue = Schema.JsonObject;
+diff --git a/src/stores/internal/persisted-state.ts b/src/stores/internal/persisted-state.ts
+--- a/src/stores/internal/persisted-state.ts
++++ b/src/stores/internal/persisted-state.ts
+@@ -47,6 +47,7 @@
+ const PersistedDestinationJournal = Schema.Struct({
+   extensions: Schema.optional(DestinationJournalExtensions),
+   process: PersistedDestinationJournalSegment,
++  processAttempts: Schema.optional(Schema.Array(PersistedDestinationJournalSegment)),
+   rollbackAttempts: Schema.Array(
+     PersistedDestinationRollbackAttemptJournalSegment
+   ),
+diff --git a/src/services/migration-run-executor.ts b/src/services/migration-run-executor.ts
+--- a/src/services/migration-run-executor.ts
++++ b/src/services/migration-run-executor.ts
+@@ -1985,6 +1985,7 @@
+       {
+         process:
+           itemState.journal?.process ?? emptyProcessJournalSegment(itemState),
++        ...(itemState.journal?.processAttempts === undefined ? {} : { processAttempts: itemState.journal.processAttempts }),
+         rollbackAttempts: [
+           ...(itemState.journal?.rollbackAttempts ?? []),
+           rollbackAttempt,
+diff --git a/dist/stores/internal/persisted-state.js b/dist/stores/internal/persisted-state.js
+--- a/dist/stores/internal/persisted-state.js
++++ b/dist/stores/internal/persisted-state.js
+@@ -27,6 +27,7 @@
+ const PersistedDestinationJournal = Schema.Struct({
+     extensions: Schema.optional(DestinationJournalExtensions),
+     process: PersistedDestinationJournalSegment,
++    processAttempts: Schema.optional(Schema.Array(PersistedDestinationJournalSegment)),
+     rollbackAttempts: Schema.Array(PersistedDestinationRollbackAttemptJournalSegment),
+ });
+ const PersistedMigratedItemState = Schema.Struct({
+diff --git a/dist/services/migration-run-executor.js b/dist/services/migration-run-executor.js
+--- a/dist/services/migration-run-executor.js
++++ b/dist/services/migration-run-executor.js
+@@ -909,6 +909,7 @@
+     };
+     const journal = applyJournalExtensions({
+         process: itemState.journal?.process ?? emptyProcessJournalSegment(itemState),
++        ...(itemState.journal?.processAttempts === undefined ? {} : { processAttempts: itemState.journal.processAttempts }),
+         rollbackAttempts: [
+             ...(itemState.journal?.rollbackAttempts ?? []),
+             rollbackAttempt,
+diff --git a/dist/domain/state.d.ts b/dist/domain/state.d.ts
+--- a/dist/domain/state.d.ts
++++ b/dist/domain/state.d.ts
+@@ -1,4 +1,5 @@
+ import { Schema } from "effect";
++import type { DestinationJournalSegment } from "./tracking.js";
+ import { MigrationDefinitionId, MigrationRunId, SourceIdentitySnapshot, SourceVersion } from "./ids.js";
+ import { SourceVersionContractFingerprint } from "./migration-contract.js";
+ import { TrackingRecord, type TrackingRecordContract, type TrackingRecordValue } from "./tracking.js";
+@@ -49,6 +50,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -109,6 +111,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -179,6 +182,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -239,6 +243,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -300,6 +305,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -358,6 +364,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -426,6 +433,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -484,6 +492,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -545,6 +554,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -603,6 +613,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -671,6 +682,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -729,6 +741,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+diff --git a/dist/stores/internal/persisted-state.d.ts b/dist/stores/internal/persisted-state.d.ts
+--- a/dist/stores/internal/persisted-state.d.ts
++++ b/dist/stores/internal/persisted-state.d.ts
+@@ -1,4 +1,5 @@
+ import { Schema } from "effect";
++import type { DestinationJournalSegment } from "../../domain/tracking.js";
+ export declare const PersistedMigrationItemState: Schema.Union<readonly [Schema.Struct<{
+     readonly definitionId: Schema.brand<Schema.NonEmptyString, "MigrationDefinitionId">;
+     readonly lastRunId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+@@ -29,6 +30,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -87,6 +89,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -155,6 +158,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+@@ -213,6 +217,7 @@
+             }>]>>;
+             readonly runId: Schema.brand<Schema.NonEmptyString, "MigrationRunId">;
+         }>;
++        readonly processAttempts: Schema.optional<Schema.$Array<typeof DestinationJournalSegment>>;
+         readonly rollbackAttempts: Schema.$Array<Schema.Struct<{
+             readonly entries: Schema.$Array<Schema.Union<readonly [Schema.Struct<{
+                 readonly descriptorId: Schema.brand<Schema.NonEmptyString, "DestinationChangeDescriptorId">;
+diff --git a/dist/services/tracking.d.ts b/dist/services/tracking.d.ts
+--- a/dist/services/tracking.d.ts
++++ b/dist/services/tracking.d.ts
+@@ -1,13 +1,21 @@
+ import { Effect, Schema } from "effect";
++import type { MigrationStoreError } from "../domain/errors.js";
+ import type { EncodedSourceIdentity, MigrationRunId } from "../domain/ids.js";
+ import type { DestinationChangeDescriptor, DestinationChangeValue, DestinationJournal, DestinationJournalChangeEntry, DestinationJournalDiagnosticEntry, DestinationJournalDiagnosticInput, DestinationJournalExtension, DestinationJournalExtensions, DestinationJournalExtensionValue, DestinationJournalSegment, TrackingRecordContractInput, TrackingRecordValue } from "../domain/tracking.js";
+ import { TrackingRecordContract } from "../domain/tracking.js";
++interface JournalCheckpoint {
++    readonly process: DestinationJournalSegment | null;
++    readonly extensions: DestinationJournalExtensions;
++}
+ interface TrackingProcessContext {
++    readonly checkpoint?: ((journal: JournalCheckpoint) => Effect.Effect<void, MigrationStoreError>) | undefined;
+     readonly extensions?: DestinationJournalExtensions | undefined;
+     readonly runId: MigrationRunId;
+     readonly sourceIdentity: EncodedSourceIdentity;
+ }
+ interface TrackingService {
++    /** Persist journal evidence without publishing a successful tracking record. */
++    readonly checkpoint?: Effect.Effect<void, MigrationStoreError>;
+     readonly logDiagnostic: (input: DestinationJournalDiagnosticInput) => Effect.Effect<DestinationJournalDiagnosticEntry, Schema.SchemaError>;
+     readonly recordChange: <Value extends DestinationChangeValue, Encoded extends Schema.Json>(descriptor: DestinationChangeDescriptor<Value, Encoded>, value: Value) => Effect.Effect<DestinationJournalChangeEntry<Value>, Schema.SchemaError>;
+     readonly removeExtension: <Value extends DestinationJournalExtensionValue, Encoded extends Schema.Json>(extension: DestinationJournalExtension<Value, Encoded>) => Effect.Effect<void>;
+@@ -22,6 +30,7 @@
+ }
+ declare const Tracking_base: import("effect/Context").ServiceClass<Tracking, "@migrate-sdk/Tracking", TrackingService>;
+ export declare class Tracking extends Tracking_base {
++    static readonly checkpoint: Effect.Effect<void, MigrationStoreError, Tracking>;
+     static readonly recordChange: <Value extends DestinationChangeValue, Encoded extends Schema.Json>(descriptor: DestinationChangeDescriptor<Value, Encoded>, value: Value) => Effect.Effect<DestinationJournalChangeEntry<Value>, Schema.SchemaError, Tracking>;
+     static readonly logDiagnostic: (input: DestinationJournalDiagnosticInput) => Effect.Effect<DestinationJournalDiagnosticEntry, Schema.SchemaError, Tracking>;
+     static readonly removeExtension: <Value extends DestinationJournalExtensionValue, Encoded extends Schema.Json>(extension: DestinationJournalExtension<Value, Encoded>) => Effect.Effect<void, never, Tracking>;

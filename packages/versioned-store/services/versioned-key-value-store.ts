@@ -1,0 +1,289 @@
+import {
+  Context,
+  Effect,
+  Layer,
+  Option,
+  Schema,
+  SynchronizedRef,
+} from "effect";
+
+export const StoreVersion = Schema.String.pipe(Schema.brand("StoreVersion"));
+export type StoreVersion = typeof StoreVersion.Type;
+
+// Provider-compatible store keys use 1-256 ASCII letters, digits, dashes, underscores, tildes, or dots.
+export const VersionedStoreKey = Schema.String.pipe(
+  Schema.check(
+    Schema.isMinLength(1),
+    Schema.isMaxLength(256),
+    Schema.isPattern(/^[-_~.a-zA-Z0-9]+$/u)
+  ),
+  Schema.brand("VersionedStoreKey")
+);
+export type VersionedStoreKey = typeof VersionedStoreKey.Type;
+
+export interface Versioned<A> {
+  readonly value: A;
+  readonly version: StoreVersion;
+}
+
+export class StoreConflict extends Schema.TaggedError<StoreConflict>()(
+  "StoreConflict",
+  {
+    key: Schema.String,
+    message: Schema.String,
+    operation: Schema.Literals(["insert", "remove", "update"]),
+  }
+) {}
+
+export const StoreFailureReason = Schema.Literals([
+  "unavailable",
+  "invalidData",
+  "unexpectedResponse",
+]);
+export type StoreFailureReason = typeof StoreFailureReason.Type;
+
+export class StoreError extends Schema.TaggedError<StoreError>()("StoreError", {
+  cause: Schema.Defect(),
+  key: Schema.String,
+  message: Schema.String,
+  operation: Schema.Literals(["read", "insert", "remove", "update"]),
+  reason: StoreFailureReason,
+}) {}
+
+interface StoredValue {
+  readonly encoded: string;
+  readonly revision: number;
+  readonly version: StoreVersion;
+}
+
+type Store = ReadonlyMap<VersionedStoreKey, StoredValue>;
+
+const versionFromRevision = (revision: number) =>
+  StoreVersion.make(String(revision));
+
+const storeError = (
+  key: string,
+  operation: StoreError["operation"],
+  cause: unknown,
+  reason: StoreError["reason"] = "invalidData"
+) =>
+  new StoreError({
+    cause,
+    key,
+    message: `Failed to ${operation} store value ${key}: ${
+      cause instanceof Error ? cause.message : String(cause)
+    }`,
+    operation,
+    reason,
+  });
+
+export const encodeJsonString = <S extends Schema.Top>(
+  schema: S,
+  value: S["Type"]
+) => {
+  const jsonSchema = Schema.fromJsonString(Schema.toCodecJson(schema));
+
+  return Schema.encodeEffect(jsonSchema)(value);
+};
+
+export const decodeJsonString = <S extends Schema.Top>(
+  schema: S,
+  value: string
+) => {
+  const jsonSchema = Schema.fromJsonString(Schema.toCodecJson(schema));
+
+  return Schema.decodeEffect(jsonSchema)(value);
+};
+
+const encodeValue = <S extends Schema.Top>(
+  key: VersionedStoreKey,
+  operation: "insert" | "update",
+  schema: S,
+  value: S["Type"]
+) =>
+  encodeJsonString(schema, value).pipe(
+    Effect.mapError((error) => storeError(key, operation, error))
+  );
+
+const decodeValue = <S extends Schema.Top>(
+  key: VersionedStoreKey,
+  schema: S,
+  stored: StoredValue
+) =>
+  decodeJsonString(schema, stored.encoded).pipe(
+    Effect.map((value) => ({ value, version: stored.version })),
+    Effect.mapError((error) => storeError(key, "read", error))
+  );
+
+export class VersionedKeyValueStore extends Context.Service<
+  VersionedKeyValueStore,
+  {
+    readonly get: <S extends Schema.Top>(
+      key: VersionedStoreKey,
+      schema: S
+    ) => Effect.Effect<
+      Option.Option<Versioned<S["Type"]>>,
+      StoreError,
+      S["DecodingServices"]
+    >;
+    readonly insert: <S extends Schema.Top>(
+      key: VersionedStoreKey,
+      schema: S,
+      value: S["Type"]
+    ) => Effect.Effect<
+      void,
+      StoreConflict | StoreError,
+      S["DecodingServices"] | S["EncodingServices"]
+    >;
+    readonly remove: (
+      key: VersionedStoreKey,
+      current: Versioned<unknown>
+    ) => Effect.Effect<void, StoreConflict | StoreError>;
+    readonly update: <S extends Schema.Top>(
+      key: VersionedStoreKey,
+      schema: S,
+      current: Versioned<S["Type"]>,
+      next: S["Type"]
+    ) => Effect.Effect<
+      void,
+      StoreConflict | StoreError,
+      S["DecodingServices"] | S["EncodingServices"]
+    >;
+    readonly values: <S extends Schema.Top>(
+      schema: S
+    ) => Effect.Effect<
+      readonly Versioned<S["Type"]>[],
+      StoreError,
+      S["DecodingServices"]
+    >;
+  }
+>()("@repo/versioned-store/VersionedKeyValueStore") {
+  static readonly layerMemory = Layer.effect(
+    VersionedKeyValueStore,
+    Effect.gen(function* () {
+      const store = yield* SynchronizedRef.make<Store>(new Map());
+
+      const get = Effect.fn("VersionedKeyValueStore.get")(
+        <S extends Schema.Top>(key: VersionedStoreKey, schema: S) =>
+          SynchronizedRef.get(store).pipe(
+            Effect.flatMap((entries) => {
+              const stored = entries.get(key);
+
+              if (!stored) {
+                return Effect.succeed(Option.none());
+              }
+
+              return decodeValue(key, schema, stored).pipe(
+                Effect.map(Option.some)
+              );
+            })
+          )
+      );
+
+      const insert = Effect.fn("VersionedKeyValueStore.insert")(function* <
+        S extends Schema.Top,
+      >(key: VersionedStoreKey, schema: S, value: S["Type"]) {
+        const encoded = yield* encodeValue(key, "insert", schema, value);
+        const stored: StoredValue = {
+          encoded,
+          revision: 1,
+          version: versionFromRevision(1),
+        };
+
+        yield* SynchronizedRef.updateEffect(store, (entries) => {
+          if (entries.has(key)) {
+            return Effect.fail(
+              new StoreConflict({
+                key,
+                message: `Store insert conflict for ${key}: Key already exists`,
+                operation: "insert",
+              })
+            );
+          }
+
+          return Effect.succeed(new Map(entries).set(key, stored));
+        });
+      });
+
+      const update = Effect.fn("VersionedKeyValueStore.update")(function* <
+        S extends Schema.Top,
+      >(
+        key: VersionedStoreKey,
+        schema: S,
+        current: Versioned<S["Type"]>,
+        next: S["Type"]
+      ) {
+        const encoded = yield* encodeValue(key, "update", schema, next);
+
+        yield* SynchronizedRef.updateEffect(store, (entries) => {
+          const stored = entries.get(key);
+
+          if (!stored || stored.version !== current.version) {
+            return Effect.fail(
+              new StoreConflict({
+                key,
+                message: `Store update conflict for ${key}: Stored version does not match current version`,
+                operation: "update",
+              })
+            );
+          }
+
+          const revision = stored.revision + 1;
+          const updated: StoredValue = {
+            encoded,
+            revision,
+            version: versionFromRevision(revision),
+          };
+
+          return Effect.succeed(new Map(entries).set(key, updated));
+        });
+      });
+
+      const remove = Effect.fn("VersionedKeyValueStore.remove")(
+        (key: VersionedStoreKey, current: Versioned<unknown>) =>
+          SynchronizedRef.updateEffect(store, (entries) => {
+            const stored = entries.get(key);
+
+            if (!stored) {
+              return Effect.succeed(entries);
+            }
+
+            if (stored.version !== current.version) {
+              return Effect.fail(
+                new StoreConflict({
+                  key,
+                  message: `Store remove conflict for ${key}: Stored version does not match current version`,
+                  operation: "remove",
+                })
+              );
+            }
+
+            const next = new Map(entries);
+            next.delete(key);
+            return Effect.succeed(next);
+          })
+      );
+
+      const values = Effect.fn("VersionedKeyValueStore.values")(
+        <S extends Schema.Top>(schema: S) =>
+          SynchronizedRef.get(store).pipe(
+            Effect.flatMap((entries) =>
+              Effect.forEach(
+                entries,
+                ([key, stored]) => decodeValue(key, schema, stored),
+                { concurrency: "unbounded" }
+              )
+            )
+          )
+      );
+
+      return {
+        get,
+        insert,
+        remove,
+        update,
+        values,
+      };
+    })
+  );
+}

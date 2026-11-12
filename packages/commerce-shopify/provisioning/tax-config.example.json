@@ -1,0 +1,13 @@
+{
+  "classes": [
+    {
+      "taxClassKey": "standard",
+      "taxable": true
+    }
+  ],
+  "productCategories": [],
+  "expectedShopSettings": {
+    "taxesIncluded": false,
+    "taxShipping": true
+  }
+}

@@ -1,0 +1,176 @@
+[
+  {
+    "key": "main",
+    "locale": "en-US",
+    "brandName": "Juniper & Paw",
+    "footerDescription": "Everyday essentials and thoughtful ideas for life with dogs and cats.",
+    "items": [
+      {
+        "link": {
+          "label": "Home",
+          "entryKey": "home"
+        }
+      },
+      {
+        "link": {
+          "label": "Dogs",
+          "entryKey": "dogs"
+        }
+      },
+      {
+        "link": {
+          "label": "Cats",
+          "entryKey": "cats"
+        }
+      },
+      {
+        "link": {
+          "label": "Care guide",
+          "entryKey": "care-guide"
+        }
+      }
+    ],
+    "footerItems": [
+      {
+        "link": {
+          "label": "Home",
+          "entryKey": "home"
+        }
+      },
+      {
+        "link": {
+          "label": "Dogs",
+          "entryKey": "dogs"
+        }
+      },
+      {
+        "link": {
+          "label": "Cats",
+          "entryKey": "cats"
+        }
+      },
+      {
+        "link": {
+          "label": "Care guide",
+          "entryKey": "care-guide"
+        }
+      }
+    ]
+  },
+  {
+    "key": "main",
+    "locale": "en-CA",
+    "brandName": "Juniper & Paw",
+    "footerDescription": "Everyday essentials and thoughtful ideas for life with dogs and cats.",
+    "items": [
+      {
+        "link": {
+          "label": "Home",
+          "entryKey": "home"
+        }
+      },
+      {
+        "link": {
+          "label": "Dogs",
+          "entryKey": "dogs"
+        }
+      },
+      {
+        "link": {
+          "label": "Cats",
+          "entryKey": "cats"
+        }
+      },
+      {
+        "link": {
+          "label": "Care guide",
+          "entryKey": "care-guide"
+        }
+      }
+    ],
+    "footerItems": [
+      {
+        "link": {
+          "label": "Home",
+          "entryKey": "home"
+        }
+      },
+      {
+        "link": {
+          "label": "Dogs",
+          "entryKey": "dogs"
+        }
+      },
+      {
+        "link": {
+          "label": "Cats",
+          "entryKey": "cats"
+        }
+      },
+      {
+        "link": {
+          "label": "Care guide",
+          "entryKey": "care-guide"
+        }
+      }
+    ]
+  },
+  {
+    "key": "main",
+    "locale": "fr-CA",
+    "brandName": "Juniper & Paw",
+    "footerDescription": "Des essentiels et des idées pour le quotidien avec les chiens et les chats.",
+    "items": [
+      {
+        "link": {
+          "label": "Accueil",
+          "entryKey": "home"
+        }
+      },
+      {
+        "link": {
+          "label": "Chiens",
+          "entryKey": "dogs"
+        }
+      },
+      {
+        "link": {
+          "label": "Chats",
+          "entryKey": "cats"
+        }
+      },
+      {
+        "link": {
+          "label": "Guide de soins",
+          "entryKey": "care-guide"
+        }
+      }
+    ],
+    "footerItems": [
+      {
+        "link": {
+          "label": "Accueil",
+          "entryKey": "home"
+        }
+      },
+      {
+        "link": {
+          "label": "Chiens",
+          "entryKey": "dogs"
+        }
+      },
+      {
+        "link": {
+          "label": "Chats",
+          "entryKey": "cats"
+        }
+      },
+      {
+        "link": {
+          "label": "Guide de soins",
+          "entryKey": "care-guide"
+        }
+      }
+    ]
+  }
+]

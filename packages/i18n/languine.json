@@ -1,0 +1,12 @@
+{
+  "projectId": "prj_lfchttjmciyt6ymsyr1vjuip",
+  "locale": {
+    "source": "en-US",
+    "targets": ["fr-FR", "de-DE", "it-IT", "es-ES", "pt-PT", "nl-NL", "en-GB"]
+  },
+  "files": {
+    "json": {
+      "include": ["messages/[locale].json"]
+    }
+  }
+}

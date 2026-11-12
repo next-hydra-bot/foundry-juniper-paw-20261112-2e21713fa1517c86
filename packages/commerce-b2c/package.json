@@ -1,0 +1,64 @@
+{
+  "dependencies": {
+    "@repo/commerce-core": "workspace:*",
+    "@repo/actions": "workspace:*",
+    "@repo/design-system": "workspace:*",
+    "@repo/i18n": "workspace:*",
+    "react": "catalog:",
+    "@repo/auth-contract": "workspace:*",
+    "@repo/errors": "workspace:*"
+  },
+  "devDependencies": {
+    "@effect/vitest": "catalog:",
+    "@repo/testing": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "catalog:",
+    "effect": "catalog:",
+    "typescript": "catalog:",
+    "vitest": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "next": "catalog:",
+    "react-dom": "catalog:",
+    "@effect/platform-node": "catalog:",
+    "migrate-sdk": "0.17.1",
+    "@repo/cli-core": "workspace:*"
+  },
+  "name": "@repo/commerce-b2c",
+  "peerDependencies": {
+    "effect": "catalog:"
+  },
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./commerce-context": "./commerce-context.ts",
+    "./commerce-context/actions": "./commerce-context/actions.ts",
+    "./commerce-context/purchasing-context": "./commerce-context/purchasing-context.ts",
+    "./customer-account": "./customer-account/index.ts",
+    "./customer-account/actions": "./customer-account/actions.ts",
+    "./customer-account/procedures": "./customer-account/procedures.ts",
+    "./customer-account/schema": "./customer-account/schema.ts",
+    "./customer-account/programs": "./customer-account/programs.ts",
+    "./customer-account/forms": "./customer-account/forms.tsx",
+    "./registration": "./registration/index.ts",
+    "./registration/actions": "./registration/actions.ts",
+    "./registration/programs": "./registration/programs.ts",
+    "./registration/link": "./registration/link.tsx",
+    "./bindings": "./bindings.ts",
+    "./customer-account/action-contract": "./customer-account/action-contract.ts",
+    "./commerce-context/request": "./commerce-context/request.ts",
+    "./permissions": "./permissions.ts",
+    "./orders/pages": "./orders/pages.tsx",
+    "./orders/programs": "./orders/programs.ts",
+    "./orders/blended-pages": "./orders/blended-pages.tsx",
+    "./shopping-lists/layer": "./shopping-lists/layer.ts",
+    "./customer-account/loading": "./customer-account/loading.tsx",
+    "./customer-account/navigation": "./customer-account/navigation.ts"
+  },
+  "scripts": {
+    "test": "NODE_ENV=test vitest run",
+    "typecheck": "pnpm --workspace-root exec tsc --noEmit --project packages/commerce-b2c/tsconfig.json"
+  }
+}
